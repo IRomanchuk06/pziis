@@ -1,0 +1,50 @@
+{
+  "impl": "provided",
+  "n": 2000,
+  "phases": [
+    {
+      "phase": "add",
+      "n": 2000,
+      "ok": 2000,
+      "error": null,
+      "wall_s": 0.0134,
+      "cpu_s": 0.0134,
+      "rss_before_kB": 17436,
+      "rss_after_kB": 18168,
+      "drss_kB": 732,
+      "rss_per_record_kB": 0.366,
+      "avg_ms": 0.0067
+    },
+    {
+      "phase": "update",
+      "n": 2000,
+      "ok": 2000,
+      "error": null,
+      "wall_s": 0.0167,
+      "cpu_s": 0.0167,
+      "rss_before_kB": 18168,
+      "rss_after_kB": 18876,
+      "drss_kB": 708,
+      "rss_per_record_kB": 0.354,
+      "avg_ms": 0.0083
+    },
+    {
+      "phase": "delete",
+      "n": 2000,
+      "ok": 2000,
+      "error": null,
+      "wall_s": 0.003,
+      "cpu_s": 0.003,
+      "rss_before_kB": 18876,
+      "rss_after_kB": 19144,
+      "drss_kB": 268,
+      "rss_per_record_kB": 0.134,
+      "avg_ms": 0.0015
+    }
+  ],
+  "init": {
+    "rss_kB": 17372,
+    "wall_s": 0.0
+  },
+  "success": true
+}

@@ -1,0 +1,4 @@
+[bench] режимы: safe, unsafe; secret=400, public=200
+[bench] режим safe завершён за 2.9 с
+[bench] режим unsafe завершён за 0.0 с
+[bench] готово: /work/demo_output/metrics.csv, /work/demo_output/metrics.md

@@ -1,0 +1,14 @@
+=== Генерация файлов датчиков ===
+-- rand() как в MS VS: 20 000 000 младших байтов
+OK: wrote 20000000 bytes of MSVC rand() low bytes to demo_output/data/msvc_rand.bin
+-- Свой генератор (формула (1) табл. 1): 3 000 000 слов по 4 байта (12 МБ)
+OK: wrote 3000000 x 4 bytes (= 12000000 bytes) from generator (1) of Table 1 to demo_output/data/own_gen.bin
+-- Эталон /dev/urandom: 1 МБ
+-- Архив .zip с исходниками проекта
+OK: demo_output/data/archive.zip (10 files, 12753 bytes)
+-- Итоговые файлы:
+total 32292
+-rw-r--r-- 1 root root    12753 Oct  5 13:14 archive.zip
+-rw-r--r-- 1 root root 20000000 Oct  5 13:14 msvc_rand.bin
+-rw-r--r-- 1 root root 12000000 Oct  5 13:14 own_gen.bin
+-rw-r--r-- 1 root root  1048576 Oct  5 13:14 urandom.bin

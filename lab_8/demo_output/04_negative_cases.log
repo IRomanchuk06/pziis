@@ -1,0 +1,20 @@
+Попытки запрещённых операций от имени guest и app_user (реальные ответы СУБД):
+
+guest@company> SELECT salary FROM company.employees
+  ОТКЛОНЕНО СУБД: ERROR 1142 (42000): SELECT command denied to user 'guest'@'192.168.0.3' for table 'employees'
+
+guest@company> SELECT passport_no FROM company.employees
+  ОТКЛОНЕНО СУБД: ERROR 1142 (42000): SELECT command denied to user 'guest'@'192.168.0.3' for table 'employees'
+
+guest@company> DELETE FROM company.employees
+  ОТКЛОНЕНО СУБД: ERROR 1142 (42000): DELETE command denied to user 'guest'@'192.168.0.3' for table 'employees'
+
+app_user@company> SELECT passport_no FROM company.employees
+  ОТКЛОНЕНО СУБД: ERROR 1143 (42000): SELECT command denied to user 'app_user'@'192.168.0.3' for column 'passport_no' in table 'employees'
+
+app_user@company> DELETE FROM company.employees
+  ОТКЛОНЕНО СУБД: ERROR 1142 (42000): DELETE command denied to user 'app_user'@'192.168.0.3' for table 'employees'
+
+app_user@company> CREATE TABLE hack (id INT)
+  ОТКЛОНЕНО СУБД: ERROR 1142 (42000): CREATE command denied to user 'app_user'@'192.168.0.3' for table 'hack'
+

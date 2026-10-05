@@ -1,0 +1,65 @@
+[install] 1/3. Запуск стека lab_8 (docker compose up -d --build)...
+ Image lab8-client Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 529B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 154B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/3] FROM docker.io/library/python:3.12-slim
+#5 DONE 0.0s
+
+#6 [2/3] RUN pip install --no-cache-dir mysql-connector-python
+#6 CACHED
+
+#7 [3/3] WORKDIR /app
+#7 CACHED
+
+#8 exporting to image
+#8 exporting layers done
+#8 writing image sha256:1527991157cc61ce2bde1c90969cd8876c1f26515a6d32188cc28760ad3e8e72 done
+#8 naming to docker.io/library/lab8-client done
+#8 DONE 0.0s
+
+#9 resolving provenance for metadata file
+#9 DONE 0.0s
+ Image lab8-client Built 
+ Network lab_8_lab8net Creating 
+ Network lab_8_lab8net Creating 
+ Volume lab_8_mysql_data Creating 
+ Volume lab_8_mysql_data Creating 
+ Volume lab_8_mysql_data Created 
+ Volume lab_8_mysql_data Created 
+ Network lab_8_lab8net Created 
+ Network lab_8_lab8net Created 
+ Container lab8-mysql Creating 
+ Container lab8-mysql Created 
+ Container lab8-client Creating 
+ Container lab8-client Created 
+ Container lab8-mysql Starting 
+ Container lab8-mysql Started 
+ Container lab8-mysql Waiting 
+ Container lab8-mysql Healthy 
+ Container lab8-client Starting 
+ Container lab8-client Started 
+[install] 2/3. Ожидание готовности MySQL (healthcheck, может занять ~30-60 c)...
+[install] MySQL healthy (попытка 1, ~2 c)
+[install] 3/3. Создание тестовой БД company и таблиц employees, audit_log
+[install] Проверка: версия сервера и содержимое таблицы employees
+mysql_version
+8.4.11
+id	name	salary	passport_no
+1	Ivanov Ivan	1200.00	MP1234567
+2	Petrov Petr	950.50	MP7654321
+3	Sidorov Sidor	2100.00	KB1122334
+4	Kovalenko Anna	1500.75	KB4433221
+[install] Готово: СУБД установлена и запущена, БД company создана.

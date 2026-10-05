@@ -1,0 +1,70 @@
+==========================================================================
+ЛАБОРАТОРНАЯ РАБОТА №12. IDS Suricata. СВОДКА ДО/ПОСЛЕ
+==========================================================================
+
+1) ФАЗА «ДО» (IDS отключена): трафик прошёл, следы - только в сырых логах
+--------------------------------------------------------------------------
+   Сгенерировано трафика:         HTTP-запросов: 33 (норм. 12, атак. HTTP 20), nmap-скан: 1, попыток SSH: 8
+   nginx access.log:              записей: 33; по категориям: {'path traversal (/etc/passwd)': 5, 'SQL-инъекция в query string': 5, 'сканирование путей': 10}; коды ответов: {'200': 18, '400': 5, '404': 10}
+   auth.log (sshd):               неудачных попыток входа: 8
+   АЛЕРТОВ IDS:                   0  (система обнаружения вторжений не работала - атаки не классифицированы и не заблокированы)
+
+2) ФАЗА «ПОСЛЕ» (Suricata включена, тот же генератор трафика)
+--------------------------------------------------------------------------
+   Сгенерировано трафика:         HTTP-запросов: 32 (норм. 12, атак. HTTP 20), nmap-скан: 1, попыток SSH: 8
+   nginx access.log:              записей: 32 (IDS работает в режиме обнаружения - запросы доходят, но классифицируются)
+   auth.log (sshd):               неудачных попыток входа: 8
+   АЛЕРТОВ IDS (fast.log):        127
+
+   Разбивка алертов по правилам (signature id -> число срабатываний):
+   SID          ПРАВИЛО                                                 АЛЕРТОВ
+   1000007      LOCAL PORTSCAN SYN-сканирование портов (порог по источн 87
+   1000006      LOCAL WEB-SCAN зондирование чувствительного пути/файла  10
+   2049400      ET WEB_SERVER /etc/passwd Detected in URI               5
+   1000008      LOCAL SSH возможный брутфорс (много подключений за окно 5
+   1000001      LOCAL WEB-TRAVERSAL обращение к /etc/passwd в URI       4
+   1000002      LOCAL WEB-TRAVERSAL последовательность ../ в URI        4
+   1000004      LOCAL SQLI тавтология OR/AND 1=1 в query string         2
+   1000003      LOCAL SQLI конструкция UNION SELECT в query string      2
+   2010963      ET WEB_SERVER SELECT USER SQL Injection Attempt in URI  1
+   1000005      LOCAL SQLI SQL-комментарий -- в query string            1
+   2031502      ET INFO Request to Hidden Environment File - Inbound    1
+   2031500      ET INFO Spring Boot Actuator Health Check Request       1
+   2010937      ET SCAN Suspicious inbound to mySQL port 3306           1
+   2010935      ET SCAN Suspicious inbound to MSSQL port 1433           1
+   2010939      ET SCAN Suspicious inbound to PostgreSQL port 5432      1
+   2001219      ET SCAN Potential SSH Scan                              1
+
+   По классификации (Classification):
+     Attempted Information Leak                                 93
+     Web Application Attack                                     14
+     access to a potentially vulnerable web application         10
+     Attempted Administrator Privilege Gain                     5
+     Potentially Bad Traffic                                    3
+     Misc activity                                              2
+
+   Топ источников атак (src -> число алертов):
+     172.28.100.20                                              127
+
+3) Сверка по eve.json (структурированный журнал событий)
+--------------------------------------------------------------------------
+   Событий типа alert в eve.json: 127
+   По категориям GTI/classification: {'Attempted Information Leak': 93, 'Web Application Attack': 14, 'access to a potentially vulnerable web application': 10, 'Attempted Administrator Privilege Gain': 5, 'Potentially Bad Traffic': 3, 'Misc activity': 2}
+   По severity (1 - высокий ... 3 - низкий): {1: 19, 2: 106, 3: 2}
+   Примеры атакующих HTTP-запросов из eve.json (hostname + url):
+     13:21:26 172.28.100.20 -> 172.29.100.10/../../etc/passwd (sid 1000001)
+     13:21:26 172.28.100.20 -> 172.29.100.10/..%2f..%2f..%2fetc%2fpasswd (sid 1000002)
+     13:21:27 172.28.100.20 -> 172.29.100.10/%2e%2e/%2e%2e/%2e%2e/etc/passwd (sid 1000001)
+     13:21:27 172.28.100.20 -> 172.29.100.10/static/../../../../etc/passwd (sid 1000001)
+     13:21:27 172.28.100.20 -> 172.29.100.10/cgi-bin/../../../etc/passwd%00 (sid 1000001)
+     13:21:28 172.28.100.20 -> 172.29.100.10/?id=1%27%20OR%20%271%27%3D%271 (sid 1000004)
+
+4) ИТОГ
+--------------------------------------------------------------------------
+   ДО:   атакующих действий всего: 28 (HTTP-атак: 20, неудачных входов SSH: 8).
+         Они зафиксированы ТОЛЬКО пост-фактум в сырых логах nginx/sshd;
+         алертов и автоматической классификации нет (0).
+   ПОСЛЕ: тот же профиль трафика (HTTP-атак: 20, входов SSH: 8) породил
+         127 алертов Suricata в fast.log и 127 событий alert в eve.json.
+   Прирост наблюдаемости: 0 -> 127 классифицированных событий безопасности.
+

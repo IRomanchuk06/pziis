@@ -1,0 +1,20 @@
+[uninstall] Остановка и удаление стека lab_8 (down -v: контейнеры + сеть + тома)
+ Container lab8-client Stopping 
+ Container lab8-client Stopped 
+ Container lab8-client Removing 
+ Container lab8-client Removed 
+ Container lab8-mysql Stopping 
+ Container lab8-mysql Stopped 
+ Container lab8-mysql Removing 
+ Container lab8-mysql Removed 
+ Image lab8-client:latest Removing 
+ Dangling images Removing 
+ Volume lab_8_mysql_data Removing 
+ Network lab_8_lab8net Removing 
+ Volume lab_8_mysql_data Removed 
+ Image lab8-client:latest Removed 
+ Dangling images Removed 
+ Network lab_8_lab8net Removed 
+[uninstall] Проверка оставшихся артефактов проекта lab_8:
+  контейнеры, сеть, тома: отсутствуют (удалены полностью)
+[uninstall] Готово: СУБД и созданные ею объекты удалены.

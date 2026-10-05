@@ -1,0 +1,13 @@
+services:
+  lab5:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: lab5:latest
+    container_name: lab5-runner
+    # запускаем от uid хостового пользователя, чтобы файлы в demo_output
+    # не принадлежали root
+    user: "${LAB_UID:-1000}:${LAB_GID:-1000}"
+    volumes:
+      - ./demo_output:/output
+    command: ["sh", "-c", "python3 main.py | tee /output/lab5_output.txt"]

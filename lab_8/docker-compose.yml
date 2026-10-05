@@ -1,0 +1,48 @@
+name: lab_8
+
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: lab8-mysql
+    environment:
+      # Пароль root передаётся через переменную compose (см. .env)
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-lab8root}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - lab8net
+    # Порты наружу НЕ публикуются: доступ к СУБД только из внутренней сети compose
+    healthcheck:
+      test: ["CMD-SHELL", "MYSQL_PWD=\"$$MYSQL_ROOT_PASSWORD\" mysqladmin ping -h 127.0.0.1 -uroot --silent"]
+      interval: 3s
+      timeout: 5s
+      retries: 40
+      start_period: 40s
+
+  client:
+    build: ./client
+    image: lab8-client
+    container_name: lab8-client
+    working_dir: /app
+    environment:
+      DB_HOST: mysql
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-lab8root}
+      LAB8_ADMIN_PASSWORD: ${LAB8_ADMIN_PASSWORD:-Admin8Pass}
+      LAB8_USER_PASSWORD: ${LAB8_USER_PASSWORD:-User8Pass}
+      LAB8_GUEST_PASSWORD: ${LAB8_GUEST_PASSWORD:-Guest8Pass}
+    volumes:
+      - ./scripts:/app/scripts:ro
+    command: ["sleep", "infinity"]
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - lab8net
+
+networks:
+  lab8net:
+    # Изолированная внутренняя сеть: без выхода наружу и без публикации портов
+    internal: true
+
+volumes:
+  mysql_data:

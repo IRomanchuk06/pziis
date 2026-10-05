@@ -1,0 +1,97 @@
+==============================================================
+-- ШАГ 2. Тестирование скорости (openssl speed, -seconds 1)
+==============================================================
+
+Тест: openssl speed, -seconds 1 (1 секунда на алгоритм),
+-elapsed -- замер по прошедшему (wall-clock) времени.
+
+Примечание: aes-*-gcm и chacha20 в 'openssl speed' сборки 3.0.x
+не поддерживаются (проверено: 'speed: Unknown algorithm'), поэтому
+для сравнения AES-128 взят режим CBC.
+
+$ openssl speed -seconds 1 -elapsed aes-256-cbc
+You have chosen to measure elapsed time instead of user CPU time.
+Doing aes-256-cbc for 1s on 16 size blocks: 58111349 aes-256-cbc's in 1.00s
+Doing aes-256-cbc for 1s on 64 size blocks: 20362778 aes-256-cbc's in 1.00s
+Doing aes-256-cbc for 1s on 256 size blocks: 5635034 aes-256-cbc's in 1.00s
+Doing aes-256-cbc for 1s on 1024 size blocks: 1418004 aes-256-cbc's in 1.00s
+Doing aes-256-cbc for 1s on 8192 size blocks: 179825 aes-256-cbc's in 1.00s
+Doing aes-256-cbc for 1s on 16384 size blocks: 84578 aes-256-cbc's in 1.00s
+version: 3.0.13
+built on: Wed Sep 16 18:47:02 2026 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -fzero-call-used-regs=used-gpr -DOPENSSL_TLS_SECURITY_LEVEL=2 -Wa,--noexecstack -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=/usr/src/openssl-3.0.13-0ubuntu3.16 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=3
+CPUINFO: OPENSSL_ia32cap=0x7ffaf3bfffebffff:0x18c05fdef3bfa7eb
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+aes-256-cbc     929781.58k  1303217.79k  1442568.70k  1452036.10k  1473126.40k  1385725.95k
+
+$ openssl speed -seconds 1 -elapsed aes-128-cbc
+You have chosen to measure elapsed time instead of user CPU time.
+Doing aes-128-cbc for 1s on 16 size blocks: 57543750 aes-128-cbc's in 1.00s
+Doing aes-128-cbc for 1s on 64 size blocks: 27458567 aes-128-cbc's in 1.00s
+Doing aes-128-cbc for 1s on 256 size blocks: 7750129 aes-128-cbc's in 1.00s
+Doing aes-128-cbc for 1s on 1024 size blocks: 2009155 aes-128-cbc's in 1.00s
+Doing aes-128-cbc for 1s on 8192 size blocks: 252164 aes-128-cbc's in 1.00s
+Doing aes-128-cbc for 1s on 16384 size blocks: 123825 aes-128-cbc's in 1.00s
+version: 3.0.13
+built on: Wed Sep 16 18:47:02 2026 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -fzero-call-used-regs=used-gpr -DOPENSSL_TLS_SECURITY_LEVEL=2 -Wa,--noexecstack -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=/usr/src/openssl-3.0.13-0ubuntu3.16 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=3
+CPUINFO: OPENSSL_ia32cap=0x7ffaf3bfffebffff:0x18c05fdef3bfa7eb
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+aes-128-cbc     920700.00k  1757348.29k  1984033.02k  2057374.72k  2065727.49k  2028748.80k
+
+$ openssl speed -seconds 1 -elapsed chacha20
+speed: Unknown algorithm chacha20
+  --> алгоритм 'chacha20' не поддерживается openssl speed в данной сборке -- пропуск
+
+$ openssl speed -seconds 1 -elapsed chacha20-poly1305
+speed: Unknown algorithm chacha20-poly1305
+  --> алгоритм 'chacha20-poly1305' не поддерживается openssl speed в данной сборке -- пропуск
+
+$ openssl speed -seconds 1 -elapsed sha256
+You have chosen to measure elapsed time instead of user CPU time.
+Doing sha256 for 1s on 16 size blocks: 6686870 sha256's in 1.00s
+Doing sha256 for 1s on 64 size blocks: 5351321 sha256's in 1.00s
+Doing sha256 for 1s on 256 size blocks: 3257784 sha256's in 1.00s
+Doing sha256 for 1s on 1024 size blocks: 1138421 sha256's in 1.00s
+Doing sha256 for 1s on 8192 size blocks: 192143 sha256's in 1.00s
+Doing sha256 for 1s on 16384 size blocks: 102956 sha256's in 1.00s
+version: 3.0.13
+built on: Wed Sep 16 18:47:02 2026 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -fzero-call-used-regs=used-gpr -DOPENSSL_TLS_SECURITY_LEVEL=2 -Wa,--noexecstack -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=/usr/src/openssl-3.0.13-0ubuntu3.16 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=3
+CPUINFO: OPENSSL_ia32cap=0x7ffaf3bfffebffff:0x18c05fdef3bfa7eb
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+sha256          106989.92k   342484.54k   833992.70k  1165743.10k  1574035.46k  1686831.10k
+
+$ openssl speed -seconds 1 -elapsed rsa2048
+You have chosen to measure elapsed time instead of user CPU time.
+Doing 2048 bits private rsa's for 1s: 3351 2048 bits private RSA's in 1.00s
+Doing 2048 bits public rsa's for 1s: 58215 2048 bits public RSA's in 1.00s
+version: 3.0.13
+built on: Wed Sep 16 18:47:02 2026 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -fzero-call-used-regs=used-gpr -DOPENSSL_TLS_SECURITY_LEVEL=2 -Wa,--noexecstack -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=/usr/src/openssl-3.0.13-0ubuntu3.16 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=3
+CPUINFO: OPENSSL_ia32cap=0x7ffaf3bfffebffff:0x18c05fdef3bfa7eb
+                  sign    verify    sign/s verify/s
+rsa 2048 bits 0.000298s 0.000017s   3351.0  58215.0
+
+-- Дополнительно: ed25519 (электронная подпись) --
+
+$ openssl speed -seconds 1 -elapsed ed25519
+You have chosen to measure elapsed time instead of user CPU time.
+Doing 253 bits sign Ed25519's for 1s: 28612 253 bits Ed25519 signs in 1.00s 
+Doing 253 bits verify Ed25519's for 1s: 10317 253 bits Ed25519 verify in 1.00s
+version: 3.0.13
+built on: Wed Sep 16 18:47:02 2026 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -fzero-call-used-regs=used-gpr -DOPENSSL_TLS_SECURITY_LEVEL=2 -Wa,--noexecstack -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=/usr/src/openssl-3.0.13-0ubuntu3.16 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=3
+CPUINFO: OPENSSL_ia32cap=0x7ffaf3bfffebffff:0x18c05fdef3bfa7eb
+                              sign    verify    sign/s verify/s
+ 253 bits EdDSA (Ed25519)   0.0000s   0.0001s  28612.0  10317.0
+
+

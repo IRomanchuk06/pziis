@@ -1,0 +1,85 @@
+[banner] режим=unsafe python=3.12.15 pid=9
+### [driver] старт приложения: [banner] режим=unsafe python=3.12.15 pid=9
+>>> <значение скрыто (см. tokens.txt)>
+>>> help
+Мастер-пароль: vault[unsafe]> [h] Команды:
+[h]   help                          -- эта справка
+[h]   add secret <id>               -- добавить конфиденциальную запись (шифруется AES-256-GCM)
+[h]   add public <id>               -- добавить неконфиденциальную запись (хранится открыто)
+[h]   add password <id>             -- добавить пароль (PBKDF2-HMAC-SHA256, 600000 итераций)
+[h]   get <id>                      -- показать запись (секрет -- расшифровка на лету)
+[h]   verify <id>                   -- проверить пароль (только для type=password)
+[h]   update <id>                   -- заменить значение
+[h]   delete <id>                   -- удалить запись (safe: с затиранием памяти)
+[h]   list                          -- список записей
+[h]   stats                         -- RSS/CPU текущего процесса
+[h]   dumpcore <путь>               -- (демо) снять дамп памяти процесса через gdb gcore
+[h]   quit                          -- выход
+[ok] help
+>>> stats
+vault[unsafe]> [stats] vm_rss_kB=24240 vm_hwm_kB=24240 cpu_s=0.043490092 wall_s=1609736.625878642 records=0
+[ok] stats
+>>> add secret card1
+>>> <значение скрыто (см. tokens.txt)>
+vault[unsafe]> Значение: [ok] добавлена запись id=card1 type=secret
+>>> add password pwd1
+>>> <значение скрыто (см. tokens.txt)>
+vault[unsafe]> Значение: [ok] добавлена запись id=pwd1 type=password
+>>> add public note1
+>>> NOTE-PUBLIC-9F6F2325
+vault[unsafe]> Значение: [ok] добавлена запись id=note1 type=public
+>>> add secret doc2
+>>> <значение скрыто (см. tokens.txt)>
+vault[unsafe]> Значение: [ok] добавлена запись id=doc2 type=secret
+>>> list
+vault[unsafe]> [rec] id=card1 type=secret
+[rec] id=doc2 type=secret
+[rec] id=note1 type=public
+[rec] id=pwd1 type=password
+[ok] записей: 4
+>>> get card1
+vault[unsafe]> [val] CARD-289B82283E7D
+[ok] запись получена id=card1
+>>> verify pwd1
+>>> <значение скрыто (см. tokens.txt)>
+vault[unsafe]> Проверочный пароль: [ok] проверка пароля id=pwd1 -> СОВПАДАЕТ
+>>> update card1
+>>> <значение скрыто (см. tokens.txt)>
+vault[unsafe]> Новое значение: [ok] запись обновлена id=card1
+>>> get card1
+vault[unsafe]> [val] CARD-56765D827301
+[ok] запись получена id=card1
+>>> add secret card1
+>>> <значение скрыто (см. tokens.txt)>
+vault[unsafe]> Значение: [err] запись 'card1' уже существует
+>>> add bogus bad_id
+vault[unsafe]> [err] неизвестный тип записи 'bogus'; допустимо: secret, public, password
+>>> add secret
+vault[unsafe]> [err] формат: add <secret|public|password> <id>
+>>> add secret bad id!
+vault[unsafe]> [err] формат: add <secret|public|password> <id>
+>>> get missing_id
+vault[unsafe]> [err] запись 'missing_id' не найдена
+>>> update missing_id
+vault[unsafe]> [err] запись 'missing_id' не найдена
+>>> delete missing_id
+vault[unsafe]> [err] запись 'missing_id' не найдена
+>>> verify card1
+vault[unsafe]> [err] запись 'card1' не является паролем
+>>> bogus_command
+vault[unsafe]> [err] неизвестная команда 'bogus_command' (help -- список команд)
+>>> delete card1
+vault[unsafe]> [ok] запись удалена id=card1
+>>> get card1
+vault[unsafe]> [err] запись 'card1' не найдена
+>>> list
+vault[unsafe]> [rec] id=doc2 type=secret
+[rec] id=note1 type=public
+[rec] id=pwd1 type=password
+[ok] записей: 3
+>>> stats
+vault[unsafe]> [stats] vm_rss_kB=24240 vm_hwm_kB=24240 cpu_s=0.044201904 wall_s=1609736.626892092 records=3
+[ok] stats
+>>> quit
+vault[unsafe]> [ok] выход
+### [driver] процесс завершён, код 0

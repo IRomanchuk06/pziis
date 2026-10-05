@@ -1,0 +1,28 @@
+# sshd_config стенда лабораторной работы №11.
+Port 22
+AddressFamily any
+ListenAddress 0.0.0.0
+
+# Журналирование: подробный уровень VERBOSE — видны invalid user,
+# закрытия соединений до аутентификации и т. п.
+SyslogFacility AUTH
+LogLevel VERBOSE
+
+# Аутентификация: парольная разрешена для тестового пользователя labuser.
+# Вход суперпользователя запрещён (рекомендация по безопасности из задания).
+PermitRootLogin no
+PubkeyAuthentication yes
+PasswordAuthentication yes
+KbdInteractiveAuthentication no
+UsePAM no
+
+LoginGraceTime 30
+MaxAuthTries 6
+MaxSessions 2
+
+AllowTcpForwarding no
+X11Forwarding no
+PrintMotd no
+AcceptEnv LANG LC_*
+
+Subsystem sftp internal-sftp

@@ -1,0 +1,433 @@
+{
+  "tokens": {
+    "MASTER": "MP-D3DCF1DC5D05",
+    "SECRET_A": "CARD-13AC7B223594",
+    "PASSWORD_B": "PWD-C8253B26678C",
+    "PUBLIC_C": "NOTE-PUBLIC-65E178C1",
+    "SECRET_D": "CARD-0A083E23B5A5",
+    "SECRET_E": "CARD-528C8A5B4C69"
+  },
+  "static": {
+    "own": {
+      "files": [
+        "own/main.py",
+        "own/vault.py"
+      ],
+      "imports": [
+        "__future__",
+        "__future__.annotations",
+        "argparse",
+        "cryptography.hazmat.primitives",
+        "cryptography.hazmat.primitives.ciphers.aead",
+        "cryptography.hazmat.primitives.ciphers.aead.AESGCM",
+        "cryptography.hazmat.primitives.hashes",
+        "cryptography.hazmat.primitives.kdf.pbkdf2",
+        "cryptography.hazmat.primitives.kdf.pbkdf2.PBKDF2HMAC",
+        "gc",
+        "hmac",
+        "os",
+        "subprocess",
+        "sys",
+        "time",
+        "vault",
+        "vault.KIND_PASSWORD",
+        "vault.KIND_PUBLIC",
+        "vault.KIND_SECRET",
+        "vault.PBKDF2_ITERATIONS",
+        "vault.SafeVault",
+        "vault.UnsafeVault",
+        "vault.ValidationError",
+        "vault.make_vault",
+        "vault.read_status_counters",
+        "vault.validate_id",
+        "vault.validate_kind"
+      ],
+      "uses_random_module": false,
+      "uses_os_urandom": true,
+      "uses_md5": false,
+      "uses_pbkdf2": true,
+      "uses_cryptography_lib": true,
+      "uses_bytearray": true,
+      "uses_input": false,
+      "has_zeroization": true,
+      "logging_calls_with_secret_args": [],
+      "try_except_count": 9
+    },
+    "provided": {
+      "files": [
+        "provided/main.py",
+        "provided/store.py"
+      ],
+      "imports": [
+        "hashlib",
+        "logging",
+        "os",
+        "random",
+        "store",
+        "subprocess",
+        "sys"
+      ],
+      "uses_random_module": true,
+      "uses_os_urandom": false,
+      "uses_md5": true,
+      "uses_pbkdf2": false,
+      "uses_cryptography_lib": false,
+      "uses_bytearray": false,
+      "uses_input": true,
+      "has_zeroization": false,
+      "logging_calls_with_secret_args": [
+        "store.py: LOG.info(KEY)",
+        "store.py: LOG.info(master_password)",
+        "store.py: LOG.info(value)"
+      ],
+      "try_except_count": 1
+    }
+  },
+  "dumps": {
+    "own": {
+      "p1": {
+        "MASTER": 0,
+        "SECRET_A": 0,
+        "PASSWORD_B": 0,
+        "PUBLIC_C": 1,
+        "SECRET_D": 0,
+        "SECRET_E": 0
+      },
+      "p2": {
+        "MASTER": 0,
+        "SECRET_A": 0,
+        "PASSWORD_B": 0,
+        "PUBLIC_C": 1,
+        "SECRET_D": 0,
+        "SECRET_E": 0
+      },
+      "p3": {
+        "MASTER": 0,
+        "SECRET_A": 0,
+        "PASSWORD_B": 0,
+        "PUBLIC_C": 1,
+        "SECRET_D": 0,
+        "SECRET_E": 0
+      }
+    },
+    "provided": {
+      "p1": {
+        "MASTER": 2,
+        "SECRET_A": 1,
+        "PASSWORD_B": 1,
+        "PUBLIC_C": 1,
+        "SECRET_D": 6,
+        "SECRET_E": 0
+      },
+      "p2": {
+        "MASTER": 2,
+        "SECRET_A": 1,
+        "PASSWORD_B": 1,
+        "PUBLIC_C": 1,
+        "SECRET_D": 2,
+        "SECRET_E": 3
+      },
+      "p3": {
+        "MASTER": 2,
+        "SECRET_A": 1,
+        "PASSWORD_B": 1,
+        "PUBLIC_C": 1,
+        "SECRET_D": 2,
+        "SECRET_E": 2
+      }
+    }
+  },
+  "negative": {
+    "own": {
+      "total": 10,
+      "rejected": 10,
+      "accepted_silently": 0,
+      "crashes": 0,
+      "timeouts": 0,
+      "restarts": 0,
+      "robustness": 1.0,
+      "cases": [
+        {
+          "case": "bogus_command",
+          "outcome": "rejected"
+        },
+        {
+          "case": "add bogus bad_id",
+          "outcome": "rejected"
+        },
+        {
+          "case": "add secret",
+          "outcome": "rejected"
+        },
+        {
+          "case": "add secret bad id!",
+          "outcome": "rejected"
+        },
+        {
+          "case": "get missing_id",
+          "outcome": "rejected"
+        },
+        {
+          "case": "update missing_id",
+          "outcome": "rejected"
+        },
+        {
+          "case": "delete missing_id",
+          "outcome": "rejected"
+        },
+        {
+          "case": "verify missing_id",
+          "outcome": "rejected"
+        },
+        {
+          "case": "add secret dup_id",
+          "outcome": "rejected"
+        },
+        {
+          "case": "verify s1",
+          "outcome": "rejected"
+        }
+      ]
+    },
+    "provided": {
+      "total": 10,
+      "rejected": 0,
+      "accepted_silently": 3,
+      "crashes": 7,
+      "timeouts": 0,
+      "restarts": 7,
+      "robustness": 0.0,
+      "cases": [
+        {
+          "case": "bogus_command",
+          "outcome": "crash (необработанное исключение)"
+        },
+        {
+          "case": "add bogus bad_id",
+          "outcome": "accepted_silently"
+        },
+        {
+          "case": "add secret",
+          "outcome": "crash (необработанное исключение)"
+        },
+        {
+          "case": "add secret bad id!",
+          "outcome": "accepted_silently"
+        },
+        {
+          "case": "get missing_id",
+          "outcome": "crash (необработанное исключение)"
+        },
+        {
+          "case": "update missing_id",
+          "outcome": "crash (необработанное исключение)"
+        },
+        {
+          "case": "delete missing_id",
+          "outcome": "crash (необработанное исключение)"
+        },
+        {
+          "case": "verify missing_id",
+          "outcome": "crash (необработанное исключение)"
+        },
+        {
+          "case": "add secret dup_id",
+          "outcome": "accepted_silently"
+        },
+        {
+          "case": "verify s1",
+          "outcome": "crash (необработанное исключение)"
+        }
+      ]
+    }
+  },
+  "keys": {
+    "own": {
+      "key_len_bits": 256,
+      "source": "PBKDF2-HMAC-SHA256 (600000 итераций) из мастер-пароля, соль os.urandom(16)",
+      "sample_hex": "95cb0286fa3de35e0ba9119b118c79fb51fc807768223cb58be98cd3dd52e4fb",
+      "stream_len_bytes": 1024,
+      "shannon_bits_per_byte": 7.8077
+    },
+    "provided": {
+      "key_len_bits": 256,
+      "source": "random.getrandbits(8) -- Mersenne Twister, weak PRNG",
+      "sample_hex": "a2c2488573c0f427e1859584723d6ff0a5efbb3436d66f59fe2441535846aa61",
+      "stream_len_bytes": 1024,
+      "shannon_bits_per_byte": 7.8285
+    }
+  },
+  "load": {
+    "own": {
+      "impl": "own",
+      "n": 2000,
+      "phases": [
+        {
+          "phase": "add",
+          "n": 2000,
+          "ok": 2000,
+          "error": null,
+          "wall_s": 3.9332,
+          "cpu_s": 3.9275,
+          "rss_before_kB": 24200,
+          "rss_after_kB": 25348,
+          "drss_kB": 1148,
+          "rss_per_record_kB": 0.574,
+          "avg_ms": 1.9666
+        },
+        {
+          "phase": "update",
+          "n": 2000,
+          "ok": 2000,
+          "error": null,
+          "wall_s": 4.4227,
+          "cpu_s": 4.4225,
+          "rss_before_kB": 25348,
+          "rss_after_kB": 25348,
+          "drss_kB": 0,
+          "rss_per_record_kB": 0.0,
+          "avg_ms": 2.2114
+        },
+        {
+          "phase": "delete",
+          "n": 2000,
+          "ok": 2000,
+          "error": null,
+          "wall_s": 4.1877,
+          "cpu_s": 4.1801,
+          "rss_before_kB": 25352,
+          "rss_after_kB": 25352,
+          "drss_kB": 0,
+          "rss_per_record_kB": 0.0,
+          "avg_ms": 2.0938
+        }
+      ],
+      "init": {
+        "rss_kB": 24200,
+        "wall_s": 0.0
+      },
+      "success": true
+    },
+    "provided": {
+      "impl": "provided",
+      "n": 2000,
+      "phases": [
+        {
+          "phase": "add",
+          "n": 2000,
+          "ok": 2000,
+          "error": null,
+          "wall_s": 0.0134,
+          "cpu_s": 0.0134,
+          "rss_before_kB": 17436,
+          "rss_after_kB": 18168,
+          "drss_kB": 732,
+          "rss_per_record_kB": 0.366,
+          "avg_ms": 0.0067
+        },
+        {
+          "phase": "update",
+          "n": 2000,
+          "ok": 2000,
+          "error": null,
+          "wall_s": 0.0167,
+          "cpu_s": 0.0167,
+          "rss_before_kB": 18168,
+          "rss_after_kB": 18876,
+          "drss_kB": 708,
+          "rss_per_record_kB": 0.354,
+          "avg_ms": 0.0083
+        },
+        {
+          "phase": "delete",
+          "n": 2000,
+          "ok": 2000,
+          "error": null,
+          "wall_s": 0.003,
+          "cpu_s": 0.003,
+          "rss_before_kB": 18876,
+          "rss_after_kB": 19144,
+          "drss_kB": 268,
+          "rss_per_record_kB": 0.134,
+          "avg_ms": 0.0015
+        }
+      ],
+      "init": {
+        "rss_kB": 17372,
+        "wall_s": 0.0
+      },
+      "success": true
+    }
+  },
+  "c2_detail": {
+    "own": {
+      "found_p3": 0,
+      "ratio_p3": 0.0
+    },
+    "provided": {
+      "found_p3": 5,
+      "ratio_p3": 1.0
+    }
+  },
+  "c3_detail": {},
+  "c4_detail": {
+    "own": {
+      "avg_ms_max": 2.2114,
+      "rss_per_record_kB_max": 0.574,
+      "delete_vs_add": 1.06
+    },
+    "provided": {
+      "avg_ms_max": 0.0083,
+      "rss_per_record_kB_max": 0.366,
+      "delete_vs_add": 0.22
+    }
+  },
+  "c5_detail": {
+    "own": {
+      "leaked_in_logs": 0,
+      "total_secrets": 5,
+      "has_zeroization": true,
+      "logging_secret_args": [],
+      "leaked_counts": {
+        "MASTER": 0,
+        "SECRET_A": 0,
+        "PASSWORD_B": 0,
+        "SECRET_D": 0,
+        "SECRET_E": 0
+      }
+    },
+    "provided": {
+      "leaked_in_logs": 5,
+      "total_secrets": 5,
+      "has_zeroization": false,
+      "logging_secret_args": [
+        "store.py: LOG.info(KEY)",
+        "store.py: LOG.info(master_password)",
+        "store.py: LOG.info(value)"
+      ],
+      "leaked_counts": {
+        "MASTER": 10,
+        "SECRET_A": 2,
+        "PASSWORD_B": 2,
+        "SECRET_D": 2,
+        "SECRET_E": 2
+      }
+    }
+  },
+  "scores": {
+    "own": {
+      "c1": 5,
+      "c2": 5,
+      "c3": 5,
+      "c4": 5,
+      "c5": 5
+    },
+    "provided": {
+      "c1": 0,
+      "c2": 0,
+      "c3": 0,
+      "c4": 5,
+      "c5": 0
+    }
+  }
+}

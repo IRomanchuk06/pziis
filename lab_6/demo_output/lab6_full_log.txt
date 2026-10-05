@@ -1,0 +1,474 @@
+==============================================================
+-- Подготовка исходных файлов
+==============================================================
+Текстовый файл file.txt (97 байт):
+BSUIR, lab 6: OpenSSL demo file.
+Line 2: symmetric and asymmetric encryption test.
+Line 3: 2026.
+
+Бинарный файл file.bin: 4194304 байт случайных данных из /dev/urandom
+
+==============================================================
+-- ШАГ 1. Знакомство с OpenSSL: версия, команды, алгоритмы
+==============================================================
+
+$ openssl version
+OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)
+
+$ openssl version -a (сокращено)
+OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)
+built on: Wed Sep 16 18:47:02 2026 UTC
+platform: debian-amd64
+options:  bn(64,64)
+compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -fzero-call-used-regs=used-gpr -DOPENSSL_TLS_SECURITY_LEVEL=2 -Wa,--noexecstack -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=/usr/src/openssl-3.0.13-0ubuntu3.16 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=3
+OPENSSLDIR: "/usr/lib/ssl"
+
+$ openssl help (список стандартных команд, первые 40 строк)
+help:
+
+Standard commands
+asn1parse         ca                ciphers           cmp               
+cms               crl               crl2pkcs7         dgst              
+dhparam           dsa               dsaparam          ec                
+ecparam           enc               engine            errstr            
+fipsinstall       gendsa            genpkey           genrsa            
+help              info              kdf               list              
+mac               nseq              ocsp              passwd            
+pkcs12            pkcs7             pkcs8             pkey              
+pkeyparam         pkeyutl           prime             rand              
+rehash            req               rsa               rsautl            
+s_client          s_server          s_time            sess_id           
+smime             speed             spkac             srp               
+storeutl          ts                verify            version           
+x509              
+
+Message Digest commands (see the `dgst' command for more details)
+blake2b512        blake2s256        md4               md5               
+rmd160            sha1              sha224            sha256            
+sha3-224          sha3-256          sha3-384          sha3-512          
+sha384            sha512            sha512-224        sha512-256        
+shake128          shake256          sm3               
+
+Cipher commands (see the `enc' command for more details)
+aes-128-cbc       aes-128-ecb       aes-192-cbc       aes-192-ecb       
+aes-256-cbc       aes-256-ecb       aria-128-cbc      aria-128-cfb      
+aria-128-cfb1     aria-128-cfb8     aria-128-ctr      aria-128-ecb      
+aria-128-ofb      aria-192-cbc      aria-192-cfb      aria-192-cfb1     
+aria-192-cfb8     aria-192-ctr      aria-192-ecb      aria-192-ofb      
+aria-256-cbc      aria-256-cfb      aria-256-cfb1     aria-256-cfb8     
+aria-256-ctr      aria-256-ecb      aria-256-ofb      base64            
+bf                bf-cbc            bf-cfb            bf-ecb            
+bf-ofb            camellia-128-cbc  camellia-128-ecb  camellia-192-cbc  
+camellia-192-ecb  camellia-256-cbc  camellia-256-ecb  cast              
+cast-cbc          cast5-cbc         cast5-cfb         cast5-ecb         
+cast5-ofb         des               des-cbc           des-cfb           
+des-ecb           des-ede           des-ede-cbc       des-ede-cfb       
+des-ede-ofb       des-ede3          des-ede3-cbc      des-ede3-cfb      
+    ... (вывод сокращён)
+
+$ openssl list -cipher-algorithms (первые 25 строк)
+Legacy:
+  AES-128-CBC
+  AES-128-CBC-HMAC-SHA1
+  AES-128-CBC-HMAC-SHA256
+  id-aes128-CCM
+  AES-128-CFB
+  AES-128-CFB1
+  AES-128-CFB8
+  AES-128-CTR
+  AES-128-ECB
+  id-aes128-GCM
+  AES-128-OCB
+  AES-128-OFB
+  AES-128-XTS
+  AES-192-CBC
+  id-aes192-CCM
+  AES-192-CFB
+  AES-192-CFB1
+  AES-192-CFB8
+  AES-192-CTR
+  AES-192-ECB
+  id-aes192-GCM
+  AES-192-OCB
+  AES-192-OFB
+  AES-256-CBC
+    ... (вывод сокращён)
+
+$ openssl list -digest-algorithms (первые 15 строк)
+Legacy:
+  RSA-MD4 => MD4
+  RSA-MD5 => MD5
+  RSA-RIPEMD160 => RIPEMD160
+  RSA-SHA1 => SHA1
+  RSA-SHA1-2 => RSA-SHA1
+  RSA-SHA224 => SHA224
+  RSA-SHA256 => SHA256
+  RSA-SHA3-224 => SHA3-224
+  RSA-SHA3-256 => SHA3-256
+  RSA-SHA3-384 => SHA3-384
+  RSA-SHA3-512 => SHA3-512
+  RSA-SHA384 => SHA384
+  RSA-SHA512 => SHA512
+  RSA-SHA512/224 => SHA512-224
+    ... (вывод сокращён)
+
+$ openssl list -public-key-algorithms (первые 12 строк)
+Legacy:
+ Name: OpenSSL RSA method
+	Type: Builtin Algorithm
+	OID: rsaEncryption
+	PEM string: RSA
+ Name: rsa
+	Alias for: rsaEncryption
+ Name: OpenSSL PKCS#3 DH method
+	Type: Builtin Algorithm
+	OID: dhKeyAgreement
+	PEM string: DH
+ Name: dsaWithSHA
+    ... (вывод сокращён)
+
+==============================================================
+-- ШАГ 2. Тестирование скорости (openssl speed, -seconds 1)
+==============================================================
+
+Тест: openssl speed, -seconds 1 (1 секунда на алгоритм),
+-elapsed -- замер по прошедшему (wall-clock) времени.
+
+Примечание: aes-*-gcm и chacha20 в 'openssl speed' сборки 3.0.x
+не поддерживаются (проверено: 'speed: Unknown algorithm'), поэтому
+для сравнения AES-128 взят режим CBC.
+
+$ openssl speed -seconds 1 -elapsed aes-256-cbc
+You have chosen to measure elapsed time instead of user CPU time.
+Doing aes-256-cbc for 1s on 16 size blocks: 58111349 aes-256-cbc's in 1.00s
+Doing aes-256-cbc for 1s on 64 size blocks: 20362778 aes-256-cbc's in 1.00s
+Doing aes-256-cbc for 1s on 256 size blocks: 5635034 aes-256-cbc's in 1.00s
+Doing aes-256-cbc for 1s on 1024 size blocks: 1418004 aes-256-cbc's in 1.00s
+Doing aes-256-cbc for 1s on 8192 size blocks: 179825 aes-256-cbc's in 1.00s
+Doing aes-256-cbc for 1s on 16384 size blocks: 84578 aes-256-cbc's in 1.00s
+version: 3.0.13
+built on: Wed Sep 16 18:47:02 2026 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -fzero-call-used-regs=used-gpr -DOPENSSL_TLS_SECURITY_LEVEL=2 -Wa,--noexecstack -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=/usr/src/openssl-3.0.13-0ubuntu3.16 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=3
+CPUINFO: OPENSSL_ia32cap=0x7ffaf3bfffebffff:0x18c05fdef3bfa7eb
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+aes-256-cbc     929781.58k  1303217.79k  1442568.70k  1452036.10k  1473126.40k  1385725.95k
+
+$ openssl speed -seconds 1 -elapsed aes-128-cbc
+You have chosen to measure elapsed time instead of user CPU time.
+Doing aes-128-cbc for 1s on 16 size blocks: 57543750 aes-128-cbc's in 1.00s
+Doing aes-128-cbc for 1s on 64 size blocks: 27458567 aes-128-cbc's in 1.00s
+Doing aes-128-cbc for 1s on 256 size blocks: 7750129 aes-128-cbc's in 1.00s
+Doing aes-128-cbc for 1s on 1024 size blocks: 2009155 aes-128-cbc's in 1.00s
+Doing aes-128-cbc for 1s on 8192 size blocks: 252164 aes-128-cbc's in 1.00s
+Doing aes-128-cbc for 1s on 16384 size blocks: 123825 aes-128-cbc's in 1.00s
+version: 3.0.13
+built on: Wed Sep 16 18:47:02 2026 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -fzero-call-used-regs=used-gpr -DOPENSSL_TLS_SECURITY_LEVEL=2 -Wa,--noexecstack -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=/usr/src/openssl-3.0.13-0ubuntu3.16 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=3
+CPUINFO: OPENSSL_ia32cap=0x7ffaf3bfffebffff:0x18c05fdef3bfa7eb
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+aes-128-cbc     920700.00k  1757348.29k  1984033.02k  2057374.72k  2065727.49k  2028748.80k
+
+$ openssl speed -seconds 1 -elapsed chacha20
+speed: Unknown algorithm chacha20
+  --> алгоритм 'chacha20' не поддерживается openssl speed в данной сборке -- пропуск
+
+$ openssl speed -seconds 1 -elapsed chacha20-poly1305
+speed: Unknown algorithm chacha20-poly1305
+  --> алгоритм 'chacha20-poly1305' не поддерживается openssl speed в данной сборке -- пропуск
+
+$ openssl speed -seconds 1 -elapsed sha256
+You have chosen to measure elapsed time instead of user CPU time.
+Doing sha256 for 1s on 16 size blocks: 6686870 sha256's in 1.00s
+Doing sha256 for 1s on 64 size blocks: 5351321 sha256's in 1.00s
+Doing sha256 for 1s on 256 size blocks: 3257784 sha256's in 1.00s
+Doing sha256 for 1s on 1024 size blocks: 1138421 sha256's in 1.00s
+Doing sha256 for 1s on 8192 size blocks: 192143 sha256's in 1.00s
+Doing sha256 for 1s on 16384 size blocks: 102956 sha256's in 1.00s
+version: 3.0.13
+built on: Wed Sep 16 18:47:02 2026 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -fzero-call-used-regs=used-gpr -DOPENSSL_TLS_SECURITY_LEVEL=2 -Wa,--noexecstack -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=/usr/src/openssl-3.0.13-0ubuntu3.16 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=3
+CPUINFO: OPENSSL_ia32cap=0x7ffaf3bfffebffff:0x18c05fdef3bfa7eb
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+sha256          106989.92k   342484.54k   833992.70k  1165743.10k  1574035.46k  1686831.10k
+
+$ openssl speed -seconds 1 -elapsed rsa2048
+You have chosen to measure elapsed time instead of user CPU time.
+Doing 2048 bits private rsa's for 1s: 3351 2048 bits private RSA's in 1.00s
+Doing 2048 bits public rsa's for 1s: 58215 2048 bits public RSA's in 1.00s
+version: 3.0.13
+built on: Wed Sep 16 18:47:02 2026 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -fzero-call-used-regs=used-gpr -DOPENSSL_TLS_SECURITY_LEVEL=2 -Wa,--noexecstack -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=/usr/src/openssl-3.0.13-0ubuntu3.16 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=3
+CPUINFO: OPENSSL_ia32cap=0x7ffaf3bfffebffff:0x18c05fdef3bfa7eb
+                  sign    verify    sign/s verify/s
+rsa 2048 bits 0.000298s 0.000017s   3351.0  58215.0
+
+-- Дополнительно: ed25519 (электронная подпись) --
+
+$ openssl speed -seconds 1 -elapsed ed25519
+You have chosen to measure elapsed time instead of user CPU time.
+Doing 253 bits sign Ed25519's for 1s: 28612 253 bits Ed25519 signs in 1.00s 
+Doing 253 bits verify Ed25519's for 1s: 10317 253 bits Ed25519 verify in 1.00s
+version: 3.0.13
+built on: Wed Sep 16 18:47:02 2026 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -fzero-call-used-regs=used-gpr -DOPENSSL_TLS_SECURITY_LEVEL=2 -Wa,--noexecstack -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/build/openssl-yMWwKu/openssl-3.0.13=/usr/src/openssl-3.0.13-0ubuntu3.16 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=3
+CPUINFO: OPENSSL_ia32cap=0x7ffaf3bfffebffff:0x18c05fdef3bfa7eb
+                              sign    verify    sign/s verify/s
+ 253 bits EdDSA (Ed25519)   0.0000s   0.0001s  28612.0  10317.0
+
+
+==============================================================
+-- ШАГ 3a. Симметричное шифрование/расшифрование файлов
+==============================================================
+
+Файлы: file.txt (97 байт), file.bin (4194304 байт).
+Функциональный прогон -- с паролем и PBKDF2 (итераций: 10000),
+замеры времени -- на file.bin с фиксированным ключом (без KDF).
+
+
+--- Шифр: aes-256-cbc ---
+  шифрование file.txt: OK (128 байт)
+  расшифрование: OK (97 байт)
+  cmp: расшифрованный файл побитово совпадает с исходным
+  Заголовок криптограммы (магия 'Salted__' + соль):
+0000000 53 61 6c 74 65 64 5f 5f 50 1d 38 95 8c d1 fc dc  >Salted__P.8.....<
+0000016 66 5c 4b df 20 af db ed 30 df d1 62 3b cf 2c 06  >f\K. ...0..b;.,.<
+0000032
+   [шифрование file.bin 4МиБ (aes-256-cbc)] время: 8.40 мс (код возврата 0)
+   [расшифрование file.bin 4МиБ (aes-256-cbc)] время: 5.92 мс (код возврата 0)
+   cmp бинарника после цикла шифр/дешифр: OK
+
+--- Шифр: camellia-256-cbc ---
+  шифрование file.txt: OK (128 байт)
+  расшифрование: OK (97 байт)
+  cmp: расшифрованный файл побитово совпадает с исходным
+  Заголовок криптограммы (магия 'Salted__' + соль):
+0000000 53 61 6c 74 65 64 5f 5f 1a b7 c9 0d c2 e1 93 de  >Salted__........<
+0000016 1c 19 c0 72 84 0f 77 1a 2f dd 51 85 ee e5 63 06  >...r..w./.Q...c.<
+0000032
+   [шифрование file.bin 4МиБ (camellia-256-cbc)] время: 28.15 мс (код возврата 0)
+   [расшифрование file.bin 4МиБ (camellia-256-cbc)] время: 28.00 мс (код возврата 0)
+   cmp бинарника после цикла шифр/дешифр: OK
+
+--- Шифр: des3 ---
+  шифрование file.txt: OK (120 байт)
+  расшифрование: OK (97 байт)
+  cmp: расшифрованный файл побитово совпадает с исходным
+  Заголовок криптограммы (магия 'Salted__' + соль):
+0000000 53 61 6c 74 65 64 5f 5f c0 79 57 93 d1 f5 50 db  >Salted__.yW...P.<
+0000016 81 65 18 1a 1a 0c 1f d1 05 27 77 a7 a5 40 50 69  >.e.......'w..@Pi<
+0000032
+hex string is too long, ignoring excess
+   [шифрование file.bin 4МиБ (des3)] время: 121.55 мс (код возврата 0)
+hex string is too long, ignoring excess
+   [расшифрование file.bin 4МиБ (des3)] время: 125.08 мс (код возврата 0)
+   cmp бинарника после цикла шифр/дешифр: OK
+
+--- Шифр: rc4 ---
+  (алгоритм доступен через legacy provider)
+  шифрование file.txt: OK (113 байт)
+  расшифрование: OK (97 байт)
+  cmp: расшифрованный файл побитово совпадает с исходным
+  Заголовок криптограммы (магия 'Salted__' + соль):
+0000000 53 61 6c 74 65 64 5f 5f 9e 09 2c 3a 56 4d af 39  >Salted__..,:VM.9<
+0000016 37 5b db e5 06 aa c2 5e 29 f1 ce b5 cb f9 70 67  >7[.....^).....pg<
+0000032
+   [шифрование file.bin 4МиБ (rc4)] время: 13.04 мс (код возврата 0)
+   [расшифрование file.bin 4МиБ (rc4)] время: 13.34 мс (код возврата 0)
+   cmp бинарника после цикла шифр/дешифр: OK
+
+Примечание: aes-256-gcm НЕ поддерживается командой 'openssl enc':
+AEAD-режимы в enc запрещены (нет обработки аутентификационного тега),
+производительность GCM измерена на шаге 2 (openssl speed).
+
+==============================================================
+-- ШАГ 3b. Асимметричное шифрование (RSA) и подпись (Ed25519)
+==============================================================
+
+== RSA-2048: зашифрование/расшифрование малого файла ==
+
+Сгенерирован приватный ключ rsa_priv.pem (1708 байт).
+Извлечён открытый ключ rsa_pub.pem (451 байт).
+Публичные параметры ключа:
+Public-Key: (2048 bit)
+Modulus:
+    00:c1:c8:af:8f:fb:53:84:3e:1c:04:1f:b2:b8:be:
+    f8:89:61:4c:b4:f1:d4:df:ac:7b:ce:27:d9:f0:f2:
+    bf:bf:06:3c:4f:c1:5a:f8:cb:c6:94:d1:e8:c8:e5:
+    fa:51:fe:0c:d1:fa:66:51:62:73:95:9b:5b:d1:a1:
+    de:2e:b3:05:bd:f1:6e:8a:0c:0b:da:8b:01:69:7a:
+    d7:52:ec:d3:d4:f7:5a:1c:cd:90:c1:03:ea:a5:5b:
+    ee:44:41:2f:40:9e:47:8f:4e:26:93:32:6c:a8:d2:
+    ff:57:89:7e:e3:2a:90:b3:5a:31:77:ef:c0:89:c4:
+    97:27:7c:d3:1b:13:33:f0:5e:21:d8:82:e5:9c:bc:
+    38:34:3f:55:a1:b0:2e:42:7f:53:23:c2:b0:29:b0:
+    0b:b8:89:a2:b2:6f:61:96:19:8c:e7:03:32:33:5e:
+    07:40:d2:a9:8b:b8:e0:a3:13:5e:6f:35:a5:06:0b:
+    ea:50:ab:48:83:1d:bf:2e:7e:0e:2c:17:2a:ea:7c:
+    f9:78:d2:8d:32:2d:05:70:45:a4:af:fc:ed:87:5b:
+    92:dc:99:b8:7c:4b:19:c6:d0:00:0b:49:c8:ca:ce:
+    ea:55:04:63:0b:fc:53:6e:65:02:a6:79:d4:5e:44:
+    6e:e8:70:90:79:f0:17:b2:21:7c:d6:35:7e:85:23:
+    f0:c9
+Exponent: 65537 (0x10001)
+
+Исходный файл small.txt: "Secret message for RSA encryption demo!" (40 байт)
+   [RSA-2048-OAEP(sha256) зашифрование] время: 3.73 мс (код возврата 0)
+   Криптограмма small.txt.enc: 256 байт
+   [RSA-2048-OAEP(sha256) расшифрование] время: 4.22 мс (код возврата 0)
+   cmp: расшифровано верно, текст совпадает с исходным
+
+== Ограничение RSA: попытка зашифровать 300 байт (ожидаемая ошибка) ==
+
+Файл too_big.bin: 300 байт.
+Получена ОЖИДАЕМАЯ ошибка (данные длиннее максимума для RSA-2048+OAEP(SHA-256) = 190 байт):
+    Public Key operation error
+    40E70F3232720000:error:0200006E:rsa routines:ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex:data too large for key size:../crypto/rsa/rsa_oaep.c:87:
+
+== Ed25519: электронная подпись файла ==
+
+Сгенерирована пара ключей Ed25519 (ed_priv.pem / ed_pub.pem).
+Публичный ключ:
+ED25519 Public-Key:
+pub:
+    1e:3c:39:f5:ca:d9:68:7a:54:61:32:98:cc:e9:61:
+    56:11:ba:cf:57:72:47:4d:a8:4e:26:b4:6b:13:69:
+    6a:23
+Подпись файла file.txt -> file.txt.sig (64 байт).
+   [Ed25519: создание подписи] время: 3.09 мс (код возврата 0)
+Signature Verified Successfully
+   [Ed25519: проверка подписи] время: 3.02 мс (код возврата 0)
+
+==============================================================
+-- ШАГ 3c. Хэширование файлов (md5, sha1, sha256)
+==============================================================
+
+-- Файл: file.txt (97 байт) --
+
+$ openssl dgst -md5 file.txt
+MD5(file.txt)= 1175d9385e6855bdd767e53c60479557
+
+$ openssl dgst -sha1 file.txt
+SHA1(file.txt)= bc9789bf68c22973b1ac217a1628178118c2cb93
+
+$ openssl dgst -sha256 file.txt
+SHA2-256(file.txt)= dbc6904ef8e912ef82d7a05081bd44f87562489198a828462bd0c7758a609e75
+
+-- Файл: file.bin (4194304 байт) --
+
+$ openssl dgst -md5 file.bin
+MD5(file.bin)= 7f73974cb0d47ba853dd28b3c3a41717
+
+$ openssl dgst -sha1 file.bin
+SHA1(file.bin)= 4389521b91d88cb41480577a507304b43ac4e7d7
+
+$ openssl dgst -sha256 file.bin
+SHA2-256(file.bin)= 12b5a7ff363cea1df2325429f0802cb2fff67a10669da8546128cf4f87a8c98e
+
+-- Перекрёстная проверка: openssl dgst -sha256 против утилиты sha256sum --
+  openssl  : 12b5a7ff363cea1df2325429f0802cb2fff67a10669da8546128cf4f87a8c98e
+  sha256sum: 12b5a7ff363cea1df2325429f0802cb2fff67a10669da8546128cf4f87a8c98e
+  Результат: хэши совпадают
+
+==============================================================
+-- ШАГ 4. Самоподписанный сертификат X.509 и его состав
+==============================================================
+
+== Создание самоподписанного сертификата X.509 (RSA-2048, 365 дней) ==
+
+.+.....+.+............+..+....+..+.......+...+...+..+.........+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*..............+......+....+...........+.+......+........+......+.+............+.....+...+....+........+......+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*...+.......+......+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+...........+...+....+..+...+......+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*.+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*.......+..+......+....+.....+....+...........+.............+..................+........+.+...+..+................+.....+.........+...+......+............+..........+..+.+..+.............+.....................+.....+.+...+.....+.+......+.....+....+..............+......+.........+......+.+...+...............+.........+.....+.+.....+.......+..............+.+.........+...+...+.....+...............+.........+...+.+..+............+...+....+........+......+.+......+..................+.....+.+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----
+Созданы: server.crt (сертификат), server.key (приватный ключ, без пароля: -nodes).
+
+$ openssl x509 -in server.crt -text -noout
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            45:bd:02:ee:b1:6d:32:c7:09:e0:21:10:70:f4:c6:99:bf:2c:99:8e
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C = BY, ST = Minsk, L = Minsk, O = BSUIR, OU = PZIIS Lab6, CN = lab6.bsuir.local
+        Validity
+            Not Before: Oct  5 13:16:17 2026 GMT
+            Not After : Oct  5 13:16:17 2027 GMT
+        Subject: C = BY, ST = Minsk, L = Minsk, O = BSUIR, OU = PZIIS Lab6, CN = lab6.bsuir.local
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:9d:23:d5:32:cd:24:d1:ee:71:ea:f6:6b:2d:a4:
+                    0f:eb:7c:48:32:77:72:de:74:e8:13:cc:8d:78:5e:
+                    5e:41:a0:75:3b:6b:f7:5f:db:e4:39:af:b2:13:ab:
+                    db:19:c0:62:9c:50:04:52:6c:de:e6:98:9d:58:d8:
+                    9d:d7:eb:22:f7:a3:5f:7a:48:65:ef:fa:43:2e:b5:
+                    65:89:e5:b5:fa:d6:fc:26:40:dd:44:ec:dc:5d:51:
+                    a8:c7:3c:f7:22:7d:fa:ca:c8:fc:ff:6d:cb:4d:9a:
+                    b1:f3:9f:e9:9e:cb:51:4e:91:2b:c6:a3:68:90:5b:
+                    be:4c:6c:b2:c7:3e:a3:25:47:cc:e5:6b:96:17:d6:
+                    2e:ea:3b:52:f3:4e:ff:cd:21:0c:4e:c5:6f:48:84:
+                    38:d8:2d:c7:28:ae:3f:ed:ef:e4:dc:9a:fd:0c:72:
+                    17:91:9c:ad:ac:85:3f:67:c3:08:50:20:fc:43:4a:
+                    8c:78:4a:13:f0:62:f1:9d:8c:01:0a:8c:76:9a:a6:
+                    2a:e2:91:9a:c2:2d:10:79:0c:47:a7:32:7d:97:da:
+                    8c:03:d7:2c:81:96:bc:59:12:9b:43:85:78:96:c8:
+                    c8:48:09:1f:fe:6d:83:0d:68:47:42:af:50:9e:0e:
+                    2b:99:f0:2c:09:47:2c:a9:cf:b1:fd:88:ae:f1:f9:
+                    3e:bf
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Subject Key Identifier: 
+                27:DC:92:A2:12:87:C0:FD:EB:80:75:2F:6B:F5:89:D2:BE:3A:48:37
+            X509v3 Authority Key Identifier: 
+                27:DC:92:A2:12:87:C0:FD:EB:80:75:2F:6B:F5:89:D2:BE:3A:48:37
+            X509v3 Subject Alternative Name: 
+                DNS:lab6.bsuir.local, DNS:www.lab6.bsuir.local
+            X509v3 Key Usage: 
+                Digital Signature, Key Encipherment
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication
+            X509v3 Basic Constraints: critical
+                CA:FALSE
+    Signature Algorithm: sha256WithRSAEncryption
+    Signature Value:
+        29:ff:fa:d9:3e:e2:6a:41:91:2c:88:0a:72:6e:99:d0:73:b8:
+        e4:75:c7:49:a6:97:d1:88:fb:ee:45:d3:84:bf:8d:f6:48:2e:
+        a7:c1:37:0c:2f:c9:11:27:65:94:c9:51:58:d4:4e:ee:d3:97:
+        cf:6d:52:4a:16:ac:df:8c:34:05:0c:15:da:5a:55:c0:ac:0d:
+        2b:24:e1:8d:4d:80:1e:9e:62:5d:3b:c5:03:f0:8e:7d:f2:d6:
+        45:36:01:6c:31:2f:03:9a:e8:47:27:33:81:8b:1a:43:9a:29:
+        16:a5:7a:a8:15:2c:f8:66:2c:a7:9c:79:7d:83:fb:fa:4c:53:
+        b0:37:92:3a:c5:16:31:5d:f8:81:9d:b6:fb:69:1f:a2:77:ad:
+        9b:84:aa:d6:bf:24:87:2e:8f:6d:18:90:a3:c1:b7:36:ea:9a:
+        c1:54:2e:5e:a7:e3:22:48:a5:b1:db:f3:61:2a:69:51:b5:b6:
+        d9:a0:65:60:50:76:27:9d:99:23:95:9b:4e:2b:27:49:52:4c:
+        46:b9:6a:36:d6:fe:11:9e:f5:22:d1:da:9e:43:cd:84:ad:17:
+        db:e7:43:19:8f:0b:99:06:e3:97:3e:1e:7e:0a:cd:28:a2:54:
+        b6:af:4b:14:9a:c0:35:86:0f:ad:ba:de:65:91:47:c0:fb:f9:
+        3e:48:6c:23
+
+$ openssl x509: краткая сводка полей
+subject=C = BY, ST = Minsk, L = Minsk, O = BSUIR, OU = PZIIS Lab6, CN = lab6.bsuir.local
+issuer=C = BY, ST = Minsk, L = Minsk, O = BSUIR, OU = PZIIS Lab6, CN = lab6.bsuir.local
+serial=45BD02EEB16D32C709E0211070F4C699BF2C998E
+notBefore=Oct  5 13:16:17 2026 GMT
+notAfter=Oct  5 13:16:17 2027 GMT
+sha256 Fingerprint=C9:3B:48:B4:71:F8:E8:DF:35:04:40:06:47:4F:9A:69:EC:4A:95:E9:17:4C:40:32:57:AB:C2:A3:6D:95:D3:50
+
+$ openssl verify -CAfile server.crt server.crt (проверка цепочки)
+server.crt: OK
+
+
+--------------------------------------------------------------
+Метаданные прогона:
+  дата/время : 2026-10-05 16:16:17 +03
+  образ      : lab6:latest (FROM ubuntu:24.04, openssl из apt)
+  docker     : Docker version 29.8.1, build 4a63305
+  проект     : lab_6 (docker compose)

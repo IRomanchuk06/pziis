@@ -1,0 +1,23 @@
+Server listening on 0.0.0.0 port 22.
+Server listening on :: port 22.
+Failed password for root from 172.28.100.20 port 39158 ssh2
+Connection closed by authenticating user root 172.28.100.20 port 39158 [preauth]
+Invalid user admin from 172.28.100.20 port 39160
+Failed password for invalid user admin from 172.28.100.20 port 39160 ssh2
+Connection closed by invalid user admin 172.28.100.20 port 39160 [preauth]
+Failed password for dev from 172.28.100.20 port 55600 ssh2
+Connection closed by authenticating user dev 172.28.100.20 port 55600 [preauth]
+Invalid user test from 172.28.100.20 port 55604
+Failed password for invalid user test from 172.28.100.20 port 55604 ssh2
+Connection closed by invalid user test 172.28.100.20 port 55604 [preauth]
+Failed password for root from 172.28.100.20 port 55610 ssh2
+Connection closed by authenticating user root 172.28.100.20 port 55610 [preauth]
+Invalid user admin from 172.28.100.20 port 41614
+Failed password for invalid user admin from 172.28.100.20 port 41614 ssh2
+Connection closed by invalid user admin 172.28.100.20 port 41614 [preauth]
+Invalid user ubuntu from 172.28.100.20 port 41628
+Failed password for invalid user ubuntu from 172.28.100.20 port 41628 ssh2
+Connection closed by invalid user ubuntu 172.28.100.20 port 41628 [preauth]
+Invalid user oracle from 172.28.100.20 port 41636
+Failed password for invalid user oracle from 172.28.100.20 port 41636 ssh2
+Connection closed by invalid user oracle 172.28.100.20 port 41636 [preauth]

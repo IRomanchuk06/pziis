@@ -1,0 +1,102 @@
+========================================================================
+ЖИВОЙ ПРОГОН (реальные запросы) — Лабораторная работа №11
+Начало (UTC): 2026-10-05 13:18:17
+Цели: http://web/ и sshd:22
+Внешний IP имитируется заголовком X-Forwarded-For; записи в журналы
+пишут сами nginx и sshd. Синтетический backfill прошлых дней —
+в generator/backfill.py (см. README).
+========================================================================
+
+--- 0. Ожидание готовности сервисов ---
+[wait] http://web/ отвечает: HTTP 200 (попытка 1)
+[wait] sshd:22 баннер: SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.19
+
+--- 1. Демонстрация веб-сервера: тестовая страница ---
+  $ curl -sS --max-time 5 http://web/
+    -> exit=0 stdout="</html>"
+  <!DOCTYPE html>
+  <html lang="ru">
+  <head>
+  <meta charset="utf-8">
+  <title>Лабораторная работа №11 — тестовая страница</title>
+  <link rel="stylesheet" href="/assets/style.css">
+
+--- 2. Обычный просмотр (реальные запросы посетителя) ---
+  $ curl -sS -o /dev/null -w %{http_code} --max-time 5 -A Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 -H X-Forwarded-For: 192.0.2.10 http://web/
+    -> exit=0 stdout="200"
+  $ curl -sS -o /dev/null -w %{http_code} --max-time 5 -A Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 -H X-Forwarded-For: 192.0.2.10 http://web/assets/style.css
+    -> exit=0 stdout="200"
+  $ curl -sS -o /dev/null -w %{http_code} --max-time 5 -A Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 -H X-Forwarded-For: 192.0.2.10 http://web/about.html
+    -> exit=0 stdout="200"
+  $ curl -sS -o /dev/null -w %{http_code} --max-time 5 -A Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 -H X-Forwarded-For: 192.0.2.10 http://web/old
+    -> exit=0 stdout="301"
+  $ curl -sS -o /dev/null -w %{http_code} --max-time 5 -A Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 -H X-Forwarded-For: 192.0.2.10 http://web/favicon.ico
+    -> exit=0 stdout="404"
+
+--- 3. Сканирование уязвимостей (реальные запросы «атакующего») ---
+    (UA curl, X-Forwarded-For: 203.0.113.66)
+  $ curl -sS -o /dev/null -w %{http_code} --max-time 5 -A curl/8.5.0 -H X-Forwarded-For: 203.0.113.66 http://web/etc/passwd
+    -> exit=0 stdout="404"
+  $ curl -sS -o /dev/null -w %{http_code} --max-time 5 -A curl/8.5.0 -H X-Forwarded-For: 203.0.113.66 http://web/.env
+    -> exit=0 stdout="404"
+  $ curl -sS -o /dev/null -w %{http_code} --max-time 5 -A curl/8.5.0 -H X-Forwarded-For: 203.0.113.66 http://web/wp-admin/
+    -> exit=0 stdout="404"
+  $ curl -sS -o /dev/null -w %{http_code} --max-time 5 -A curl/8.5.0 -H X-Forwarded-For: 203.0.113.66 http://web/wp-login.php
+    -> exit=0 stdout="404"
+  $ curl -sS -o /dev/null -w %{http_code} --max-time 5 -A curl/8.5.0 -H X-Forwarded-For: 203.0.113.66 http://web/phpmyadmin/
+    -> exit=0 stdout="404"
+  $ curl -sS -o /dev/null -w %{http_code} --max-time 5 -A curl/8.5.0 -H X-Forwarded-For: 203.0.113.66 http://web/.git/config
+    -> exit=0 stdout="404"
+  $ curl -sS -o /dev/null -w %{http_code} --max-time 5 -A curl/8.5.0 -H X-Forwarded-For: 203.0.113.66 http://web/shell.php
+    -> exit=0 stdout="404"
+  $ curl -sS -o /dev/null -w %{http_code} --max-time 5 -A curl/8.5.0 -H X-Forwarded-For: 203.0.113.66 http://web/backup.zip
+    -> exit=0 stdout="404"
+  $ curl -sS -o /dev/null -w %{http_code} --max-time 5 -A curl/8.5.0 -H X-Forwarded-For: 203.0.113.66 http://web/config.php
+    -> exit=0 stdout="404"
+  $ curl -sS -o /dev/null -w %{http_code} --max-time 5 -A curl/8.5.0 -H X-Forwarded-For: 203.0.113.66 http://web/.aws/credentials
+    -> exit=0 stdout="404"
+  $ curl -sS -o /dev/null -w %{http_code} --max-time 5 -A curl/8.5.0 -H X-Forwarded-For: 203.0.113.66 http://web/console/
+    -> exit=0 stdout="404"
+  $ curl -sS -o /dev/null -w %{http_code} --max-time 5 -A curl/8.5.0 -H X-Forwarded-For: 203.0.113.66 http://web/admin
+    -> exit=0 stdout="403"
+
+--- 4. Успешные входы по SSH (правильный пароль) ---
+  $ sshpass -p Lab11_Secret_Pass! ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=5 labuser@sshd uname -a && uptime
+    -> exit=0 stdout=" 13:18:17 up 27 days,  1:54,  0 user,  load average: 2.35, 2.69, 2.49" stderr="Warning: Permanently added 'sshd' (ED25519) to the list of known hosts."
+  $ sshpass -p Lab11_Secret_Pass! ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=5 labuser@sshd id && hostname
+    -> exit=0 stdout="lab11-sshd" stderr="Warning: Permanently added 'sshd' (ED25519) to the list of known hosts."
+
+--- 5. Программная SSH-сессия (paramiko) ---
+  paramiko: uptime -> 13:18:18 up 27 days,  1:54,  0 user,  load average: 2.35, 2.69, 2.49
+
+--- 6. Перебор паролей по SSH (реальные неудачные попытки, sshpass) ---
+  $ sshpass -p 123456 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=5 -o NumberOfPasswordPrompts=1 root@sshd true
+    -> exit=255 stderr="root@sshd: Permission denied (publickey,password)."
+  $ sshpass -p password ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=5 -o NumberOfPasswordPrompts=1 root@sshd true
+    -> exit=255 stderr="root@sshd: Permission denied (publickey,password)."
+  $ sshpass -p toor ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=5 -o NumberOfPasswordPrompts=1 admin@sshd true
+    -> exit=255 stderr="admin@sshd: Permission denied (publickey,password)."
+  $ sshpass -p qwerty ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=5 -o NumberOfPasswordPrompts=1 ubuntu@sshd true
+    -> exit=255 stderr="ubuntu@sshd: Permission denied (publickey,password)."
+  $ sshpass -p Passw0rd! ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=5 -o NumberOfPasswordPrompts=1 labuser@sshd true
+    -> exit=255 stderr="labuser@sshd: Permission denied (publickey,password)."
+  $ sshpass -p letmein ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=5 -o NumberOfPasswordPrompts=1 test@sshd true
+    -> exit=255 stderr="test@sshd: Permission denied (publickey,password)."
+  $ sshpass -p admin123 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=5 -o NumberOfPasswordPrompts=1 root@sshd true
+    -> exit=255 stderr="root@sshd: Permission denied (publickey,password)."
+  $ sshpass -p root123 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=5 -o NumberOfPasswordPrompts=1 oracle@sshd true
+    -> exit=255 stderr="oracle@sshd: Permission denied (publickey,password)."
+  $ sshpass -p 12345678 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=5 -o NumberOfPasswordPrompts=1 admin@sshd true
+    -> exit=255 stderr="admin@sshd: Permission denied (publickey,password)."
+  $ sshpass -p abc123 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=5 -o NumberOfPasswordPrompts=1 postgres@sshd true
+    -> exit=255 stderr="postgres@sshd: Permission denied (publickey,password)."
+  $ sshpass -p labuser ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=5 -o NumberOfPasswordPrompts=1 labuser@sshd true
+    -> exit=255 stderr="labuser@sshd: Permission denied (publickey,password)."
+  $ sshpass -p Welcome1 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=5 -o NumberOfPasswordPrompts=1 root@sshd true
+    -> exit=255 stderr="root@sshd: Permission denied (publickey,password)."
+
+--- 7. Проба порта 22 без SSH-протокола (curl) ---
+  $ curl -sS --max-time 2 http://sshd:22/
+    -> exit=1 stderr="curl: (1) Received HTTP/0.9 when not allowed"
+
+Живой прогон завершён. Журналы: runtime/logs/{access,error,auth}.log

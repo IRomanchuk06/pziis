@@ -1,0 +1,427 @@
+2026-10-05T13:18:16+00:00 lab11-sshd sshd:  Server listening on 0.0.0.0 port 22.
+2026-09-30T01:12:52.000000+00:00 lab11-sshd sshd[2266]: Invalid user git from 192.0.2.151 port 12075
+2026-09-30T01:12:52.892000+00:00 lab11-sshd sshd[2266]: Failed password for invalid user git from 192.0.2.151 port 12075 ssh2
+2026-09-30T01:57:54.000000+00:00 lab11-sshd sshd[2899]: Invalid user oracle from 192.0.2.140 port 51319
+2026-09-30T01:57:54.275000+00:00 lab11-sshd sshd[2899]: Failed password for invalid user oracle from 192.0.2.140 port 51319 ssh2
+2026-09-30T02:42:23.000000+00:00 lab11-sshd sshd[8263]: Invalid user admin from 198.51.100.120 port 16408
+2026-09-30T02:42:23.245000+00:00 lab11-sshd sshd[8263]: Failed password for invalid user admin from 198.51.100.120 port 16408 ssh2
+2026-09-30T04:07:50.000000+00:00 lab11-sshd sshd[6370]: Invalid user oracle from 203.0.113.150 port 27559
+2026-09-30T04:07:50.764000+00:00 lab11-sshd sshd[6370]: Failed password for invalid user oracle from 203.0.113.150 port 27559 ssh2
+2026-09-30T04:32:49.456000+00:00 lab11-sshd sshd[7921]: Failed password for root from 198.51.100.133 port 57038 ssh2
+2026-09-30T04:32:50.357000+00:00 lab11-sshd sshd[7921]: Connection closed by authenticating user root 198.51.100.133 port 57038 [preauth]
+2026-09-30T04:39:31.000000+00:00 lab11-sshd sshd[5783]: Invalid user postgres from 203.0.113.201 port 33024
+2026-09-30T04:39:31.781000+00:00 lab11-sshd sshd[5783]: Failed password for invalid user postgres from 203.0.113.201 port 33024 ssh2
+2026-09-30T07:17:54.000000+00:00 lab11-sshd sshd[9630]: Invalid user admin from 198.51.100.201 port 14748
+2026-09-30T07:17:54.294000+00:00 lab11-sshd sshd[9630]: Failed password for invalid user admin from 198.51.100.201 port 14748 ssh2
+2026-09-30T07:17:55.242000+00:00 lab11-sshd sshd[9630]: Connection closed by invalid user admin 198.51.100.201 port 14748 [preauth]
+2026-09-30T08:57:31.000000+00:00 lab11-sshd sshd[9324]: Accepted password for labuser from 192.0.2.10 port 39305 ssh2
+2026-09-30T09:06:03.000000+00:00 lab11-sshd sshd[4249]: Disconnected from user labuser 192.0.2.10 port 39305
+2026-09-30T10:47:23.000000+00:00 lab11-sshd sshd[5052]: Invalid user git from 192.0.2.151 port 35700
+2026-09-30T10:47:23.313000+00:00 lab11-sshd sshd[5052]: Failed password for invalid user git from 192.0.2.151 port 35700 ssh2
+2026-09-30T11:02:05.000000+00:00 lab11-sshd sshd[689]: Accepted password for labuser from 192.0.2.10 port 63141 ssh2
+2026-09-30T11:07:48.000000+00:00 lab11-sshd sshd[1914]: Disconnected from user labuser 192.0.2.10 port 63141
+2026-09-30T12:22:02.000000+00:00 lab11-sshd sshd[2739]: Invalid user test from 203.0.113.201 port 30125
+2026-09-30T12:22:02.322000+00:00 lab11-sshd sshd[2739]: Failed password for invalid user test from 203.0.113.201 port 30125 ssh2
+2026-09-30T12:47:42.000000+00:00 lab11-sshd sshd[8094]: Invalid user postgres from 192.0.2.140 port 45485
+2026-09-30T12:47:42.236000+00:00 lab11-sshd sshd[8094]: Failed password for invalid user postgres from 192.0.2.140 port 45485 ssh2
+2026-09-30T13:06:37.000000+00:00 lab11-sshd sshd[1157]: Invalid user pi from 198.51.100.133 port 8615
+2026-09-30T13:06:37.116000+00:00 lab11-sshd sshd[1157]: Failed password for invalid user pi from 198.51.100.133 port 8615 ssh2
+2026-09-30T13:43:46.155000+00:00 lab11-sshd sshd[9428]: Failed password for root from 203.0.113.150 port 14808 ssh2
+2026-09-30T13:43:46.455000+00:00 lab11-sshd sshd[9428]: Connection closed by authenticating user root 203.0.113.150 port 14808 [preauth]
+2026-09-30T13:52:06.000000+00:00 lab11-sshd sshd[7007]: Invalid user test from 192.0.2.168 port 33773
+2026-09-30T13:52:06.714000+00:00 lab11-sshd sshd[7007]: Failed password for invalid user test from 192.0.2.168 port 33773 ssh2
+2026-09-30T14:36:20.000000+00:00 lab11-sshd sshd[8756]: Invalid user deploy from 198.51.100.201 port 42914
+2026-09-30T14:36:20.788000+00:00 lab11-sshd sshd[8756]: Failed password for invalid user deploy from 198.51.100.201 port 42914 ssh2
+2026-09-30T15:23:31.000000+00:00 lab11-sshd sshd[9340]: Invalid user git from 192.0.2.140 port 28436
+2026-09-30T15:23:31.871000+00:00 lab11-sshd sshd[9340]: Failed password for invalid user git from 192.0.2.140 port 28436 ssh2
+2026-09-30T16:07:05.000000+00:00 lab11-sshd sshd[9222]: Invalid user ubuntu from 192.0.2.168 port 41343
+2026-09-30T16:07:05.609000+00:00 lab11-sshd sshd[9222]: Failed password for invalid user ubuntu from 192.0.2.168 port 41343 ssh2
+2026-09-30T16:07:06.672000+00:00 lab11-sshd sshd[9222]: Connection closed by invalid user ubuntu 192.0.2.168 port 41343 [preauth]
+2026-09-30T16:34:08.000000+00:00 lab11-sshd sshd[4231]: Invalid user test from 192.0.2.151 port 50446
+2026-09-30T16:34:08.864000+00:00 lab11-sshd sshd[4231]: Failed password for invalid user test from 192.0.2.151 port 50446 ssh2
+2026-09-30T17:09:47.000000+00:00 lab11-sshd sshd[143]: Invalid user pi from 192.0.2.151 port 23683
+2026-09-30T17:09:47.734000+00:00 lab11-sshd sshd[143]: Failed password for invalid user pi from 192.0.2.151 port 23683 ssh2
+2026-09-30T17:09:48.433000+00:00 lab11-sshd sshd[143]: Connection closed by invalid user pi 192.0.2.151 port 23683 [preauth]
+2026-09-30T17:34:35.000000+00:00 lab11-sshd sshd[7575]: Invalid user postgres from 192.0.2.151 port 54618
+2026-09-30T17:34:35.792000+00:00 lab11-sshd sshd[7575]: Failed password for invalid user postgres from 192.0.2.151 port 54618 ssh2
+2026-09-30T17:41:31.000000+00:00 lab11-sshd sshd[9337]: Invalid user oracle from 203.0.113.150 port 5780
+2026-09-30T17:41:31.738000+00:00 lab11-sshd sshd[9337]: Failed password for invalid user oracle from 203.0.113.150 port 5780 ssh2
+2026-09-30T17:41:32.319000+00:00 lab11-sshd sshd[9337]: Connection closed by invalid user oracle 203.0.113.150 port 5780 [preauth]
+2026-09-30T18:03:50.000000+00:00 lab11-sshd sshd[1909]: Invalid user pi from 203.0.113.150 port 14174
+2026-09-30T18:03:50.125000+00:00 lab11-sshd sshd[1909]: Failed password for invalid user pi from 203.0.113.150 port 14174 ssh2
+2026-09-30T19:50:59.000000+00:00 lab11-sshd sshd[6330]: Invalid user git from 192.0.2.140 port 27659
+2026-09-30T19:50:59.662000+00:00 lab11-sshd sshd[6330]: Failed password for invalid user git from 192.0.2.140 port 27659 ssh2
+2026-09-30T21:38:24.000000+00:00 lab11-sshd sshd[7306]: Invalid user admin from 198.51.100.201 port 44470
+2026-09-30T21:38:24.674000+00:00 lab11-sshd sshd[7306]: Failed password for invalid user admin from 198.51.100.201 port 44470 ssh2
+2026-10-01T00:36:25.000000+00:00 lab11-sshd sshd[9040]: Invalid user user from 203.0.113.164 port 50115
+2026-10-01T00:36:25.614000+00:00 lab11-sshd sshd[9040]: Failed password for invalid user user from 203.0.113.164 port 50115 ssh2
+2026-10-01T00:36:26.534000+00:00 lab11-sshd sshd[9040]: Connection closed by invalid user user 203.0.113.164 port 50115 [preauth]
+2026-10-01T01:38:25.000000+00:00 lab11-sshd sshd[7703]: Invalid user deploy from 198.51.100.201 port 59292
+2026-10-01T01:38:25.530000+00:00 lab11-sshd sshd[7703]: Failed password for invalid user deploy from 198.51.100.201 port 59292 ssh2
+2026-10-01T01:38:25.778000+00:00 lab11-sshd sshd[7703]: Connection closed by invalid user deploy 198.51.100.201 port 59292 [preauth]
+2026-10-01T03:02:10.000000+00:00 lab11-sshd sshd[9000]: Invalid user test from 198.51.100.120 port 41851
+2026-10-01T03:02:10.240000+00:00 lab11-sshd sshd[9000]: Failed password for invalid user test from 198.51.100.120 port 41851 ssh2
+2026-10-01T03:02:10.962000+00:00 lab11-sshd sshd[9000]: Connection closed by invalid user test 198.51.100.120 port 41851 [preauth]
+2026-10-01T03:24:28.000000+00:00 lab11-sshd sshd[4013]: Invalid user deploy from 203.0.113.150 port 30983
+2026-10-01T03:24:28.397000+00:00 lab11-sshd sshd[4013]: Failed password for invalid user deploy from 203.0.113.150 port 30983 ssh2
+2026-10-01T03:40:44.000000+00:00 lab11-sshd sshd[7782]: Invalid user postgres from 198.51.100.120 port 46105
+2026-10-01T03:40:44.384000+00:00 lab11-sshd sshd[7782]: Failed password for invalid user postgres from 198.51.100.120 port 46105 ssh2
+2026-10-01T03:40:44.868000+00:00 lab11-sshd sshd[7782]: Connection closed by invalid user postgres 198.51.100.120 port 46105 [preauth]
+2026-10-01T04:43:06.000000+00:00 lab11-sshd sshd[6432]: Invalid user postgres from 198.51.100.201 port 2949
+2026-10-01T04:43:06.472000+00:00 lab11-sshd sshd[6432]: Failed password for invalid user postgres from 198.51.100.201 port 2949 ssh2
+2026-10-01T05:49:01.000000+00:00 lab11-sshd sshd[223]: Invalid user git from 192.0.2.151 port 24798
+2026-10-01T05:49:01.892000+00:00 lab11-sshd sshd[223]: Failed password for invalid user git from 192.0.2.151 port 24798 ssh2
+2026-10-01T05:49:02.107000+00:00 lab11-sshd sshd[223]: Connection closed by invalid user git 192.0.2.151 port 24798 [preauth]
+2026-10-01T06:36:47.000000+00:00 lab11-sshd sshd[2715]: Invalid user oracle from 203.0.113.164 port 43360
+2026-10-01T06:36:47.100000+00:00 lab11-sshd sshd[2715]: Failed password for invalid user oracle from 203.0.113.164 port 43360 ssh2
+2026-10-01T06:36:47.436000+00:00 lab11-sshd sshd[2715]: Connection closed by invalid user oracle 203.0.113.164 port 43360 [preauth]
+2026-10-01T08:50:12.000000+00:00 lab11-sshd sshd[5305]: Invalid user test from 192.0.2.168 port 60980
+2026-10-01T08:50:12.781000+00:00 lab11-sshd sshd[5305]: Failed password for invalid user test from 192.0.2.168 port 60980 ssh2
+2026-10-01T08:50:13.234000+00:00 lab11-sshd sshd[5305]: Connection closed by invalid user test 192.0.2.168 port 60980 [preauth]
+2026-10-01T09:08:48.570000+00:00 lab11-sshd sshd[8740]: Failed password for root from 192.0.2.151 port 9587 ssh2
+2026-10-01T10:29:52.000000+00:00 lab11-sshd sshd[1923]: Invalid user git from 192.0.2.140 port 39646
+2026-10-01T10:29:52.300000+00:00 lab11-sshd sshd[1923]: Failed password for invalid user git from 192.0.2.140 port 39646 ssh2
+2026-10-01T10:29:53.437000+00:00 lab11-sshd sshd[1923]: Connection closed by invalid user git 192.0.2.140 port 39646 [preauth]
+2026-10-01T10:32:46.000000+00:00 lab11-sshd sshd[7665]: Invalid user oracle from 198.51.100.120 port 45982
+2026-10-01T10:32:46.783000+00:00 lab11-sshd sshd[7665]: Failed password for invalid user oracle from 198.51.100.120 port 45982 ssh2
+2026-10-01T10:40:15.000000+00:00 lab11-sshd sshd[5937]: Accepted password for labuser from 192.0.2.10 port 27541 ssh2
+2026-10-01T10:40:33.000000+00:00 lab11-sshd sshd[1116]: Accepted password for labuser from 192.0.2.10 port 41020 ssh2
+2026-10-01T10:42:29.000000+00:00 lab11-sshd sshd[8946]: Disconnected from user labuser 192.0.2.10 port 41020
+2026-10-01T10:48:12.000000+00:00 lab11-sshd sshd[4972]: Disconnected from user labuser 192.0.2.10 port 27541
+2026-10-01T13:31:08.000000+00:00 lab11-sshd sshd[1571]: Invalid user deploy from 203.0.113.164 port 51960
+2026-10-01T13:31:08.308000+00:00 lab11-sshd sshd[1571]: Failed password for invalid user deploy from 203.0.113.164 port 51960 ssh2
+2026-10-01T13:31:08.522000+00:00 lab11-sshd sshd[1571]: Connection closed by invalid user deploy 203.0.113.164 port 51960 [preauth]
+2026-10-01T15:56:59.000000+00:00 lab11-sshd sshd[3316]: Invalid user pi from 203.0.113.150 port 32531
+2026-10-01T15:56:59.263000+00:00 lab11-sshd sshd[3316]: Failed password for invalid user pi from 203.0.113.150 port 32531 ssh2
+2026-10-01T16:43:09.000000+00:00 lab11-sshd sshd[1626]: Invalid user pi from 198.51.100.120 port 2677
+2026-10-01T16:43:09.804000+00:00 lab11-sshd sshd[1626]: Failed password for invalid user pi from 198.51.100.120 port 2677 ssh2
+2026-10-01T16:46:16.000000+00:00 lab11-sshd sshd[7348]: Invalid user ubuntu from 203.0.113.164 port 54613
+2026-10-01T16:46:16.785000+00:00 lab11-sshd sshd[7348]: Failed password for invalid user ubuntu from 203.0.113.164 port 54613 ssh2
+2026-10-01T17:35:20.000000+00:00 lab11-sshd sshd[2560]: Did not receive identification string from 198.51.100.120 port 56849
+2026-10-01T17:37:38.000000+00:00 lab11-sshd sshd[497]: Invalid user git from 198.51.100.120 port 32973
+2026-10-01T17:37:38.481000+00:00 lab11-sshd sshd[497]: Failed password for invalid user git from 198.51.100.120 port 32973 ssh2
+2026-10-01T17:37:38.895000+00:00 lab11-sshd sshd[497]: Connection closed by invalid user git 198.51.100.120 port 32973 [preauth]
+2026-10-01T18:58:13.000000+00:00 lab11-sshd sshd[5712]: Invalid user git from 192.0.2.140 port 40206
+2026-10-01T18:58:13.880000+00:00 lab11-sshd sshd[5712]: Failed password for invalid user git from 192.0.2.140 port 40206 ssh2
+2026-10-01T19:08:43.000000+00:00 lab11-sshd sshd[9442]: Invalid user ubuntu from 198.51.100.201 port 35196
+2026-10-01T19:08:43.717000+00:00 lab11-sshd sshd[9442]: Failed password for invalid user ubuntu from 198.51.100.201 port 35196 ssh2
+2026-10-01T19:08:45.160000+00:00 lab11-sshd sshd[9442]: Connection closed by invalid user ubuntu 198.51.100.201 port 35196 [preauth]
+2026-10-01T19:20:54.000000+00:00 lab11-sshd sshd[9690]: Invalid user ubuntu from 192.0.2.151 port 31951
+2026-10-01T19:20:54.310000+00:00 lab11-sshd sshd[9690]: Failed password for invalid user ubuntu from 192.0.2.151 port 31951 ssh2
+2026-10-01T19:20:55.181000+00:00 lab11-sshd sshd[9690]: Connection closed by invalid user ubuntu 192.0.2.151 port 31951 [preauth]
+2026-10-01T20:15:53.000000+00:00 lab11-sshd sshd[6628]: Invalid user pi from 203.0.113.164 port 10718
+2026-10-01T20:15:53.246000+00:00 lab11-sshd sshd[6628]: Failed password for invalid user pi from 203.0.113.164 port 10718 ssh2
+2026-10-01T20:28:31.000000+00:00 lab11-sshd sshd[3713]: Invalid user test from 198.51.100.201 port 52314
+2026-10-01T20:28:31.164000+00:00 lab11-sshd sshd[3713]: Failed password for invalid user test from 198.51.100.201 port 52314 ssh2
+2026-10-01T21:24:01.000000+00:00 lab11-sshd sshd[1317]: Invalid user admin from 198.51.100.201 port 43649
+2026-10-01T21:24:01.483000+00:00 lab11-sshd sshd[1317]: Failed password for invalid user admin from 198.51.100.201 port 43649 ssh2
+2026-10-01T23:53:03.000000+00:00 lab11-sshd sshd[9816]: Invalid user git from 192.0.2.140 port 17308
+2026-10-01T23:53:03.519000+00:00 lab11-sshd sshd[9816]: Failed password for invalid user git from 192.0.2.140 port 17308 ssh2
+2026-10-02T00:07:54.000000+00:00 lab11-sshd sshd[2218]: Invalid user admin from 198.51.100.133 port 4822
+2026-10-02T00:07:54.581000+00:00 lab11-sshd sshd[2218]: Failed password for invalid user admin from 198.51.100.133 port 4822 ssh2
+2026-10-02T02:10:31.000000+00:00 lab11-sshd sshd[7682]: Invalid user postgres from 192.0.2.140 port 39550
+2026-10-02T02:10:31.235000+00:00 lab11-sshd sshd[7682]: Failed password for invalid user postgres from 192.0.2.140 port 39550 ssh2
+2026-10-02T02:58:04.292981+00:00 lab11-sshd sshd[2720]: Failed password for root from 203.0.113.66 port 33675 ssh2
+2026-10-02T02:58:05.727981+00:00 lab11-sshd sshd[2720]: Connection closed by authenticating user root 203.0.113.66 port 33675 [preauth]
+2026-10-02T03:00:09.322866+00:00 lab11-sshd sshd[4171]: Failed password for root from 203.0.113.66 port 13444 ssh2
+2026-10-02T03:00:09.822866+00:00 lab11-sshd sshd[4171]: Connection closed by authenticating user root 203.0.113.66 port 13444 [preauth]
+2026-10-02T03:01:12.206987+00:00 lab11-sshd sshd[3479]: Failed password for root from 203.0.113.66 port 8700 ssh2
+2026-10-02T03:03:09.138046+00:00 lab11-sshd sshd[1783]: Failed password for root from 203.0.113.66 port 57928 ssh2
+2026-10-02T03:04:15.107162+00:00 lab11-sshd sshd[701]: Failed password for root from 203.0.113.66 port 6294 ssh2
+2026-10-02T03:04:16.489162+00:00 lab11-sshd sshd[701]: Connection closed by authenticating user root 203.0.113.66 port 6294 [preauth]
+2026-10-02T03:06:49.494368+00:00 lab11-sshd sshd[5874]: Failed password for root from 203.0.113.66 port 32187 ssh2
+2026-10-02T03:06:49.770368+00:00 lab11-sshd sshd[5874]: Connection closed by authenticating user root 203.0.113.66 port 32187 [preauth]
+2026-10-02T03:09:13.694951+00:00 lab11-sshd sshd[9095]: Failed password for root from 203.0.113.66 port 60373 ssh2
+2026-10-02T03:09:14.291951+00:00 lab11-sshd sshd[9095]: Connection closed by authenticating user root 203.0.113.66 port 60373 [preauth]
+2026-10-02T03:11:36.893038+00:00 lab11-sshd sshd[5502]: Failed password for root from 203.0.113.66 port 55975 ssh2
+2026-10-02T03:11:38.356038+00:00 lab11-sshd sshd[5502]: Connection closed by authenticating user root 203.0.113.66 port 55975 [preauth]
+2026-10-02T03:13:41.016302+00:00 lab11-sshd sshd[416]: Failed password for root from 203.0.113.66 port 50673 ssh2
+2026-10-02T03:14:29.268520+00:00 lab11-sshd sshd[4552]: Failed password for root from 203.0.113.66 port 40999 ssh2
+2026-10-02T03:16:28.197216+00:00 lab11-sshd sshd[932]: Failed password for root from 203.0.113.66 port 41087 ssh2
+2026-10-02T03:17:59.951019+00:00 lab11-sshd sshd[4856]: Failed password for root from 203.0.113.66 port 8557 ssh2
+2026-10-02T03:18:00.337019+00:00 lab11-sshd sshd[4856]: Connection closed by authenticating user root 203.0.113.66 port 8557 [preauth]
+2026-10-02T03:19:29.287245+00:00 lab11-sshd sshd[434]: Failed password for root from 203.0.113.66 port 20713 ssh2
+2026-10-02T03:22:06.555896+00:00 lab11-sshd sshd[4203]: Failed password for root from 203.0.113.66 port 52033 ssh2
+2026-10-02T03:24:06.758219+00:00 lab11-sshd sshd[8257]: Failed password for root from 203.0.113.66 port 28482 ssh2
+2026-10-02T03:24:07.202219+00:00 lab11-sshd sshd[8257]: Connection closed by authenticating user root 203.0.113.66 port 28482 [preauth]
+2026-10-02T03:25:37.814558+00:00 lab11-sshd sshd[6485]: Failed password for root from 203.0.113.66 port 32884 ssh2
+2026-10-02T03:25:53.095800+00:00 lab11-sshd sshd[7028]: Failed password for root from 203.0.113.66 port 8065 ssh2
+2026-10-02T03:25:53.414800+00:00 lab11-sshd sshd[7028]: Connection closed by authenticating user root 203.0.113.66 port 8065 [preauth]
+2026-10-02T03:28:52.462271+00:00 lab11-sshd sshd[8041]: Failed password for root from 203.0.113.66 port 19734 ssh2
+2026-10-02T03:30:32.047552+00:00 lab11-sshd sshd[7476]: Failed password for root from 203.0.113.66 port 50674 ssh2
+2026-10-02T03:30:36.751132+00:00 lab11-sshd sshd[2294]: Failed password for root from 203.0.113.66 port 50443 ssh2
+2026-10-02T03:30:37.899132+00:00 lab11-sshd sshd[2294]: Connection closed by authenticating user root 203.0.113.66 port 50443 [preauth]
+2026-10-02T03:33:13.900667+00:00 lab11-sshd sshd[6216]: Failed password for root from 203.0.113.66 port 25895 ssh2
+2026-10-02T03:33:14.126667+00:00 lab11-sshd sshd[6216]: Connection closed by authenticating user root 203.0.113.66 port 25895 [preauth]
+2026-10-02T03:36:10.968452+00:00 lab11-sshd sshd[7775]: Failed password for root from 203.0.113.66 port 14253 ssh2
+2026-10-02T03:39:14.763097+00:00 lab11-sshd sshd[8079]: Failed password for root from 203.0.113.66 port 53569 ssh2
+2026-10-02T03:42:20.590437+00:00 lab11-sshd sshd[134]: Failed password for root from 203.0.113.66 port 45162 ssh2
+2026-10-02T03:42:42.973797+00:00 lab11-sshd sshd[4209]: Failed password for root from 203.0.113.66 port 24947 ssh2
+2026-10-02T03:42:48.163627+00:00 lab11-sshd sshd[823]: Failed password for root from 203.0.113.66 port 4896 ssh2
+2026-10-02T03:42:49.306627+00:00 lab11-sshd sshd[823]: Connection closed by authenticating user root 203.0.113.66 port 4896 [preauth]
+2026-10-02T03:43:55.454041+00:00 lab11-sshd sshd[4987]: Failed password for root from 203.0.113.66 port 39134 ssh2
+2026-10-02T03:44:50.124287+00:00 lab11-sshd sshd[5605]: Failed password for root from 203.0.113.66 port 28253 ssh2
+2026-10-02T03:44:50.716287+00:00 lab11-sshd sshd[5605]: Connection closed by authenticating user root 203.0.113.66 port 28253 [preauth]
+2026-10-02T03:47:58.425834+00:00 lab11-sshd sshd[8024]: Failed password for root from 203.0.113.66 port 17862 ssh2
+2026-10-02T03:49:56.378177+00:00 lab11-sshd sshd[9985]: Failed password for root from 203.0.113.66 port 49734 ssh2
+2026-10-02T03:49:57.128177+00:00 lab11-sshd sshd[9985]: Connection closed by authenticating user root 203.0.113.66 port 49734 [preauth]
+2026-10-02T03:50:40.410288+00:00 lab11-sshd sshd[4990]: Failed password for root from 203.0.113.66 port 22394 ssh2
+2026-10-02T03:50:41.802288+00:00 lab11-sshd sshd[4990]: Connection closed by authenticating user root 203.0.113.66 port 22394 [preauth]
+2026-10-02T03:52:57.072663+00:00 lab11-sshd sshd[6108]: Failed password for root from 203.0.113.66 port 7400 ssh2
+2026-10-02T03:54:41.858232+00:00 lab11-sshd sshd[5992]: Failed password for root from 203.0.113.66 port 30215 ssh2
+2026-10-02T03:56:17.790529+00:00 lab11-sshd sshd[7797]: Failed password for root from 203.0.113.66 port 62513 ssh2
+2026-10-02T03:56:18.201529+00:00 lab11-sshd sshd[7797]: Connection closed by authenticating user root 203.0.113.66 port 62513 [preauth]
+2026-10-02T03:58:43.350001+00:00 lab11-sshd sshd[5574]: Failed password for root from 203.0.113.66 port 17271 ssh2
+2026-10-02T04:00:17.843667+00:00 lab11-sshd sshd[637]: Failed password for root from 203.0.113.66 port 61831 ssh2
+2026-10-02T04:02:29.996222+00:00 lab11-sshd sshd[9837]: Failed password for root from 203.0.113.66 port 54443 ssh2
+2026-10-02T04:04:04.997091+00:00 lab11-sshd sshd[6412]: Failed password for root from 203.0.113.66 port 44988 ssh2
+2026-10-02T04:04:05.757091+00:00 lab11-sshd sshd[6412]: Connection closed by authenticating user root 203.0.113.66 port 44988 [preauth]
+2026-10-02T04:07:16.189966+00:00 lab11-sshd sshd[1793]: Failed password for root from 203.0.113.66 port 35320 ssh2
+2026-10-02T04:07:16.628966+00:00 lab11-sshd sshd[1793]: Connection closed by authenticating user root 203.0.113.66 port 35320 [preauth]
+2026-10-02T04:07:34.659406+00:00 lab11-sshd sshd[300]: Failed password for root from 203.0.113.66 port 47485 ssh2
+2026-10-02T04:07:35.024406+00:00 lab11-sshd sshd[300]: Connection closed by authenticating user root 203.0.113.66 port 47485 [preauth]
+2026-10-02T04:09:10.601944+00:00 lab11-sshd sshd[7799]: Failed password for root from 203.0.113.66 port 39475 ssh2
+2026-10-02T04:12:11.606882+00:00 lab11-sshd sshd[7118]: Failed password for root from 203.0.113.66 port 10658 ssh2
+2026-10-02T04:15:28.824502+00:00 lab11-sshd sshd[1598]: Failed password for root from 203.0.113.66 port 23560 ssh2
+2026-10-02T04:15:29.256502+00:00 lab11-sshd sshd[1598]: Connection closed by authenticating user root 203.0.113.66 port 23560 [preauth]
+2026-10-02T04:18:28.257223+00:00 lab11-sshd sshd[9009]: Failed password for root from 203.0.113.66 port 10097 ssh2
+2026-10-02T04:19:09.860995+00:00 lab11-sshd sshd[847]: Failed password for root from 203.0.113.66 port 16798 ssh2
+2026-10-02T05:54:55.000000+00:00 lab11-sshd sshd[3728]: Invalid user postgres from 198.51.100.120 port 5587
+2026-10-02T05:54:55.378000+00:00 lab11-sshd sshd[3728]: Failed password for invalid user postgres from 198.51.100.120 port 5587 ssh2
+2026-10-02T05:54:56.003000+00:00 lab11-sshd sshd[3728]: Connection closed by invalid user postgres 198.51.100.120 port 5587 [preauth]
+2026-10-02T09:36:14.000000+00:00 lab11-sshd sshd[9352]: Invalid user pi from 203.0.113.201 port 26174
+2026-10-02T09:36:14.107000+00:00 lab11-sshd sshd[9352]: Failed password for invalid user pi from 203.0.113.201 port 26174 ssh2
+2026-10-02T10:44:22.000000+00:00 lab11-sshd sshd[7922]: Accepted password for labuser from 192.0.2.10 port 25440 ssh2
+2026-10-02T10:53:45.000000+00:00 lab11-sshd sshd[6609]: Disconnected from user labuser 192.0.2.10 port 25440
+2026-10-02T12:52:36.594000+00:00 lab11-sshd sshd[2960]: Failed password for root from 203.0.113.150 port 49726 ssh2
+2026-10-02T14:03:19.000000+00:00 lab11-sshd sshd[8050]: Invalid user git from 198.51.100.120 port 46599
+2026-10-02T14:03:19.260000+00:00 lab11-sshd sshd[8050]: Failed password for invalid user git from 198.51.100.120 port 46599 ssh2
+2026-10-02T14:30:58.000000+00:00 lab11-sshd sshd[5242]: Invalid user pi from 192.0.2.140 port 54683
+2026-10-02T14:30:58.829000+00:00 lab11-sshd sshd[5242]: Failed password for invalid user pi from 192.0.2.140 port 54683 ssh2
+2026-10-02T14:39:55.000000+00:00 lab11-sshd sshd[5698]: Invalid user postgres from 198.51.100.133 port 63988
+2026-10-02T14:39:55.260000+00:00 lab11-sshd sshd[5698]: Failed password for invalid user postgres from 198.51.100.133 port 63988 ssh2
+2026-10-02T14:39:56.405000+00:00 lab11-sshd sshd[5698]: Connection closed by invalid user postgres 198.51.100.133 port 63988 [preauth]
+2026-10-02T15:07:49.000000+00:00 lab11-sshd sshd[2954]: Invalid user test from 192.0.2.168 port 46707
+2026-10-02T15:07:49.624000+00:00 lab11-sshd sshd[2954]: Failed password for invalid user test from 192.0.2.168 port 46707 ssh2
+2026-10-02T16:00:34.000000+00:00 lab11-sshd sshd[8622]: Invalid user ubuntu from 198.51.100.133 port 33508
+2026-10-02T16:00:34.167000+00:00 lab11-sshd sshd[8622]: Failed password for invalid user ubuntu from 198.51.100.133 port 33508 ssh2
+2026-10-02T18:41:27.000000+00:00 lab11-sshd sshd[3342]: Invalid user admin from 192.0.2.151 port 61164
+2026-10-02T18:41:27.251000+00:00 lab11-sshd sshd[3342]: Failed password for invalid user admin from 192.0.2.151 port 61164 ssh2
+2026-10-02T21:14:18.000000+00:00 lab11-sshd sshd[8442]: Invalid user admin from 203.0.113.150 port 47621
+2026-10-02T21:14:18.209000+00:00 lab11-sshd sshd[8442]: Failed password for invalid user admin from 203.0.113.150 port 47621 ssh2
+2026-10-02T21:31:18.000000+00:00 lab11-sshd sshd[2335]: Did not receive identification string from 203.0.113.150 port 37038
+2026-10-02T21:34:47.000000+00:00 lab11-sshd sshd[5552]: Invalid user deploy from 203.0.113.150 port 5667
+2026-10-02T21:34:47.120000+00:00 lab11-sshd sshd[5552]: Failed password for invalid user deploy from 203.0.113.150 port 5667 ssh2
+2026-10-02T21:38:49.000000+00:00 lab11-sshd sshd[2074]: Invalid user git from 203.0.113.150 port 1891
+2026-10-02T21:38:49.463000+00:00 lab11-sshd sshd[2074]: Failed password for invalid user git from 203.0.113.150 port 1891 ssh2
+2026-10-02T21:49:27.255000+00:00 lab11-sshd sshd[4335]: Failed password for root from 198.51.100.133 port 24516 ssh2
+2026-10-02T22:27:38.119000+00:00 lab11-sshd sshd[5507]: Failed password for root from 203.0.113.164 port 37803 ssh2
+2026-10-03T01:13:09.000000+00:00 lab11-sshd sshd[148]: Invalid user ubuntu from 203.0.113.150 port 10612
+2026-10-03T01:13:09.448000+00:00 lab11-sshd sshd[148]: Failed password for invalid user ubuntu from 203.0.113.150 port 10612 ssh2
+2026-10-03T01:13:10.080000+00:00 lab11-sshd sshd[148]: Connection closed by invalid user ubuntu 203.0.113.150 port 10612 [preauth]
+2026-10-03T02:36:39.000000+00:00 lab11-sshd sshd[3296]: Invalid user git from 198.51.100.201 port 33542
+2026-10-03T02:36:39.396000+00:00 lab11-sshd sshd[3296]: Failed password for invalid user git from 198.51.100.201 port 33542 ssh2
+2026-10-03T03:59:57.000000+00:00 lab11-sshd sshd[6595]: Invalid user pi from 198.51.100.201 port 39652
+2026-10-03T03:59:57.336000+00:00 lab11-sshd sshd[6595]: Failed password for invalid user pi from 198.51.100.201 port 39652 ssh2
+2026-10-03T07:12:29.000000+00:00 lab11-sshd sshd[6497]: Invalid user git from 192.0.2.168 port 12550
+2026-10-03T07:12:29.392000+00:00 lab11-sshd sshd[6497]: Failed password for invalid user git from 192.0.2.168 port 12550 ssh2
+2026-10-03T08:04:05.000000+00:00 lab11-sshd sshd[4308]: Invalid user postgres from 192.0.2.140 port 15219
+2026-10-03T08:04:05.346000+00:00 lab11-sshd sshd[4308]: Failed password for invalid user postgres from 192.0.2.140 port 15219 ssh2
+2026-10-03T08:22:49.000000+00:00 lab11-sshd sshd[2017]: Invalid user user from 203.0.113.164 port 15088
+2026-10-03T08:22:49.393000+00:00 lab11-sshd sshd[2017]: Failed password for invalid user user from 203.0.113.164 port 15088 ssh2
+2026-10-03T08:22:50.891000+00:00 lab11-sshd sshd[2017]: Connection closed by invalid user user 203.0.113.164 port 15088 [preauth]
+2026-10-03T09:34:07.000000+00:00 lab11-sshd sshd[1433]: Invalid user pi from 198.51.100.201 port 19829
+2026-10-03T09:34:07.648000+00:00 lab11-sshd sshd[1433]: Failed password for invalid user pi from 198.51.100.201 port 19829 ssh2
+2026-10-03T09:34:09.121000+00:00 lab11-sshd sshd[1433]: Connection closed by invalid user pi 198.51.100.201 port 19829 [preauth]
+2026-10-03T09:38:42.000000+00:00 lab11-sshd sshd[3431]: Invalid user user from 192.0.2.168 port 26369
+2026-10-03T09:38:42.591000+00:00 lab11-sshd sshd[3431]: Failed password for invalid user user from 192.0.2.168 port 26369 ssh2
+2026-10-03T09:38:44.046000+00:00 lab11-sshd sshd[3431]: Connection closed by invalid user user 192.0.2.168 port 26369 [preauth]
+2026-10-03T09:51:50.000000+00:00 lab11-sshd sshd[4031]: Invalid user oracle from 203.0.113.164 port 29351
+2026-10-03T09:51:50.531000+00:00 lab11-sshd sshd[4031]: Failed password for invalid user oracle from 203.0.113.164 port 29351 ssh2
+2026-10-03T09:51:51.923000+00:00 lab11-sshd sshd[4031]: Connection closed by invalid user oracle 203.0.113.164 port 29351 [preauth]
+2026-10-03T10:29:41.000000+00:00 lab11-sshd sshd[4285]: Invalid user git from 203.0.113.164 port 31433
+2026-10-03T10:29:41.344000+00:00 lab11-sshd sshd[4285]: Failed password for invalid user git from 203.0.113.164 port 31433 ssh2
+2026-10-03T11:18:02.000000+00:00 lab11-sshd sshd[5657]: Accepted password for labuser from 192.0.2.10 port 33876 ssh2
+2026-10-03T11:23:28.000000+00:00 lab11-sshd sshd[4685]: Disconnected from user labuser 192.0.2.10 port 33876
+2026-10-03T12:03:24.000000+00:00 lab11-sshd sshd[4153]: Invalid user ubuntu from 192.0.2.168 port 9905
+2026-10-03T12:03:24.855000+00:00 lab11-sshd sshd[4153]: Failed password for invalid user ubuntu from 192.0.2.168 port 9905 ssh2
+2026-10-03T12:53:29.000000+00:00 lab11-sshd sshd[8501]: Invalid user git from 203.0.113.164 port 35438
+2026-10-03T12:53:29.168000+00:00 lab11-sshd sshd[8501]: Failed password for invalid user git from 203.0.113.164 port 35438 ssh2
+2026-10-03T13:23:54.000000+00:00 lab11-sshd sshd[4601]: Invalid user test from 192.0.2.151 port 28577
+2026-10-03T13:23:54.408000+00:00 lab11-sshd sshd[4601]: Failed password for invalid user test from 192.0.2.151 port 28577 ssh2
+2026-10-03T15:09:36.000000+00:00 lab11-sshd sshd[4720]: Invalid user deploy from 198.51.100.201 port 17784
+2026-10-03T15:09:36.779000+00:00 lab11-sshd sshd[4720]: Failed password for invalid user deploy from 198.51.100.201 port 17784 ssh2
+2026-10-03T15:55:14.000000+00:00 lab11-sshd sshd[4641]: Invalid user oracle from 198.51.100.201 port 19502
+2026-10-03T15:55:14.165000+00:00 lab11-sshd sshd[4641]: Failed password for invalid user oracle from 198.51.100.201 port 19502 ssh2
+2026-10-03T16:48:39.000000+00:00 lab11-sshd sshd[7140]: Invalid user git from 192.0.2.140 port 37058
+2026-10-03T16:48:39.709000+00:00 lab11-sshd sshd[7140]: Failed password for invalid user git from 192.0.2.140 port 37058 ssh2
+2026-10-03T17:39:24.000000+00:00 lab11-sshd sshd[8578]: Invalid user git from 203.0.113.150 port 26546
+2026-10-03T17:39:24.194000+00:00 lab11-sshd sshd[8578]: Failed password for invalid user git from 203.0.113.150 port 26546 ssh2
+2026-10-03T18:25:47.000000+00:00 lab11-sshd sshd[4225]: Invalid user deploy from 192.0.2.168 port 64085
+2026-10-03T18:25:47.100000+00:00 lab11-sshd sshd[4225]: Failed password for invalid user deploy from 192.0.2.168 port 64085 ssh2
+2026-10-03T18:36:25.000000+00:00 lab11-sshd sshd[8105]: Invalid user user from 203.0.113.150 port 4964
+2026-10-03T18:36:25.359000+00:00 lab11-sshd sshd[8105]: Failed password for invalid user user from 203.0.113.150 port 4964 ssh2
+2026-10-03T19:34:24.000000+00:00 lab11-sshd sshd[999]: Invalid user test from 192.0.2.140 port 62259
+2026-10-03T19:34:24.239000+00:00 lab11-sshd sshd[999]: Failed password for invalid user test from 192.0.2.140 port 62259 ssh2
+2026-10-03T20:47:33.000000+00:00 lab11-sshd sshd[8515]: Invalid user deploy from 203.0.113.164 port 14086
+2026-10-03T20:47:33.120000+00:00 lab11-sshd sshd[8515]: Failed password for invalid user deploy from 203.0.113.164 port 14086 ssh2
+2026-10-03T20:58:08.000000+00:00 lab11-sshd sshd[4090]: Did not receive identification string from 203.0.113.164 port 48294
+2026-10-03T21:43:16.402000+00:00 lab11-sshd sshd[9654]: Failed password for root from 192.0.2.140 port 26690 ssh2
+2026-10-03T21:51:51.000000+00:00 lab11-sshd sshd[8429]: Invalid user user from 192.0.2.151 port 61356
+2026-10-03T21:51:51.635000+00:00 lab11-sshd sshd[8429]: Failed password for invalid user user from 192.0.2.151 port 61356 ssh2
+2026-10-03T23:33:35.000000+00:00 lab11-sshd sshd[7505]: Invalid user test from 192.0.2.168 port 24493
+2026-10-03T23:33:35.650000+00:00 lab11-sshd sshd[7505]: Failed password for invalid user test from 192.0.2.168 port 24493 ssh2
+2026-10-04T00:18:10.000000+00:00 lab11-sshd sshd[7517]: Invalid user git from 198.51.100.133 port 46409
+2026-10-04T00:18:10.732000+00:00 lab11-sshd sshd[7517]: Failed password for invalid user git from 198.51.100.133 port 46409 ssh2
+2026-10-04T00:18:11.752000+00:00 lab11-sshd sshd[7517]: Connection closed by invalid user git 198.51.100.133 port 46409 [preauth]
+2026-10-04T01:07:26.000000+00:00 lab11-sshd sshd[5025]: Invalid user test from 198.51.100.201 port 22435
+2026-10-04T01:07:26.461000+00:00 lab11-sshd sshd[5025]: Failed password for invalid user test from 198.51.100.201 port 22435 ssh2
+2026-10-04T01:50:15.000000+00:00 lab11-sshd sshd[763]: Invalid user admin from 192.0.2.168 port 13370
+2026-10-04T01:50:15.707000+00:00 lab11-sshd sshd[763]: Failed password for invalid user admin from 192.0.2.168 port 13370 ssh2
+2026-10-04T01:50:16.294000+00:00 lab11-sshd sshd[763]: Connection closed by invalid user admin 192.0.2.168 port 13370 [preauth]
+2026-10-04T03:17:52.000000+00:00 lab11-sshd sshd[2907]: Invalid user pi from 192.0.2.140 port 38847
+2026-10-04T03:17:52.590000+00:00 lab11-sshd sshd[2907]: Failed password for invalid user pi from 192.0.2.140 port 38847 ssh2
+2026-10-04T05:54:21.000000+00:00 lab11-sshd sshd[8254]: Invalid user admin from 203.0.113.150 port 10322
+2026-10-04T05:54:21.101000+00:00 lab11-sshd sshd[8254]: Failed password for invalid user admin from 203.0.113.150 port 10322 ssh2
+2026-10-04T05:54:22.380000+00:00 lab11-sshd sshd[8254]: Connection closed by invalid user admin 203.0.113.150 port 10322 [preauth]
+2026-10-04T06:27:36.724000+00:00 lab11-sshd sshd[6613]: Failed password for root from 192.0.2.140 port 60993 ssh2
+2026-10-04T10:43:18.000000+00:00 lab11-sshd sshd[6565]: Invalid user postgres from 198.51.100.201 port 41096
+2026-10-04T10:43:18.165000+00:00 lab11-sshd sshd[6565]: Failed password for invalid user postgres from 198.51.100.201 port 41096 ssh2
+2026-10-04T10:49:34.000000+00:00 lab11-sshd sshd[7554]: Accepted password for labuser from 192.0.2.10 port 22277 ssh2
+2026-10-04T10:56:24.000000+00:00 lab11-sshd sshd[1545]: Disconnected from user labuser 192.0.2.10 port 22277
+2026-10-04T12:32:22.000000+00:00 lab11-sshd sshd[9798]: Invalid user test from 198.51.100.133 port 61658
+2026-10-04T12:32:22.391000+00:00 lab11-sshd sshd[9798]: Failed password for invalid user test from 198.51.100.133 port 61658 ssh2
+2026-10-04T12:47:39.000000+00:00 lab11-sshd sshd[9683]: Invalid user pi from 203.0.113.164 port 24930
+2026-10-04T12:47:39.403000+00:00 lab11-sshd sshd[9683]: Failed password for invalid user pi from 203.0.113.164 port 24930 ssh2
+2026-10-04T13:39:48.000000+00:00 lab11-sshd sshd[2404]: Invalid user admin from 192.0.2.140 port 53752
+2026-10-04T13:39:48.539000+00:00 lab11-sshd sshd[2404]: Failed password for invalid user admin from 192.0.2.140 port 53752 ssh2
+2026-10-04T13:39:48.749000+00:00 lab11-sshd sshd[2404]: Connection closed by invalid user admin 192.0.2.140 port 53752 [preauth]
+2026-10-04T15:26:25.000000+00:00 lab11-sshd sshd[5603]: Invalid user pi from 203.0.113.150 port 20470
+2026-10-04T15:26:25.229000+00:00 lab11-sshd sshd[5603]: Failed password for invalid user pi from 203.0.113.150 port 20470 ssh2
+2026-10-04T15:26:26.034000+00:00 lab11-sshd sshd[5603]: Connection closed by invalid user pi 203.0.113.150 port 20470 [preauth]
+2026-10-04T15:33:42.000000+00:00 lab11-sshd sshd[1413]: Invalid user pi from 203.0.113.150 port 44435
+2026-10-04T15:33:42.851000+00:00 lab11-sshd sshd[1413]: Failed password for invalid user pi from 203.0.113.150 port 44435 ssh2
+2026-10-04T17:01:28.000000+00:00 lab11-sshd sshd[3329]: Invalid user admin from 192.0.2.140 port 48781
+2026-10-04T17:01:28.332000+00:00 lab11-sshd sshd[3329]: Failed password for invalid user admin from 192.0.2.140 port 48781 ssh2
+2026-10-04T17:03:14.000000+00:00 lab11-sshd sshd[2541]: Invalid user git from 203.0.113.201 port 19058
+2026-10-04T17:03:14.608000+00:00 lab11-sshd sshd[2541]: Failed password for invalid user git from 203.0.113.201 port 19058 ssh2
+2026-10-04T17:03:15.865000+00:00 lab11-sshd sshd[2541]: Connection closed by invalid user git 203.0.113.201 port 19058 [preauth]
+2026-10-04T20:40:03.895941+00:00 lab11-sshd sshd[9984]: Failed password for labuser from 198.51.100.23 port 34710 ssh2
+2026-10-04T20:42:21.201620+00:00 lab11-sshd sshd[6599]: Failed password for labuser from 198.51.100.23 port 4032 ssh2
+2026-10-04T20:42:21.440620+00:00 lab11-sshd sshd[6599]: Connection closed by authenticating user labuser 198.51.100.23 port 4032 [preauth]
+2026-10-04T20:44:33.743351+00:00 lab11-sshd sshd[1963]: Failed password for labuser from 198.51.100.23 port 50170 ssh2
+2026-10-04T20:44:34.306351+00:00 lab11-sshd sshd[1963]: Connection closed by authenticating user labuser 198.51.100.23 port 50170 [preauth]
+2026-10-04T20:45:56.747641+00:00 lab11-sshd sshd[1152]: Failed password for labuser from 198.51.100.23 port 27002 ssh2
+2026-10-04T20:45:57.949641+00:00 lab11-sshd sshd[1152]: Connection closed by authenticating user labuser 198.51.100.23 port 27002 [preauth]
+2026-10-04T20:47:47.648865+00:00 lab11-sshd sshd[1991]: Failed password for labuser from 198.51.100.23 port 52466 ssh2
+2026-10-04T20:47:47.992865+00:00 lab11-sshd sshd[1991]: Connection closed by authenticating user labuser 198.51.100.23 port 52466 [preauth]
+2026-10-04T20:49:07.319736+00:00 lab11-sshd sshd[7871]: Failed password for labuser from 198.51.100.23 port 16922 ssh2
+2026-10-04T20:49:29.214499+00:00 lab11-sshd sshd[2131]: Failed password for labuser from 198.51.100.23 port 58467 ssh2
+2026-10-04T20:49:30.568499+00:00 lab11-sshd sshd[2131]: Connection closed by authenticating user labuser 198.51.100.23 port 58467 [preauth]
+2026-10-04T20:51:48.290029+00:00 lab11-sshd sshd[9840]: Failed password for labuser from 198.51.100.23 port 61807 ssh2
+2026-10-04T20:52:48.602740+00:00 lab11-sshd sshd[4671]: Failed password for labuser from 198.51.100.23 port 12954 ssh2
+2026-10-04T20:53:05.000000+00:00 lab11-sshd sshd[5191]: Invalid user oracle from 203.0.113.150 port 13352
+2026-10-04T20:53:05.455000+00:00 lab11-sshd sshd[5191]: Failed password for invalid user oracle from 203.0.113.150 port 13352 ssh2
+2026-10-04T20:53:43.809661+00:00 lab11-sshd sshd[3509]: Failed password for labuser from 198.51.100.23 port 7744 ssh2
+2026-10-04T20:54:08.505088+00:00 lab11-sshd sshd[9201]: Failed password for labuser from 198.51.100.23 port 12148 ssh2
+2026-10-04T20:55:06.351527+00:00 lab11-sshd sshd[2696]: Failed password for labuser from 198.51.100.23 port 48249 ssh2
+2026-10-04T20:57:22.370742+00:00 lab11-sshd sshd[5003]: Failed password for labuser from 198.51.100.23 port 1709 ssh2
+2026-10-04T20:59:34.826230+00:00 lab11-sshd sshd[5190]: Failed password for labuser from 198.51.100.23 port 5977 ssh2
+2026-10-04T21:01:06.393391+00:00 lab11-sshd sshd[298]: Failed password for labuser from 198.51.100.23 port 17159 ssh2
+2026-10-04T21:02:25.120393+00:00 lab11-sshd sshd[9160]: Failed password for labuser from 198.51.100.23 port 22204 ssh2
+2026-10-04T21:04:45.665231+00:00 lab11-sshd sshd[9052]: Failed password for labuser from 198.51.100.23 port 36852 ssh2
+2026-10-04T21:04:48.455666+00:00 lab11-sshd sshd[6693]: Failed password for labuser from 198.51.100.23 port 22478 ssh2
+2026-10-04T21:05:03.113321+00:00 lab11-sshd sshd[6954]: Failed password for labuser from 198.51.100.23 port 42944 ssh2
+2026-10-04T21:05:27.149483+00:00 lab11-sshd sshd[111]: Failed password for labuser from 198.51.100.23 port 55866 ssh2
+2026-10-04T21:07:33.995759+00:00 lab11-sshd sshd[4400]: Failed password for labuser from 198.51.100.23 port 19379 ssh2
+2026-10-04T21:08:19.883858+00:00 lab11-sshd sshd[7738]: Failed password for labuser from 198.51.100.23 port 43570 ssh2
+2026-10-04T21:10:10.942030+00:00 lab11-sshd sshd[2068]: Failed password for labuser from 198.51.100.23 port 64866 ssh2
+2026-10-04T21:12:12.604351+00:00 lab11-sshd sshd[6382]: Failed password for labuser from 198.51.100.23 port 48620 ssh2
+2026-10-04T21:12:12.880351+00:00 lab11-sshd sshd[6382]: Connection closed by authenticating user labuser 198.51.100.23 port 48620 [preauth]
+2026-10-04T21:12:20.006841+00:00 lab11-sshd sshd[1283]: Failed password for labuser from 198.51.100.23 port 3939 ssh2
+2026-10-04T21:12:23.820496+00:00 lab11-sshd sshd[9175]: Failed password for labuser from 198.51.100.23 port 46436 ssh2
+2026-10-04T21:12:24.684496+00:00 lab11-sshd sshd[9175]: Connection closed by authenticating user labuser 198.51.100.23 port 46436 [preauth]
+2026-10-04T21:13:54.479391+00:00 lab11-sshd sshd[8584]: Failed password for labuser from 198.51.100.23 port 56378 ssh2
+2026-10-04T21:13:55.093391+00:00 lab11-sshd sshd[8584]: Connection closed by authenticating user labuser 198.51.100.23 port 56378 [preauth]
+2026-10-04T21:14:46.792167+00:00 lab11-sshd sshd[2410]: Failed password for labuser from 198.51.100.23 port 35722 ssh2
+2026-10-04T21:14:47.830167+00:00 lab11-sshd sshd[2410]: Connection closed by authenticating user labuser 198.51.100.23 port 35722 [preauth]
+2026-10-04T21:16:16.409322+00:00 lab11-sshd sshd[781]: Failed password for labuser from 198.51.100.23 port 51704 ssh2
+2026-10-04T21:16:35.789366+00:00 lab11-sshd sshd[4296]: Failed password for labuser from 198.51.100.23 port 51076 ssh2
+2026-10-04T21:16:36.927366+00:00 lab11-sshd sshd[8355]: Accepted password for labuser from 198.51.100.23 port 25651 ssh2
+2026-10-04T21:16:37.109366+00:00 lab11-sshd sshd[4296]: Connection closed by authenticating user labuser 198.51.100.23 port 51076 [preauth]
+2026-10-04T21:18:09.927366+00:00 lab11-sshd sshd[5766]: Disconnected from user labuser 198.51.100.23 port 25651
+2026-10-05T13:18:17+00:00 lab11-sshd sshd:  Connection from 172.26.0.4 port 57014 on 172.26.0.3 port 22 rdomain ""
+2026-10-05T13:18:17+00:00 lab11-sshd sshd:  kex_exchange_identification: Connection closed by remote host
+2026-10-05T13:18:17+00:00 lab11-sshd sshd:  Connection closed by 172.26.0.4 port 57014
+2026-10-05T13:18:17+00:00 lab11-sshd sshd:  Connection from 172.26.0.4 port 57020 on 172.26.0.3 port 22 rdomain ""
+2026-10-05T13:18:17+00:00 lab11-sshd sshd:  Accepted password for labuser from 172.26.0.4 port 57020 ssh2
+2026-10-05T13:18:17+00:00 lab11-sshd sshd:  User child is on pid 15
+2026-10-05T13:18:17+00:00 lab11-sshd sshd:  Starting session: command for labuser from 172.26.0.4 port 57020 id 0
+2026-10-05T13:18:17+00:00 lab11-sshd sshd:  Received disconnect from 172.26.0.4 port 57020:11: disconnected by user
+2026-10-05T13:18:17+00:00 lab11-sshd sshd:  Disconnected from user labuser 172.26.0.4 port 57020
+2026-10-05T13:18:17+00:00 lab11-sshd sshd:  Connection from 172.26.0.4 port 57030 on 172.26.0.3 port 22 rdomain ""
+2026-10-05T13:18:17+00:00 lab11-sshd sshd:  Accepted password for labuser from 172.26.0.4 port 57030 ssh2
+2026-10-05T13:18:17+00:00 lab11-sshd sshd:  User child is on pid 20
+2026-10-05T13:18:17+00:00 lab11-sshd sshd:  Starting session: command for labuser from 172.26.0.4 port 57030 id 0
+2026-10-05T13:18:17+00:00 lab11-sshd sshd:  Close session: user labuser from 172.26.0.4 port 57030 id 0
+2026-10-05T13:18:17+00:00 lab11-sshd sshd:  Received disconnect from 172.26.0.4 port 57030:11: disconnected by user
+2026-10-05T13:18:17+00:00 lab11-sshd sshd:  Disconnected from user labuser 172.26.0.4 port 57030
+2026-10-05T13:18:18+00:00 lab11-sshd sshd:  Connection from 172.26.0.4 port 57046 on 172.26.0.3 port 22 rdomain ""
+2026-10-05T13:18:18+00:00 lab11-sshd sshd:  Accepted password for labuser from 172.26.0.4 port 57046 ssh2
+2026-10-05T13:18:18+00:00 lab11-sshd sshd:  User child is on pid 25
+2026-10-05T13:18:18+00:00 lab11-sshd sshd:  Starting session: command for labuser from 172.26.0.4 port 57046 id 0
+2026-10-05T13:18:18+00:00 lab11-sshd sshd:  Connection closed by 172.26.0.4 port 57046
+2026-10-05T13:18:18+00:00 lab11-sshd sshd:  Close session: user labuser from 172.26.0.4 port 57046 id 0
+2026-10-05T13:18:18+00:00 lab11-sshd sshd:  Transferred: sent 2528, received 1400 bytes
+2026-10-05T13:18:18+00:00 lab11-sshd sshd:  Closing connection to 172.26.0.4 port 57046
+2026-10-05T13:18:18+00:00 lab11-sshd sshd:  Connection from 172.26.0.4 port 57056 on 172.26.0.3 port 22 rdomain ""
+2026-10-05T13:18:18+00:00 lab11-sshd sshd:  Failed password for root from 172.26.0.4 port 57056 ssh2
+2026-10-05T13:18:18+00:00 lab11-sshd sshd:  Connection closed by authenticating user root 172.26.0.4 port 57056 [preauth]
+2026-10-05T13:18:18+00:00 lab11-sshd sshd:  Connection from 172.26.0.4 port 57064 on 172.26.0.3 port 22 rdomain ""
+2026-10-05T13:18:18+00:00 lab11-sshd sshd:  Failed password for root from 172.26.0.4 port 57064 ssh2
+2026-10-05T13:18:18+00:00 lab11-sshd sshd:  Connection closed by authenticating user root 172.26.0.4 port 57064 [preauth]
+2026-10-05T13:18:19+00:00 lab11-sshd sshd:  Connection from 172.26.0.4 port 57066 on 172.26.0.3 port 22 rdomain ""
+2026-10-05T13:18:19+00:00 lab11-sshd sshd:  Invalid user admin from 172.26.0.4 port 57066
+2026-10-05T13:18:19+00:00 lab11-sshd sshd:  Could not get shadow information for NOUSER
+2026-10-05T13:18:19+00:00 lab11-sshd sshd:  Failed password for invalid user admin from 172.26.0.4 port 57066 ssh2
+2026-10-05T13:18:19+00:00 lab11-sshd sshd:  Connection closed by invalid user admin 172.26.0.4 port 57066 [preauth]
+2026-10-05T13:18:19+00:00 lab11-sshd sshd:  Connection from 172.26.0.4 port 57072 on 172.26.0.3 port 22 rdomain ""
+2026-10-05T13:18:19+00:00 lab11-sshd sshd:  User ubuntu not allowed because account is locked
+2026-10-05T13:18:19+00:00 lab11-sshd sshd:  Could not get shadow information for NOUSER
+2026-10-05T13:18:19+00:00 lab11-sshd sshd:  Failed password for invalid user ubuntu from 172.26.0.4 port 57072 ssh2
+2026-10-05T13:18:19+00:00 lab11-sshd sshd:  Connection closed by invalid user ubuntu 172.26.0.4 port 57072 [preauth]
+2026-10-05T13:18:20+00:00 lab11-sshd sshd:  Connection from 172.26.0.4 port 57076 on 172.26.0.3 port 22 rdomain ""
+2026-10-05T13:18:20+00:00 lab11-sshd sshd:  Failed password for labuser from 172.26.0.4 port 57076 ssh2
+2026-10-05T13:18:20+00:00 lab11-sshd sshd:  Connection closed by authenticating user labuser 172.26.0.4 port 57076 [preauth]
+2026-10-05T13:18:20+00:00 lab11-sshd sshd:  Connection from 172.26.0.4 port 57090 on 172.26.0.3 port 22 rdomain ""
+2026-10-05T13:18:20+00:00 lab11-sshd sshd:  Invalid user test from 172.26.0.4 port 57090
+2026-10-05T13:18:20+00:00 lab11-sshd sshd:  Could not get shadow information for NOUSER
+2026-10-05T13:18:20+00:00 lab11-sshd sshd:  Failed password for invalid user test from 172.26.0.4 port 57090 ssh2
+2026-10-05T13:18:20+00:00 lab11-sshd sshd:  Connection closed by invalid user test 172.26.0.4 port 57090 [preauth]
+2026-10-05T13:18:20+00:00 lab11-sshd sshd:  Connection from 172.26.0.4 port 57106 on 172.26.0.3 port 22 rdomain ""
+2026-10-05T13:18:21+00:00 lab11-sshd sshd:  Failed password for root from 172.26.0.4 port 57106 ssh2
+2026-10-05T13:18:21+00:00 lab11-sshd sshd:  Connection closed by authenticating user root 172.26.0.4 port 57106 [preauth]
+2026-10-05T13:18:21+00:00 lab11-sshd sshd:  Connection from 172.26.0.4 port 57108 on 172.26.0.3 port 22 rdomain ""
+2026-10-05T13:18:21+00:00 lab11-sshd sshd:  Invalid user oracle from 172.26.0.4 port 57108
+2026-10-05T13:18:21+00:00 lab11-sshd sshd:  Could not get shadow information for NOUSER
+2026-10-05T13:18:21+00:00 lab11-sshd sshd:  Failed password for invalid user oracle from 172.26.0.4 port 57108 ssh2
+2026-10-05T13:18:21+00:00 lab11-sshd sshd:  Connection closed by invalid user oracle 172.26.0.4 port 57108 [preauth]
+2026-10-05T13:18:21+00:00 lab11-sshd sshd:  Connection from 172.26.0.4 port 57112 on 172.26.0.3 port 22 rdomain ""
+2026-10-05T13:18:21+00:00 lab11-sshd sshd:  Invalid user admin from 172.26.0.4 port 57112
+2026-10-05T13:18:21+00:00 lab11-sshd sshd:  Could not get shadow information for NOUSER
+2026-10-05T13:18:21+00:00 lab11-sshd sshd:  Failed password for invalid user admin from 172.26.0.4 port 57112 ssh2
+2026-10-05T13:18:21+00:00 lab11-sshd sshd:  Connection closed by invalid user admin 172.26.0.4 port 57112 [preauth]
+2026-10-05T13:18:22+00:00 lab11-sshd sshd:  Connection from 172.26.0.4 port 57124 on 172.26.0.3 port 22 rdomain ""
+2026-10-05T13:18:22+00:00 lab11-sshd sshd:  Invalid user postgres from 172.26.0.4 port 57124
+2026-10-05T13:18:22+00:00 lab11-sshd sshd:  Could not get shadow information for NOUSER
+2026-10-05T13:18:22+00:00 lab11-sshd sshd:  Failed password for invalid user postgres from 172.26.0.4 port 57124 ssh2
+2026-10-05T13:18:22+00:00 lab11-sshd sshd:  Connection closed by invalid user postgres 172.26.0.4 port 57124 [preauth]
+2026-10-05T13:18:22+00:00 lab11-sshd sshd:  Connection from 172.26.0.4 port 57126 on 172.26.0.3 port 22 rdomain ""
+2026-10-05T13:18:22+00:00 lab11-sshd sshd:  Failed password for labuser from 172.26.0.4 port 57126 ssh2
+2026-10-05T13:18:22+00:00 lab11-sshd sshd:  Connection closed by authenticating user labuser 172.26.0.4 port 57126 [preauth]
+2026-10-05T13:18:23+00:00 lab11-sshd sshd:  Connection from 172.26.0.4 port 57140 on 172.26.0.3 port 22 rdomain ""
+2026-10-05T13:18:23+00:00 lab11-sshd sshd:  Failed password for root from 172.26.0.4 port 57140 ssh2
+2026-10-05T13:18:23+00:00 lab11-sshd sshd:  Connection closed by authenticating user root 172.26.0.4 port 57140 [preauth]
+2026-10-05T13:18:23+00:00 lab11-sshd sshd:  Connection from 172.26.0.4 port 57152 on 172.26.0.3 port 22 rdomain ""
+2026-10-05T13:18:23+00:00 lab11-sshd sshd:  kex_exchange_identification: client sent invalid protocol identifier "GET / HTTP/1.1"
+2026-10-05T13:18:23+00:00 lab11-sshd sshd:  banner exchange: Connection from 172.26.0.4 port 57152: invalid format

@@ -1,0 +1,1496 @@
+ Network lab_10_default Creating 
+ Network lab_10_default Creating 
+ Network lab_10_default Created 
+ Network lab_10_default Created 
+ Container lab_10 Creating 
+ Container lab_10 Created 
+Attaching to lab_10
+ Container lab_10 Starting 
+lab_10  | ################################################################
+lab_10  | # Лабораторная работа №10. Управление доступом к объектам ОС Linux
+ Container lab_10 Started 
+lab_10  | # Контейнер: Ubuntu 24.04, текущий пользователь: uid=0(root) gid=0(root) groups=0(root)
+lab_10  | # Ядро: 7.0.0-31-generic
+lab_10  | ################################################################
+lab_10  | 
+lab_10  | ==============================================================
+lab_10  | == Шаг 1. Создание групп пользователей group_iit1 и group_iit2
+lab_10  | ==============================================================
+lab_10  | group_iit1:x:1001:
+lab_10  | group_iit2:x:1002:
+lab_10  | 
+lab_10  | ==============================================================
+lab_10  | == Шаги 2-3, 5. Создание пользователей
+lab_10  | ==============================================================
+lab_10  | iit11:x:1001:1001::/home/iit11:/bin/bash
+lab_10  | iit12:x:1002:1001::/home/iit12:/bin/bash
+lab_10  | iit21:x:1003:1002::/home/iit21:/bin/bash
+lab_10  | iit22:x:1004:1002::/home/iit22:/bin/bash
+lab_10  | iit3:x:1005:1005::/home/iit3:/bin/bash
+lab_10  | --- домашние каталоги:
+lab_10  | total 32
+lab_10  | drwxr-xr-x 1 root   root       4096 Oct  5 13:17 .
+lab_10  | drwxr-xr-x 1 root   root       4096 Oct  5 13:17 ..
+lab_10  | drwxr-x--- 2 iit11  group_iit1 4096 Oct  5 13:17 iit11
+lab_10  | drwxr-x--- 2 iit12  group_iit1 4096 Oct  5 13:17 iit12
+lab_10  | drwxr-x--- 2 iit21  group_iit2 4096 Oct  5 13:17 iit21
+lab_10  | drwxr-x--- 2 iit22  group_iit2 4096 Oct  5 13:17 iit22
+lab_10  | drwxr-x--- 2 iit3   iit3       4096 Oct  5 13:17 iit3
+lab_10  | drwxr-x--- 2 ubuntu ubuntu     4096 Apr 10 02:29 ubuntu
+lab_10  | --- группы:
+lab_10  | uid=1001(iit11) gid=1001(group_iit1) groups=1001(group_iit1)
+lab_10  | uid=1002(iit12) gid=1001(group_iit1) groups=1001(group_iit1)
+lab_10  | uid=1003(iit21) gid=1002(group_iit2) groups=1002(group_iit2)
+lab_10  | uid=1004(iit22) gid=1002(group_iit2) groups=1002(group_iit2)
+lab_10  | uid=1005(iit3) gid=1005(iit3) groups=1005(iit3)
+lab_10  | 
+lab_10  | ==============================================================
+lab_10  | == Шаг 4. Административные привилегии для iit21 (группа sudo + NOPASSWD)
+lab_10  | ==============================================================
+lab_10  | /etc/sudoers: parsed OK
+lab_10  | /etc/sudoers.d/README: parsed OK
+lab_10  | /etc/sudoers.d/iit21: parsed OK
+lab_10  | uid=1003(iit21) gid=1002(group_iit2) groups=1002(group_iit2),27(sudo)
+lab_10  | --- проверка: su - iit21 -c 'sudo -n whoami' =>
+lab_10  | root
+lab_10  | 
+lab_10  | ==============================================================
+lab_10  | == Шаг 6. Создание папки pzs
+lab_10  | ==============================================================
+lab_10  | drwxr-xr-x root:root /opt/lab/pzs
+lab_10  | 
+lab_10  | ==============================================================
+lab_10  | == Шаги 7-11. Подпапки pzs11-pzs15 с правами R/W/X по заданию
+lab_10  | ==============================================================
+lab_10  | total 28
+lab_10  | drwxr-xr-x 7 root  root       4096 Oct  5 13:17 .
+lab_10  | drwxr-xr-x 1 root  root       4096 Oct  5 13:17 ..
+lab_10  | drwx------ 2 iit11 group_iit1 4096 Oct  5 13:17 pzs11
+lab_10  | d---rwx--- 2 root  group_iit1 4096 Oct  5 13:17 pzs12
+lab_10  | d------rwx 2 root  root       4096 Oct  5 13:17 pzs13
+lab_10  | drwxrwxrwx 2 iit11 group_iit1 4096 Oct  5 13:17 pzs14
+lab_10  | drwx------ 2 root  root       4096 Oct  5 13:17 pzs15
+lab_10  | 
+lab_10  | Сводка (права/владелец/группа):
+lab_10  |   pzs11  drwx------ (700)  iit11:group_iit1
+lab_10  |   pzs12  d---rwx--- (070)  root:group_iit1
+lab_10  |   pzs13  d------rwx (007)  root:root
+lab_10  |   pzs14  drwxrwxrwx (777)  iit11:group_iit1
+lab_10  |   pzs15  drwx------ (700)  root:root
+lab_10  | 
+lab_10  | ==============================================================
+lab_10  | == Шаг 12. Смена текущего пользователя на iit11
+lab_10  | ==============================================================
+lab_10  | uid=1001(iit11) gid=1001(group_iit1) groups=1001(group_iit1)
+lab_10  | HOME=/home/iit11
+lab_10  | /home/iit11
+lab_10  | iit11
+lab_10  | 
+lab_10  | ==============================================================
+lab_10  | == Шаг 13. Создание файлов file11-file45 в папках pzs11-pzs14 (от имени iit11)
+lab_10  | ==============================================================
+lab_10  | Содержимое: file15/file25/file35/file45 (шаблон filex5) -> 'read testVariable',
+lab_10  | остальные -> 'echo "Hello World"'; у всех файлов строка shebang #!/bin/bash.
+lab_10  | 
+lab_10  | --- pzs11: iit11 создаёт file11-file45
+lab_10  |   создано 20 файлов (file11-file45), владелец iit11:group_iit1
+lab_10  | --- pzs12: iit11 создаёт file11-file45
+lab_10  |   создано 20 файлов (file11-file45), владелец iit11:group_iit1
+lab_10  | --- pzs13: iit11 создаёт file11-file45
+lab_10  |   создано 20 файлов (file11-file45), владелец iit11:group_iit1
+lab_10  | --- pzs14: iit11 создаёт file11-file45
+lab_10  |   создано 20 файлов (file11-file45), владелец iit11:group_iit1
+lab_10  | 
+lab_10  | --- file51-file55 («только для администратора») создаёт iit21 через sudo:
+lab_10  |     владелец root:root, права 400/600/200/700/100.
+lab_10  | --- pzs11: iit21 (sudo) создаёт file51-file55
+lab_10  |   создано 5 файлов (file51-file55), владелец root:root
+lab_10  | --- pzs12: iit21 (sudo) создаёт file51-file55
+lab_10  |   создано 5 файлов (file51-file55), владелец root:root
+lab_10  | --- pzs13: iit21 (sudo) создаёт file51-file55
+lab_10  |   создано 5 файлов (file51-file55), владелец root:root
+lab_10  | --- pzs14: iit21 (sudo) создаёт file51-file55
+lab_10  |   создано 5 файлов (file51-file55), владелец root:root
+lab_10  | 
+lab_10  | ==============================================================
+lab_10  | == Шаг 13. Результат: права доступа созданных файлов
+lab_10  | ==============================================================
+lab_10  | --- /opt/lab/pzs/pzs11 (drwx------ (700), iit11:group_iit1)
+lab_10  | total 108
+lab_10  | drwx------ 2 iit11 group_iit1 4096 Oct  5 13:17 .
+lab_10  | drwxr-xr-x 7 root  root       4096 Oct  5 13:17 ..
+lab_10  | -r-------- 1 iit11 group_iit1   31 Oct  5 13:17 file11
+lab_10  | -rw------- 1 iit11 group_iit1   31 Oct  5 13:17 file12
+lab_10  | --w------- 1 iit11 group_iit1   31 Oct  5 13:17 file13
+lab_10  | -rwx------ 1 iit11 group_iit1   31 Oct  5 13:17 file14
+lab_10  | ---x------ 1 iit11 group_iit1   30 Oct  5 13:17 file15
+lab_10  | ----r----- 1 iit11 group_iit1   31 Oct  5 13:17 file21
+lab_10  | ----rw---- 1 iit11 group_iit1   31 Oct  5 13:17 file22
+lab_10  | -----w---- 1 iit11 group_iit1   31 Oct  5 13:17 file23
+lab_10  | ----rwx--- 1 iit11 group_iit1   31 Oct  5 13:17 file24
+lab_10  | ------x--- 1 iit11 group_iit1   30 Oct  5 13:17 file25
+lab_10  | -------r-- 1 iit11 group_iit1   31 Oct  5 13:17 file31
+lab_10  | -------rw- 1 iit11 group_iit1   31 Oct  5 13:17 file32
+lab_10  | --------w- 1 iit11 group_iit1   31 Oct  5 13:17 file33
+lab_10  | -------rwx 1 iit11 group_iit1   31 Oct  5 13:17 file34
+lab_10  | ---------x 1 iit11 group_iit1   30 Oct  5 13:17 file35
+lab_10  | -r--r--r-- 1 iit11 group_iit1   31 Oct  5 13:17 file41
+lab_10  | -rw-rw-rw- 1 iit11 group_iit1   31 Oct  5 13:17 file42
+lab_10  | --w--w--w- 1 iit11 group_iit1   31 Oct  5 13:17 file43
+lab_10  | -rwxrwxrwx 1 iit11 group_iit1   31 Oct  5 13:17 file44
+lab_10  | ---x--x--x 1 iit11 group_iit1   30 Oct  5 13:17 file45
+lab_10  | -r-------- 1 root  root         31 Oct  5 13:17 file51
+lab_10  | -rw------- 1 root  root         31 Oct  5 13:17 file52
+lab_10  | --w------- 1 root  root         31 Oct  5 13:17 file53
+lab_10  | -rwx------ 1 root  root         31 Oct  5 13:17 file54
+lab_10  | ---x------ 1 root  root         30 Oct  5 13:17 file55
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs12 (d---rwx--- (070), root:group_iit1)
+lab_10  | total 108
+lab_10  | d---rwx--- 2 root  group_iit1 4096 Oct  5 13:17 .
+lab_10  | drwxr-xr-x 7 root  root       4096 Oct  5 13:17 ..
+lab_10  | -r-------- 1 iit11 group_iit1   31 Oct  5 13:17 file11
+lab_10  | -rw------- 1 iit11 group_iit1   31 Oct  5 13:17 file12
+lab_10  | --w------- 1 iit11 group_iit1   31 Oct  5 13:17 file13
+lab_10  | -rwx------ 1 iit11 group_iit1   31 Oct  5 13:17 file14
+lab_10  | ---x------ 1 iit11 group_iit1   30 Oct  5 13:17 file15
+lab_10  | ----r----- 1 iit11 group_iit1   31 Oct  5 13:17 file21
+lab_10  | ----rw---- 1 iit11 group_iit1   31 Oct  5 13:17 file22
+lab_10  | -----w---- 1 iit11 group_iit1   31 Oct  5 13:17 file23
+lab_10  | ----rwx--- 1 iit11 group_iit1   31 Oct  5 13:17 file24
+lab_10  | ------x--- 1 iit11 group_iit1   30 Oct  5 13:17 file25
+lab_10  | -------r-- 1 iit11 group_iit1   31 Oct  5 13:17 file31
+lab_10  | -------rw- 1 iit11 group_iit1   31 Oct  5 13:17 file32
+lab_10  | --------w- 1 iit11 group_iit1   31 Oct  5 13:17 file33
+lab_10  | -------rwx 1 iit11 group_iit1   31 Oct  5 13:17 file34
+lab_10  | ---------x 1 iit11 group_iit1   30 Oct  5 13:17 file35
+lab_10  | -r--r--r-- 1 iit11 group_iit1   31 Oct  5 13:17 file41
+lab_10  | -rw-rw-rw- 1 iit11 group_iit1   31 Oct  5 13:17 file42
+lab_10  | --w--w--w- 1 iit11 group_iit1   31 Oct  5 13:17 file43
+lab_10  | -rwxrwxrwx 1 iit11 group_iit1   31 Oct  5 13:17 file44
+lab_10  | ---x--x--x 1 iit11 group_iit1   30 Oct  5 13:17 file45
+lab_10  | -r-------- 1 root  root         31 Oct  5 13:17 file51
+lab_10  | -rw------- 1 root  root         31 Oct  5 13:17 file52
+lab_10  | --w------- 1 root  root         31 Oct  5 13:17 file53
+lab_10  | -rwx------ 1 root  root         31 Oct  5 13:17 file54
+lab_10  | ---x------ 1 root  root         30 Oct  5 13:17 file55
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs13 (d------rwx (007), root:root)
+lab_10  | total 108
+lab_10  | d------rwx 2 root  root       4096 Oct  5 13:17 .
+lab_10  | drwxr-xr-x 7 root  root       4096 Oct  5 13:17 ..
+lab_10  | -r-------- 1 iit11 group_iit1   31 Oct  5 13:17 file11
+lab_10  | -rw------- 1 iit11 group_iit1   31 Oct  5 13:17 file12
+lab_10  | --w------- 1 iit11 group_iit1   31 Oct  5 13:17 file13
+lab_10  | -rwx------ 1 iit11 group_iit1   31 Oct  5 13:17 file14
+lab_10  | ---x------ 1 iit11 group_iit1   30 Oct  5 13:17 file15
+lab_10  | ----r----- 1 iit11 group_iit1   31 Oct  5 13:17 file21
+lab_10  | ----rw---- 1 iit11 group_iit1   31 Oct  5 13:17 file22
+lab_10  | -----w---- 1 iit11 group_iit1   31 Oct  5 13:17 file23
+lab_10  | ----rwx--- 1 iit11 group_iit1   31 Oct  5 13:17 file24
+lab_10  | ------x--- 1 iit11 group_iit1   30 Oct  5 13:17 file25
+lab_10  | -------r-- 1 iit11 group_iit1   31 Oct  5 13:17 file31
+lab_10  | -------rw- 1 iit11 group_iit1   31 Oct  5 13:17 file32
+lab_10  | --------w- 1 iit11 group_iit1   31 Oct  5 13:17 file33
+lab_10  | -------rwx 1 iit11 group_iit1   31 Oct  5 13:17 file34
+lab_10  | ---------x 1 iit11 group_iit1   30 Oct  5 13:17 file35
+lab_10  | -r--r--r-- 1 iit11 group_iit1   31 Oct  5 13:17 file41
+lab_10  | -rw-rw-rw- 1 iit11 group_iit1   31 Oct  5 13:17 file42
+lab_10  | --w--w--w- 1 iit11 group_iit1   31 Oct  5 13:17 file43
+lab_10  | -rwxrwxrwx 1 iit11 group_iit1   31 Oct  5 13:17 file44
+lab_10  | ---x--x--x 1 iit11 group_iit1   30 Oct  5 13:17 file45
+lab_10  | -r-------- 1 root  root         31 Oct  5 13:17 file51
+lab_10  | -rw------- 1 root  root         31 Oct  5 13:17 file52
+lab_10  | --w------- 1 root  root         31 Oct  5 13:17 file53
+lab_10  | -rwx------ 1 root  root         31 Oct  5 13:17 file54
+lab_10  | ---x------ 1 root  root         30 Oct  5 13:17 file55
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs14 (drwxrwxrwx (777), iit11:group_iit1)
+lab_10  | total 108
+lab_10  | drwxrwxrwx 2 iit11 group_iit1 4096 Oct  5 13:17 .
+lab_10  | drwxr-xr-x 7 root  root       4096 Oct  5 13:17 ..
+lab_10  | -r-------- 1 iit11 group_iit1   31 Oct  5 13:17 file11
+lab_10  | -rw------- 1 iit11 group_iit1   31 Oct  5 13:17 file12
+lab_10  | --w------- 1 iit11 group_iit1   31 Oct  5 13:17 file13
+lab_10  | -rwx------ 1 iit11 group_iit1   31 Oct  5 13:17 file14
+lab_10  | ---x------ 1 iit11 group_iit1   30 Oct  5 13:17 file15
+lab_10  | ----r----- 1 iit11 group_iit1   31 Oct  5 13:17 file21
+lab_10  | ----rw---- 1 iit11 group_iit1   31 Oct  5 13:17 file22
+lab_10  | -----w---- 1 iit11 group_iit1   31 Oct  5 13:17 file23
+lab_10  | ----rwx--- 1 iit11 group_iit1   31 Oct  5 13:17 file24
+lab_10  | ------x--- 1 iit11 group_iit1   30 Oct  5 13:17 file25
+lab_10  | -------r-- 1 iit11 group_iit1   31 Oct  5 13:17 file31
+lab_10  | -------rw- 1 iit11 group_iit1   31 Oct  5 13:17 file32
+lab_10  | --------w- 1 iit11 group_iit1   31 Oct  5 13:17 file33
+lab_10  | -------rwx 1 iit11 group_iit1   31 Oct  5 13:17 file34
+lab_10  | ---------x 1 iit11 group_iit1   30 Oct  5 13:17 file35
+lab_10  | -r--r--r-- 1 iit11 group_iit1   31 Oct  5 13:17 file41
+lab_10  | -rw-rw-rw- 1 iit11 group_iit1   31 Oct  5 13:17 file42
+lab_10  | --w--w--w- 1 iit11 group_iit1   31 Oct  5 13:17 file43
+lab_10  | -rwxrwxrwx 1 iit11 group_iit1   31 Oct  5 13:17 file44
+lab_10  | ---x--x--x 1 iit11 group_iit1   30 Oct  5 13:17 file45
+lab_10  | -r-------- 1 root  root         31 Oct  5 13:17 file51
+lab_10  | -rw------- 1 root  root         31 Oct  5 13:17 file52
+lab_10  | --w------- 1 root  root         31 Oct  5 13:17 file53
+lab_10  | -rwx------ 1 root  root         31 Oct  5 13:17 file54
+lab_10  | ---x------ 1 root  root         30 Oct  5 13:17 file55
+lab_10  | 
+lab_10  | 
+lab_10  | ==============================================================
+lab_10  | == Резервная копия каталогов (для независимых проверок удаления в шаге 16)
+lab_10  | ==============================================================
+lab_10  | Копия: /opt/lab/.dir_backup/pzs
+lab_10  | total 28
+lab_10  | drwxr-xr-x 7 root  root       4096 Oct  5 13:17 .
+lab_10  | drwxr-xr-x 3 root  root       4096 Oct  5 13:17 ..
+lab_10  | drwx------ 2 iit11 group_iit1 4096 Oct  5 13:17 pzs11
+lab_10  | d---rwx--- 2 root  group_iit1 4096 Oct  5 13:17 pzs12
+lab_10  | d------rwx 2 root  root       4096 Oct  5 13:17 pzs13
+lab_10  | drwxrwxrwx 2 iit11 group_iit1 4096 Oct  5 13:17 pzs14
+lab_10  | drwx------ 2 root  root       4096 Oct  5 13:17 pzs15
+lab_10  | 
+lab_10  | ==============================================================
+lab_10  | == Шаг 14. Матрица доступа к файлам (чтение / редактирование / запуск)
+lab_10  | ==============================================================
+lab_10  | Объём: 4 каталога (pzs11-pzs14) x 25 файлов x 6 субъектов x 3 операции = 1800 проверок.
+lab_10  | Реальные команды: чтение = cat; редактирование = echo >>; запуск = ./файл </dev/null.
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file11: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file15: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file21: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file22: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file23: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file24: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file25: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file31: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file32: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file33: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file34: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file35: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file41: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file45: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file51: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file52: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file53: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file54: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file55: Permission denied
+lab_10  |   каталог pzs11 проверен.
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file11: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file15: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file21: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file22: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file23: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file24: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file25: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file31: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file32: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file33: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file34: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file35: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file41: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file45: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file51: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file52: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file53: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file54: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file55: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file11: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file12: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file13: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file14: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file15: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file21: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file25: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file31: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file32: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file33: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file34: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file35: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file41: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file45: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file51: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file52: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file53: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file54: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file55: Permission denied
+lab_10  |   каталог pzs12 проверен.
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file11: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file15: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file21: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file22: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file23: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file24: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file25: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file31: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file32: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file33: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file34: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file35: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file41: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file45: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file51: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file52: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file53: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file54: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file55: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file11: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file12: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file13: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file14: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file15: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file21: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file25: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file31: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file32: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file33: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file34: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file35: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file41: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file45: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file51: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file52: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file53: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file54: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file55: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file11: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file12: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file13: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file14: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file15: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file21: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file22: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file23: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file24: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file25: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file31: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file35: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file41: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file45: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file51: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file52: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file53: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file54: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file55: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file11: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file12: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file13: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file14: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file15: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file21: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file22: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file23: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file24: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file25: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file31: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file35: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file41: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file45: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file51: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file52: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file53: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file54: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file55: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file11: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file12: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file13: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file14: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file15: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file21: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file22: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file23: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file24: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file25: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file31: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file35: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file41: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file45: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file51: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file52: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file53: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file54: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file55: Permission denied
+lab_10  |   каталог pzs13 проверен.
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file11: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file15: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file21: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file22: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file23: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file24: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file25: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file31: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file32: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file33: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file34: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file35: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file41: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file45: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file51: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file52: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file53: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file54: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file55: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file11: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file12: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file13: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file14: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file15: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file21: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file25: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file31: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file32: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file33: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file34: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file35: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file41: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file45: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file51: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file52: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file53: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file54: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file55: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file11: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file12: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file13: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file14: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file15: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file21: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file22: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file23: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file24: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file25: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file31: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file35: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file41: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file45: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file51: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file52: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file53: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file54: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file55: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file11: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file12: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file13: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file14: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file15: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file21: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file22: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file23: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file24: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file25: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file31: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file35: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file41: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file45: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file51: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file52: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file53: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file54: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file55: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file11: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file12: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file13: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file14: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file15: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file21: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file22: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file23: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file24: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file25: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file31: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file35: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file41: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file45: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file51: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file52: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file53: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file54: Permission denied
+lab_10  | /opt/lab/scripts/inner_matrix.sh: line 65: file55: Permission denied
+lab_10  |   каталог pzs14 проверен.
+lab_10  | 
+lab_10  | МАТРИЦА ДОСТУПА К ФАЙЛАМ (шаг 14; результаты реальных команд)
+lab_10  | 
+lab_10  | Субъекты: iit11, iit12 (group_iit1); iit21 (group_iit2, администратор/sudo);
+lab_10  |           iit22 (group_iit2); iit3; root (суперпользователь).
+lab_10  | Объекты : file11-file55 в каталогах pzs11-pzs14.
+lab_10  |           file11-file45 созданы iit11 (группа group_iit1);
+lab_10  |           file51-file55 созданы от администратора (root:root).
+lab_10  | Ячейка R W X : R = cat (чтение), W = echo >> (редактирование), X = ./файл (запуск).
+lab_10  | Обозначения  : + = OK (операция выполнена), - = DENIED (доступ запрещён).
+lab_10  | 
+lab_10  | === /opt/lab/pzs/pzs11 — drwx------ (700), владелец iit11:group_iit1 ===
+lab_10  | файл права   влад:группа iit11  iit12  iit21  iit22  iit3   root  
+lab_10  |                                        R W X  R W X  R W X  R W X  R W X  R W X 
+lab_10  | file11   -r-------- (400) iit11:group_iit1 +--    ---    ---    ---    ---    ++-   
+lab_10  | file12   -rw------- (600) iit11:group_iit1 ++-    ---    ---    ---    ---    ++-   
+lab_10  | file13   --w------- (200) iit11:group_iit1 -+-    ---    ---    ---    ---    ++-   
+lab_10  | file14   -rwx------ (700) iit11:group_iit1 +++    ---    ---    ---    ---    +++   
+lab_10  | file15   ---x------ (100) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+lab_10  | file21   ----r----- (040) iit11:group_iit1 ---    ---    ---    ---    ---    ++-   
+lab_10  | file22   ----rw---- (060) iit11:group_iit1 ---    ---    ---    ---    ---    ++-   
+lab_10  | file23   -----w---- (020) iit11:group_iit1 ---    ---    ---    ---    ---    ++-   
+lab_10  | file24   ----rwx--- (070) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+lab_10  | file25   ------x--- (010) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+lab_10  | file31   -------r-- (004) iit11:group_iit1 ---    ---    ---    ---    ---    ++-   
+lab_10  | file32   -------rw- (006) iit11:group_iit1 ---    ---    ---    ---    ---    ++-   
+lab_10  | file33   --------w- (002) iit11:group_iit1 ---    ---    ---    ---    ---    ++-   
+lab_10  | file34   -------rwx (007) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+lab_10  | file35   ---------x (001) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+lab_10  | file41   -r--r--r-- (444) iit11:group_iit1 +--    ---    ---    ---    ---    ++-   
+lab_10  | file42   -rw-rw-rw- (666) iit11:group_iit1 ++-    ---    ---    ---    ---    ++-   
+lab_10  | file43   --w--w--w- (222) iit11:group_iit1 -+-    ---    ---    ---    ---    ++-   
+lab_10  | file44   -rwxrwxrwx (777) iit11:group_iit1 +++    ---    ---    ---    ---    +++   
+lab_10  | file45   ---x--x--x (111) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+lab_10  | file51   -r-------- (400) root:root        ---    ---    ---    ---    ---    ++-   
+lab_10  | file52   -rw------- (600) root:root        ---    ---    ---    ---    ---    ++-   
+lab_10  | file53   --w------- (200) root:root        ---    ---    ---    ---    ---    ++-   
+lab_10  | file54   -rwx------ (700) root:root        ---    ---    ---    ---    ---    +++   
+lab_10  | file55   ---x------ (100) root:root        ---    ---    ---    ---    ---    +++   
+lab_10  | 
+lab_10  | === /opt/lab/pzs/pzs12 — d---rwx--- (070), владелец root:group_iit1 ===
+lab_10  | файл права   влад:группа iit11  iit12  iit21  iit22  iit3   root  
+lab_10  |                                        R W X  R W X  R W X  R W X  R W X  R W X 
+lab_10  | file11   -r-------- (400) iit11:group_iit1 +--    ---    ---    ---    ---    ++-   
+lab_10  | file12   -rw------- (600) iit11:group_iit1 ++-    ---    ---    ---    ---    ++-   
+lab_10  | file13   --w------- (200) iit11:group_iit1 -+-    ---    ---    ---    ---    ++-   
+lab_10  | file14   -rwx------ (700) iit11:group_iit1 +++    ---    ---    ---    ---    +++   
+lab_10  | file15   ---x------ (100) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+lab_10  | file21   ----r----- (040) iit11:group_iit1 ---    +--    ---    ---    ---    ++-   
+lab_10  | file22   ----rw---- (060) iit11:group_iit1 ---    ++-    ---    ---    ---    ++-   
+lab_10  | file23   -----w---- (020) iit11:group_iit1 ---    -+-    ---    ---    ---    ++-   
+lab_10  | file24   ----rwx--- (070) iit11:group_iit1 ---    +++    ---    ---    ---    +++   
+lab_10  | file25   ------x--- (010) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+lab_10  | file31   -------r-- (004) iit11:group_iit1 ---    ---    ---    ---    ---    ++-   
+lab_10  | file32   -------rw- (006) iit11:group_iit1 ---    ---    ---    ---    ---    ++-   
+lab_10  | file33   --------w- (002) iit11:group_iit1 ---    ---    ---    ---    ---    ++-   
+lab_10  | file34   -------rwx (007) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+lab_10  | file35   ---------x (001) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+lab_10  | file41   -r--r--r-- (444) iit11:group_iit1 +--    +--    ---    ---    ---    ++-   
+lab_10  | file42   -rw-rw-rw- (666) iit11:group_iit1 ++-    ++-    ---    ---    ---    ++-   
+lab_10  | file43   --w--w--w- (222) iit11:group_iit1 -+-    -+-    ---    ---    ---    ++-   
+lab_10  | file44   -rwxrwxrwx (777) iit11:group_iit1 +++    +++    ---    ---    ---    +++   
+lab_10  | file45   ---x--x--x (111) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+lab_10  | file51   -r-------- (400) root:root        ---    ---    ---    ---    ---    ++-   
+lab_10  | file52   -rw------- (600) root:root        ---    ---    ---    ---    ---    ++-   
+lab_10  | file53   --w------- (200) root:root        ---    ---    ---    ---    ---    ++-   
+lab_10  | file54   -rwx------ (700) root:root        ---    ---    ---    ---    ---    +++   
+lab_10  | file55   ---x------ (100) root:root        ---    ---    ---    ---    ---    +++   
+lab_10  | 
+lab_10  | === /opt/lab/pzs/pzs13 — d------rwx (007), владелец root:root ===
+lab_10  | файл права   влад:группа iit11  iit12  iit21  iit22  iit3   root  
+lab_10  |                                        R W X  R W X  R W X  R W X  R W X  R W X 
+lab_10  | file11   -r-------- (400) iit11:group_iit1 +--    ---    ---    ---    ---    ++-   
+lab_10  | file12   -rw------- (600) iit11:group_iit1 ++-    ---    ---    ---    ---    ++-   
+lab_10  | file13   --w------- (200) iit11:group_iit1 -+-    ---    ---    ---    ---    ++-   
+lab_10  | file14   -rwx------ (700) iit11:group_iit1 +++    ---    ---    ---    ---    +++   
+lab_10  | file15   ---x------ (100) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+lab_10  | file21   ----r----- (040) iit11:group_iit1 ---    +--    ---    ---    ---    ++-   
+lab_10  | file22   ----rw---- (060) iit11:group_iit1 ---    ++-    ---    ---    ---    ++-   
+lab_10  | file23   -----w---- (020) iit11:group_iit1 ---    -+-    ---    ---    ---    ++-   
+lab_10  | file24   ----rwx--- (070) iit11:group_iit1 ---    +++    ---    ---    ---    +++   
+lab_10  | file25   ------x--- (010) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+lab_10  | file31   -------r-- (004) iit11:group_iit1 ---    ---    +--    +--    +--    ++-   
+lab_10  | file32   -------rw- (006) iit11:group_iit1 ---    ---    ++-    ++-    ++-    ++-   
+lab_10  | file33   --------w- (002) iit11:group_iit1 ---    ---    -+-    -+-    -+-    ++-   
+lab_10  | file34   -------rwx (007) iit11:group_iit1 ---    ---    +++    +++    +++    +++   
+lab_10  | file35   ---------x (001) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+lab_10  | file41   -r--r--r-- (444) iit11:group_iit1 +--    +--    +--    +--    +--    ++-   
+lab_10  | file42   -rw-rw-rw- (666) iit11:group_iit1 ++-    ++-    ++-    ++-    ++-    ++-   
+lab_10  | file43   --w--w--w- (222) iit11:group_iit1 -+-    -+-    -+-    -+-    -+-    ++-   
+lab_10  | file44   -rwxrwxrwx (777) iit11:group_iit1 +++    +++    +++    +++    +++    +++   
+lab_10  | file45   ---x--x--x (111) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+lab_10  | file51   -r-------- (400) root:root        ---    ---    ---    ---    ---    ++-   
+lab_10  | file52   -rw------- (600) root:root        ---    ---    ---    ---    ---    ++-   
+lab_10  | file53   --w------- (200) root:root        ---    ---    ---    ---    ---    ++-   
+lab_10  | file54   -rwx------ (700) root:root        ---    ---    ---    ---    ---    +++   
+lab_10  | file55   ---x------ (100) root:root        ---    ---    ---    ---    ---    +++   
+lab_10  | 
+lab_10  | === /opt/lab/pzs/pzs14 — drwxrwxrwx (777), владелец iit11:group_iit1 ===
+lab_10  | файл права   влад:группа iit11  iit12  iit21  iit22  iit3   root  
+lab_10  |                                        R W X  R W X  R W X  R W X  R W X  R W X 
+lab_10  | file11   -r-------- (400) iit11:group_iit1 +--    ---    ---    ---    ---    ++-   
+lab_10  | file12   -rw------- (600) iit11:group_iit1 ++-    ---    ---    ---    ---    ++-   
+lab_10  | file13   --w------- (200) iit11:group_iit1 -+-    ---    ---    ---    ---    ++-   
+lab_10  | file14   -rwx------ (700) iit11:group_iit1 +++    ---    ---    ---    ---    +++   
+lab_10  | file15   ---x------ (100) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+lab_10  | file21   ----r----- (040) iit11:group_iit1 ---    +--    ---    ---    ---    ++-   
+lab_10  | file22   ----rw---- (060) iit11:group_iit1 ---    ++-    ---    ---    ---    ++-   
+lab_10  | file23   -----w---- (020) iit11:group_iit1 ---    -+-    ---    ---    ---    ++-   
+lab_10  | file24   ----rwx--- (070) iit11:group_iit1 ---    +++    ---    ---    ---    +++   
+lab_10  | file25   ------x--- (010) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+lab_10  | file31   -------r-- (004) iit11:group_iit1 ---    ---    +--    +--    +--    ++-   
+lab_10  | file32   -------rw- (006) iit11:group_iit1 ---    ---    ++-    ++-    ++-    ++-   
+lab_10  | file33   --------w- (002) iit11:group_iit1 ---    ---    -+-    -+-    -+-    ++-   
+lab_10  | file34   -------rwx (007) iit11:group_iit1 ---    ---    +++    +++    +++    +++   
+lab_10  | file35   ---------x (001) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+lab_10  | file41   -r--r--r-- (444) iit11:group_iit1 +--    +--    +--    +--    +--    ++-   
+lab_10  | file42   -rw-rw-rw- (666) iit11:group_iit1 ++-    ++-    ++-    ++-    ++-    ++-   
+lab_10  | file43   --w--w--w- (222) iit11:group_iit1 -+-    -+-    -+-    -+-    -+-    ++-   
+lab_10  | file44   -rwxrwxrwx (777) iit11:group_iit1 +++    +++    +++    +++    +++    +++   
+lab_10  | file45   ---x--x--x (111) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+lab_10  | file51   -r-------- (400) root:root        ---    ---    ---    ---    ---    ++-   
+lab_10  | file52   -rw------- (600) root:root        ---    ---    ---    ---    ---    ++-   
+lab_10  | file53   --w------- (200) root:root        ---    ---    ---    ---    ---    ++-   
+lab_10  | file54   -rwx------ (700) root:root        ---    ---    ---    ---    ---    +++   
+lab_10  | file55   ---x------ (100) root:root        ---    ---    ---    ---    ---    +++   
+lab_10  | 
+lab_10  | Итого проверок: 1800; разрешено (OK) = 422; запрещено (DENIED) = 1378.
+lab_10  | 
+lab_10  | Дополнительно — административные привилегии iit21 (шаг 4 задания):
+lab_10  |   чтение file51 (root:root, 400) в pzs14 от iit21 напрямую : DENIED
+lab_10  |   чтение file51 (root:root, 400) в pzs14 от iit21 через sudo: OK
+lab_10  |   ls pzs15 (root:root, 700) от iit21 напрямую : DENIED
+lab_10  |   ls pzs15 (root:root, 700) от iit21 через sudo: OK
+lab_10  | 
+lab_10  | ==============================================================
+lab_10  | == Шаг 15. Запуск файлов filex5 пользователем iit11 и остановка процессов
+lab_10  | ==============================================================
+lab_10  | 
+lab_10  | ==================================================================
+lab_10  | ШАГ 15. Запуск файлов filex5 от iit11 и проверка остановки (kill)
+lab_10  | ==================================================================
+lab_10  | 
+lab_10  | Файлы file15/file25/file35/file45/file55 имеют права «только выполнение»,
+lab_10  | поэтому их прямой запуск (./файл) в Linux невозможен: интерпретатор
+lab_10  | #!/bin/bash обязан открыть файл на чтение. Ниже для каждого файла
+lab_10  | фиксируется результат прямого запуска, затем процесс реально запускается
+lab_10  | от имени iit11: root читает файл и передаёт его текст bash процесса iit11
+lab_10  | через fifo (унаследованный дескриптор stdin — проверка прав происходит при
+lab_10  | открытии файла, а не при чтении из уже открытого дескриптора).
+lab_10  | Процесс iit11 останавливается на команде 'read testVariable'.
+lab_10  | 
+lab_10  | Проверяемые: iit11, iit12, iit21, iit22, iit3, root (плюс iit21 через sudo).
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs11/file15 (---x------ (100), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file15: Permission denied)
+lab_10  |     процесс: PID=8817 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=8842 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (8842) - Operation not p)
+lab_10  |     процесс: PID=8875 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (8875) - Operation not p)
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=8917 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (8917) - Operation not p)
+lab_10  |     процесс: PID=8949 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (8949) - Operation not p)
+lab_10  |     процесс: PID=8983 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs11/file25 (------x--- (010), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file25: Permission denied)
+lab_10  |     процесс: PID=9030 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=9059 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9059) - Operation not p)
+lab_10  |     процесс: PID=9093 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9093) - Operation not p)
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=9133 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9133) - Operation not p)
+lab_10  |     процесс: PID=9166 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9166) - Operation not p)
+lab_10  |     процесс: PID=9199 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs11/file35 (---------x (001), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file35: Permission denied)
+lab_10  |     процесс: PID=9247 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=9276 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9276) - Operation not p)
+lab_10  |     процесс: PID=9309 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9309) - Operation not p)
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=9350 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9350) - Operation not p)
+lab_10  |     процесс: PID=9383 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9383) - Operation not p)
+lab_10  |     процесс: PID=9416 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs11/file45 (---x--x--x (111), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file45: Permission denied)
+lab_10  |     процесс: PID=9464 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=9494 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9494) - Operation not p)
+lab_10  |     процесс: PID=9526 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9526) - Operation not p)
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=9567 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9567) - Operation not p)
+lab_10  |     процесс: PID=9600 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9600) - Operation not p)
+lab_10  |     процесс: PID=9633 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs11/file55 (---x------ (100), root:root)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file55: Permission denied)
+lab_10  |     процесс: PID=9681 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=9711 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9711) - Operation not p)
+lab_10  |     процесс: PID=9743 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9743) - Operation not p)
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=9784 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9784) - Operation not p)
+lab_10  |     процесс: PID=9817 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9817) - Operation not p)
+lab_10  |     процесс: PID=9850 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs12/file15 (---x------ (100), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file15: Permission denied)
+lab_10  |     процесс: PID=9898 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=9927 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9927) - Operation not p)
+lab_10  |     процесс: PID=9960 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9960) - Operation not p)
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=10001 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10001) - Operation not )
+lab_10  |     процесс: PID=10034 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10034) - Operation not )
+lab_10  |     процесс: PID=10067 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs12/file25 (------x--- (010), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file25: Permission denied)
+lab_10  |     процесс: PID=10115 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=10144 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10144) - Operation not )
+lab_10  |     процесс: PID=10177 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10177) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=10219 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10219) - Operation not )
+lab_10  |     процесс: PID=10251 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10251) - Operation not )
+lab_10  |     процесс: PID=10285 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs12/file35 (---------x (001), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file35: Permission denied)
+lab_10  |     процесс: PID=10332 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=10361 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10361) - Operation not )
+lab_10  |     процесс: PID=10394 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10394) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=10436 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10436) - Operation not )
+lab_10  |     процесс: PID=10468 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10468) - Operation not )
+lab_10  |     процесс: PID=10501 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs12/file45 (---x--x--x (111), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file45: Permission denied)
+lab_10  |     процесс: PID=10549 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=10578 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10578) - Operation not )
+lab_10  |     процесс: PID=10611 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10611) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=10652 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10652) - Operation not )
+lab_10  |     процесс: PID=10685 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10685) - Operation not )
+lab_10  |     процесс: PID=10718 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs12/file55 (---x------ (100), root:root)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file55: Permission denied)
+lab_10  |     процесс: PID=10766 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=10796 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10796) - Operation not )
+lab_10  |     процесс: PID=10829 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10829) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=10869 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10869) - Operation not )
+lab_10  |     процесс: PID=10902 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10902) - Operation not )
+lab_10  |     процесс: PID=10935 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs13/file15 (---x------ (100), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file15: Permission denied)
+lab_10  |     процесс: PID=10983 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=11013 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11013) - Operation not )
+lab_10  |     процесс: PID=11045 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11045) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=11086 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11086) - Operation not )
+lab_10  |     процесс: PID=11119 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11119) - Operation not )
+lab_10  |     процесс: PID=11152 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs13/file25 (------x--- (010), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file25: Permission denied)
+lab_10  |     процесс: PID=11200 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=11229 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11229) - Operation not )
+lab_10  |     процесс: PID=11262 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11262) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=11303 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11303) - Operation not )
+lab_10  |     процесс: PID=11336 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11336) - Operation not )
+lab_10  |     процесс: PID=11369 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs13/file35 (---------x (001), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file35: Permission denied)
+lab_10  |     процесс: PID=11417 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=11446 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11446) - Operation not )
+lab_10  |     процесс: PID=11479 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11479) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=11520 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11520) - Operation not )
+lab_10  |     процесс: PID=11553 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11553) - Operation not )
+lab_10  |     процесс: PID=11586 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs13/file45 (---x--x--x (111), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file45: Permission denied)
+lab_10  |     процесс: PID=11634 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=11664 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11664) - Operation not )
+lab_10  |     процесс: PID=11696 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11696) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=11737 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11737) - Operation not )
+lab_10  |     процесс: PID=11770 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11770) - Operation not )
+lab_10  |     процесс: PID=11803 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs13/file55 (---x------ (100), root:root)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file55: Permission denied)
+lab_10  |     процесс: PID=11851 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=11880 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11880) - Operation not )
+lab_10  |     процесс: PID=11913 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11913) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=11954 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11954) - Operation not )
+lab_10  |     процесс: PID=11987 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11987) - Operation not )
+lab_10  |     процесс: PID=12020 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs14/file15 (---x------ (100), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file15: Permission denied)
+lab_10  |     процесс: PID=12069 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=12097 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12097) - Operation not )
+lab_10  |     процесс: PID=12130 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12130) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=12172 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12172) - Operation not )
+lab_10  |     процесс: PID=12204 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12204) - Operation not )
+lab_10  |     процесс: PID=12237 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs14/file25 (------x--- (010), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file25: Permission denied)
+lab_10  |     процесс: PID=12285 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=12314 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12314) - Operation not )
+lab_10  |     процесс: PID=12347 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12347) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=12388 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12388) - Operation not )
+lab_10  |     процесс: PID=12421 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12421) - Operation not )
+lab_10  |     процесс: PID=12454 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs14/file35 (---------x (001), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file35: Permission denied)
+lab_10  |     процесс: PID=12502 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=12531 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12531) - Operation not )
+lab_10  |     процесс: PID=12564 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12564) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=12605 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12605) - Operation not )
+lab_10  |     процесс: PID=12638 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12638) - Operation not )
+lab_10  |     процесс: PID=12671 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs14/file45 (---x--x--x (111), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file45: Permission denied)
+lab_10  |     процесс: PID=12719 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=12749 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12749) - Operation not )
+lab_10  |     процесс: PID=12781 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12781) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=12822 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12822) - Operation not )
+lab_10  |     процесс: PID=12855 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12855) - Operation not )
+lab_10  |     процесс: PID=12888 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs14/file55 (---x------ (100), root:root)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file55: Permission denied)
+lab_10  |     процесс: PID=12937 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=12965 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12965) - Operation not )
+lab_10  |     процесс: PID=12998 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12998) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=13039 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (13039) - Operation not )
+lab_10  |     процесс: PID=13072 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (13072) - Operation not )
+lab_10  |     процесс: PID=13105 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | ==================================================================
+lab_10  | Итог шага 15: попыток kill = 120 (завершено OK = 40, отклонено DENIED = 80);
+lab_10  |               попыток kill через sudo (iit21) = 20 (успешно = 20); ошибок запуска = 0.
+lab_10  | Остановить процесс iit11 могут только сам владелец процесса (iit11),
+lab_10  | администратор через sudo (iit21) и суперпользователь (root).
+lab_10  | ==================================================================
+lab_10  | 
+lab_10  | 
+lab_10  | ==================================================================
+lab_10  | ШАГ 15. Запуск файлов filex5 от iit11 и проверка остановки (kill)
+lab_10  | ==================================================================
+lab_10  | 
+lab_10  | Файлы file15/file25/file35/file45/file55 имеют права «только выполнение»,
+lab_10  | поэтому их прямой запуск (./файл) в Linux невозможен: интерпретатор
+lab_10  | #!/bin/bash обязан открыть файл на чтение. Ниже для каждого файла
+lab_10  | фиксируется результат прямого запуска, затем процесс реально запускается
+lab_10  | от имени iit11: root читает файл и передаёт его текст bash процесса iit11
+lab_10  | через fifo (унаследованный дескриптор stdin — проверка прав происходит при
+lab_10  | открытии файла, а не при чтении из уже открытого дескриптора).
+lab_10  | Процесс iit11 останавливается на команде 'read testVariable'.
+lab_10  | 
+lab_10  | Проверяемые: iit11, iit12, iit21, iit22, iit3, root (плюс iit21 через sudo).
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs11/file15 (---x------ (100), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file15: Permission denied)
+lab_10  |     процесс: PID=8817 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=8842 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (8842) - Operation not p)
+lab_10  |     процесс: PID=8875 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (8875) - Operation not p)
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=8917 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (8917) - Operation not p)
+lab_10  |     процесс: PID=8949 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (8949) - Operation not p)
+lab_10  |     процесс: PID=8983 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs11/file25 (------x--- (010), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file25: Permission denied)
+lab_10  |     процесс: PID=9030 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=9059 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9059) - Operation not p)
+lab_10  |     процесс: PID=9093 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9093) - Operation not p)
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=9133 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9133) - Operation not p)
+lab_10  |     процесс: PID=9166 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9166) - Operation not p)
+lab_10  |     процесс: PID=9199 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs11/file35 (---------x (001), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file35: Permission denied)
+lab_10  |     процесс: PID=9247 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=9276 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9276) - Operation not p)
+lab_10  |     процесс: PID=9309 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9309) - Operation not p)
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=9350 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9350) - Operation not p)
+lab_10  |     процесс: PID=9383 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9383) - Operation not p)
+lab_10  |     процесс: PID=9416 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs11/file45 (---x--x--x (111), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file45: Permission denied)
+lab_10  |     процесс: PID=9464 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=9494 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9494) - Operation not p)
+lab_10  |     процесс: PID=9526 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9526) - Operation not p)
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=9567 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9567) - Operation not p)
+lab_10  |     процесс: PID=9600 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9600) - Operation not p)
+lab_10  |     процесс: PID=9633 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs11/file55 (---x------ (100), root:root)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file55: Permission denied)
+lab_10  |     процесс: PID=9681 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=9711 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9711) - Operation not p)
+lab_10  |     процесс: PID=9743 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9743) - Operation not p)
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=9784 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9784) - Operation not p)
+lab_10  |     процесс: PID=9817 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9817) - Operation not p)
+lab_10  |     процесс: PID=9850 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs12/file15 (---x------ (100), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file15: Permission denied)
+lab_10  |     процесс: PID=9898 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=9927 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9927) - Operation not p)
+lab_10  |     процесс: PID=9960 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9960) - Operation not p)
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=10001 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10001) - Operation not )
+lab_10  |     процесс: PID=10034 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10034) - Operation not )
+lab_10  |     процесс: PID=10067 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs12/file25 (------x--- (010), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file25: Permission denied)
+lab_10  |     процесс: PID=10115 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=10144 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10144) - Operation not )
+lab_10  |     процесс: PID=10177 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10177) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=10219 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10219) - Operation not )
+lab_10  |     процесс: PID=10251 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10251) - Operation not )
+lab_10  |     процесс: PID=10285 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs12/file35 (---------x (001), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file35: Permission denied)
+lab_10  |     процесс: PID=10332 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=10361 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10361) - Operation not )
+lab_10  |     процесс: PID=10394 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10394) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=10436 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10436) - Operation not )
+lab_10  |     процесс: PID=10468 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10468) - Operation not )
+lab_10  |     процесс: PID=10501 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs12/file45 (---x--x--x (111), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file45: Permission denied)
+lab_10  |     процесс: PID=10549 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=10578 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10578) - Operation not )
+lab_10  |     процесс: PID=10611 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10611) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=10652 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10652) - Operation not )
+lab_10  |     процесс: PID=10685 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10685) - Operation not )
+lab_10  |     процесс: PID=10718 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs12/file55 (---x------ (100), root:root)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file55: Permission denied)
+lab_10  |     процесс: PID=10766 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=10796 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10796) - Operation not )
+lab_10  |     процесс: PID=10829 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10829) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=10869 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10869) - Operation not )
+lab_10  |     процесс: PID=10902 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10902) - Operation not )
+lab_10  |     процесс: PID=10935 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs13/file15 (---x------ (100), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file15: Permission denied)
+lab_10  |     процесс: PID=10983 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=11013 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11013) - Operation not )
+lab_10  |     процесс: PID=11045 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11045) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=11086 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11086) - Operation not )
+lab_10  |     процесс: PID=11119 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11119) - Operation not )
+lab_10  |     процесс: PID=11152 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs13/file25 (------x--- (010), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file25: Permission denied)
+lab_10  |     процесс: PID=11200 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=11229 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11229) - Operation not )
+lab_10  |     процесс: PID=11262 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11262) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=11303 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11303) - Operation not )
+lab_10  |     процесс: PID=11336 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11336) - Operation not )
+lab_10  |     процесс: PID=11369 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs13/file35 (---------x (001), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file35: Permission denied)
+lab_10  |     процесс: PID=11417 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=11446 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11446) - Operation not )
+lab_10  |     процесс: PID=11479 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11479) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=11520 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11520) - Operation not )
+lab_10  |     процесс: PID=11553 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11553) - Operation not )
+lab_10  |     процесс: PID=11586 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs13/file45 (---x--x--x (111), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file45: Permission denied)
+lab_10  |     процесс: PID=11634 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=11664 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11664) - Operation not )
+lab_10  |     процесс: PID=11696 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11696) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=11737 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11737) - Operation not )
+lab_10  |     процесс: PID=11770 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11770) - Operation not )
+lab_10  |     процесс: PID=11803 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs13/file55 (---x------ (100), root:root)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file55: Permission denied)
+lab_10  |     процесс: PID=11851 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=11880 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11880) - Operation not )
+lab_10  |     процесс: PID=11913 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11913) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=11954 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11954) - Operation not )
+lab_10  |     процесс: PID=11987 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11987) - Operation not )
+lab_10  |     процесс: PID=12020 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs14/file15 (---x------ (100), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file15: Permission denied)
+lab_10  |     процесс: PID=12069 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=12097 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12097) - Operation not )
+lab_10  |     процесс: PID=12130 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12130) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=12172 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12172) - Operation not )
+lab_10  |     процесс: PID=12204 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12204) - Operation not )
+lab_10  |     процесс: PID=12237 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs14/file25 (------x--- (010), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file25: Permission denied)
+lab_10  |     процесс: PID=12285 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=12314 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12314) - Operation not )
+lab_10  |     процесс: PID=12347 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12347) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=12388 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12388) - Operation not )
+lab_10  |     процесс: PID=12421 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12421) - Operation not )
+lab_10  |     процесс: PID=12454 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs14/file35 (---------x (001), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file35: Permission denied)
+lab_10  |     процесс: PID=12502 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=12531 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12531) - Operation not )
+lab_10  |     процесс: PID=12564 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12564) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=12605 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12605) - Operation not )
+lab_10  |     процесс: PID=12638 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12638) - Operation not )
+lab_10  |     процесс: PID=12671 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs14/file45 (---x--x--x (111), iit11:group_iit1)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file45: Permission denied)
+lab_10  |     процесс: PID=12719 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=12749 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12749) - Operation not )
+lab_10  |     процесс: PID=12781 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12781) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=12822 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12822) - Operation not )
+lab_10  |     процесс: PID=12855 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12855) - Operation not )
+lab_10  |     процесс: PID=12888 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | --- /opt/lab/pzs/pzs14/file55 (---x------ (100), root:root)
+lab_10  |     прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file55: Permission denied)
+lab_10  |     процесс: PID=12937 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit11 : OK (процесс завершён)
+lab_10  |     процесс: PID=12965 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12965) - Operation not )
+lab_10  |     процесс: PID=12998 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12998) - Operation not )
+lab_10  |     kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+lab_10  |     процесс: PID=13039 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (13039) - Operation not )
+lab_10  |     процесс: PID=13072 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (13072) - Operation not )
+lab_10  |     процесс: PID=13105 (пользователь iit11, состояние Ss) — висит на read
+lab_10  |     kill от root : OK (процесс завершён)
+lab_10  | 
+lab_10  | ==================================================================
+lab_10  | Итог шага 15: попыток kill = 120 (завершено OK = 40, отклонено DENIED = 80);
+lab_10  |               попыток kill через sudo (iit21) = 20 (успешно = 20); ошибок запуска = 0.
+lab_10  | Остановить процесс iit11 могут только сам владелец процесса (iit11),
+lab_10  | администратор через sudo (iit21) и суперпользователь (root).
+lab_10  | ==================================================================
+lab_10  | 
+lab_10  | ==============================================================
+lab_10  | == Шаг 16. Проверки операций над папками pzs11-pzs15
+lab_10  | ==============================================================
+lab_10  | 
+lab_10  | ==================================================================
+lab_10  | ШАГ 16. Операции над папками: ls (чтение содержимого),
+lab_10  | touch (создание файла), rm (удаление существующих файлов)
+lab_10  | ==================================================================
+lab_10  | 
+lab_10  | Субъекты: iit11, iit12, iit21, iit22, iit3, root. После каждого субъекта
+lab_10  | содержимое папки восстанавливается из резервной копии (проверки независимы).
+lab_10  | 
+lab_10  | === /opt/lab/pzs/pzs11 — drwx------ (700), владелец iit11:group_iit1 ===
+lab_10  |     субъект | чтение (ls) | создание (touch) | удаление (rm: OK/DENIED)
+lab_10  |     iit11   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit12   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs11': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs11/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs11/file11': Permissi]
+lab_10  |     iit21   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs11': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs11/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs11/file11': Permissi]
+lab_10  |     iit22   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs11': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs11/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs11/file11': Permissi]
+lab_10  |     iit3    | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs11': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs11/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs11/file11': Permissi]
+lab_10  |     root    | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  | 
+lab_10  | === /opt/lab/pzs/pzs12 — d---rwx--- (070), владелец root:group_iit1 ===
+lab_10  |     субъект | чтение (ls) | создание (touch) | удаление (rm: OK/DENIED)
+lab_10  |     iit11   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit12   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit21   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs12': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs12/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs12/file11': Permissi]
+lab_10  |     iit22   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs12': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs12/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs12/file11': Permissi]
+lab_10  |     iit3    | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs12': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs12/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs12/file11': Permissi]
+lab_10  |     root    | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  | 
+lab_10  | === /opt/lab/pzs/pzs13 — d------rwx (007), владелец root:root ===
+lab_10  |     субъект | чтение (ls) | создание (touch) | удаление (rm: OK/DENIED)
+lab_10  |     iit11   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit12   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit21   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit22   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit3    | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     root    | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  | 
+lab_10  | === /opt/lab/pzs/pzs14 — drwxrwxrwx (777), владелец iit11:group_iit1 ===
+lab_10  |     субъект | чтение (ls) | создание (touch) | удаление (rm: OK/DENIED)
+lab_10  |     iit11   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit12   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit21   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit22   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit3    | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     root    | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  | 
+lab_10  | === /opt/lab/pzs/pzs15 — drwx------ (700), владелец root:root ===
+lab_10  |     субъект | чтение (ls) | создание (touch) | удаление (rm: OK/DENIED)
+lab_10  |     iit11   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs15': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs15/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs15/file11': Permissi]
+lab_10  |     iit12   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs15': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs15/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs15/file11': Permissi]
+lab_10  |     iit21   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs15': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs15/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs15/file11': Permissi]
+lab_10  |     iit22   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs15': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs15/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs15/file11': Permissi]
+lab_10  |     iit3    | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs15': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs15/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs15/file11': Permissi]
+lab_10  |     root    | OK          | OK               | 1 OK / 0 DENIED (25 файлов в папке нет)
+lab_10  | 
+lab_10  | Итого операций над папками: ls + touch + rm = 6 субъектов x 5 папок x 3 операции;
+lab_10  | разрешено (OK) = 54, запрещено (DENIED) = 36.
+lab_10  | 
+lab_10  | 
+lab_10  | ==================================================================
+lab_10  | ШАГ 16. Операции над папками: ls (чтение содержимого),
+lab_10  | touch (создание файла), rm (удаление существующих файлов)
+lab_10  | ==================================================================
+lab_10  | 
+lab_10  | Субъекты: iit11, iit12, iit21, iit22, iit3, root. После каждого субъекта
+lab_10  | содержимое папки восстанавливается из резервной копии (проверки независимы).
+lab_10  | 
+lab_10  | === /opt/lab/pzs/pzs11 — drwx------ (700), владелец iit11:group_iit1 ===
+lab_10  |     субъект | чтение (ls) | создание (touch) | удаление (rm: OK/DENIED)
+lab_10  |     iit11   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit12   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs11': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs11/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs11/file11': Permissi]
+lab_10  |     iit21   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs11': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs11/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs11/file11': Permissi]
+lab_10  |     iit22   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs11': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs11/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs11/file11': Permissi]
+lab_10  |     iit3    | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs11': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs11/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs11/file11': Permissi]
+lab_10  |     root    | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  | 
+lab_10  | === /opt/lab/pzs/pzs12 — d---rwx--- (070), владелец root:group_iit1 ===
+lab_10  |     субъект | чтение (ls) | создание (touch) | удаление (rm: OK/DENIED)
+lab_10  |     iit11   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit12   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit21   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs12': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs12/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs12/file11': Permissi]
+lab_10  |     iit22   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs12': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs12/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs12/file11': Permissi]
+lab_10  |     iit3    | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs12': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs12/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs12/file11': Permissi]
+lab_10  |     root    | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  | 
+lab_10  | === /opt/lab/pzs/pzs13 — d------rwx (007), владелец root:root ===
+lab_10  |     субъект | чтение (ls) | создание (touch) | удаление (rm: OK/DENIED)
+lab_10  |     iit11   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit12   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit21   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit22   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit3    | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     root    | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  | 
+lab_10  | === /opt/lab/pzs/pzs14 — drwxrwxrwx (777), владелец iit11:group_iit1 ===
+lab_10  |     субъект | чтение (ls) | создание (touch) | удаление (rm: OK/DENIED)
+lab_10  |     iit11   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit12   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit21   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit22   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     iit3    | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  |     root    | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+lab_10  | 
+lab_10  | === /opt/lab/pzs/pzs15 — drwx------ (700), владелец root:root ===
+lab_10  |     субъект | чтение (ls) | создание (touch) | удаление (rm: OK/DENIED)
+lab_10  |     iit11   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs15': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs15/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs15/file11': Permissi]
+lab_10  |     iit12   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs15': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs15/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs15/file11': Permissi]
+lab_10  |     iit21   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs15': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs15/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs15/file11': Permissi]
+lab_10  |     iit22   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs15': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs15/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs15/file11': Permissi]
+lab_10  |     iit3    | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs15': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs15/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs15/file11': Permissi]
+lab_10  |     root    | OK          | OK               | 1 OK / 0 DENIED (25 файлов в папке нет)
+lab_10  | 
+lab_10  | Итого операций над папками: ls + touch + rm = 6 субъектов x 5 папок x 3 операции;
+lab_10  | разрешено (OK) = 54, запрещено (DENIED) = 36.
+lab_10  | 
+lab_10  | ==============================================================
+lab_10  | == Шаг 17. Очистка: файлы, папки, пользователи, группы
+lab_10  | ==============================================================
+lab_10  | --- 1. Остановка оставшихся процессов пользователей
+lab_10  |   pkill -9 -u iit11: процессов нет
+lab_10  |   pkill -9 -u iit12: процессов нет
+lab_10  |   pkill -9 -u iit21: процессов нет
+lab_10  |   pkill -9 -u iit22: процессов нет
+lab_10  |   pkill -9 -u iit3: процессов нет
+lab_10  | --- 2. Удаление файлов и папок (pzs, резервная копия, временные файлы)
+lab_10  | total 24
+lab_10  | drwxr-xr-x 1 root   root   4096 Oct  5 13:18 .
+lab_10  | drwxr-xr-x 1 root   root   4096 Oct  5 12:29 ..
+lab_10  | drwxrwxr-x 2 ubuntu ubuntu 4096 Oct  5 12:25 demo_output
+lab_10  | drwxr-xr-x 1 root   root   4096 Oct  5 12:29 scripts
+lab_10  | --- 3. Отзыв административных привилегий iit21
+lab_10  | total 16
+lab_10  | drwxr-xr-x 1 root root 4096 Oct  5 13:18 .
+lab_10  | drwxr-xr-x 1 root root 4096 Oct  5 13:17 ..
+lab_10  | -r--r----- 1 root root 1068 Jan 29  2024 README
+lab_10  | --- 4. Удаление пользователей (userdel -r: с домашними каталогами)
+lab_10  |   userdel: iit11 mail spool (/var/mail/iit11) not found
+lab_10  |   userdel: iit12 mail spool (/var/mail/iit12) not found
+lab_10  |   userdel: iit21 mail spool (/var/mail/iit21) not found
+lab_10  |   userdel: iit22 mail spool (/var/mail/iit22) not found
+lab_10  |   userdel: iit3 mail spool (/var/mail/iit3) not found
+lab_10  | --- 5. Удаление групп
+lab_10  | --- 6. Проверка чистоты системы
+lab_10  |   getent passwd iit11 iit12 iit21 iit22 iit3: (пусто — пользователи удалены)
+lab_10  |   getent group group_iit1 group_iit2: (пусто — группы удалены)
+lab_10  |   /etc/sudoers.d/iit21: отсутствует
+lab_10  |   каталог /opt/lab/pzs: удалён
+lab_10  |   /home:
+lab_10  |     total 12
+lab_10  |     drwxr-xr-x 1 root   root   4096 Oct  5 13:18 .
+lab_10  |     drwxr-xr-x 1 root   root   4096 Oct  5 13:17 ..
+lab_10  |     drwxr-x--- 2 ubuntu ubuntu 4096 Apr 10 02:29 ubuntu
+lab_10  |   остались процессы пользователей: 
+lab_10  |     нет
+lab_10  | 
+lab_10  | ################################################################
+lab_10  | # Готово. Время выполнения: 69 c.
+lab_10  | # Артефакты в demo_output/: dirs.txt matrix.txt matrix_detail.txt process_control.txt run_full.log 
+lab_10  | ################################################################
+[Klab_10 exited with code 0
+ Compose Stopping Aborting on container exit...
+ Container lab_10 Stopping 
+ Container lab_10 Stopped 

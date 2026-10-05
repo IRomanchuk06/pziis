@@ -1,0 +1,6 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ddf391323a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+Saved corefile /work/demo_output/dumps/own_p2_update.core
+[Inferior 1 (process 8) detached]
+warning: Memory read failed for corefile section, 4096 bytes at 0xffffffffff600000.

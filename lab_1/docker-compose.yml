@@ -1,0 +1,11 @@
+name: lab_1
+
+services:
+  app:
+    build: .
+    image: lab_1-app:latest
+    environment:
+      # Для демонстрации; в реальной эксплуатации — secrets/менеджер секретов
+      MASTER_PASSWORD: "Demo-Master-2026-Key#1"
+      ADMIN_PASSWORD: "Demo-Admin-2026-Key#1"
+    restart: "no"

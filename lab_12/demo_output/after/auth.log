@@ -1,0 +1,21 @@
+Failed password for root from 172.28.100.20 port 45024 ssh2
+Connection closed by authenticating user root 172.28.100.20 port 45024 [preauth]
+Invalid user admin from 172.28.100.20 port 45028
+Failed password for invalid user admin from 172.28.100.20 port 45028 ssh2
+Connection closed by invalid user admin 172.28.100.20 port 45028 [preauth]
+Failed password for dev from 172.28.100.20 port 45040 ssh2
+Connection closed by authenticating user dev 172.28.100.20 port 45040 [preauth]
+Invalid user test from 172.28.100.20 port 45666
+Failed password for invalid user test from 172.28.100.20 port 45666 ssh2
+Connection closed by invalid user test 172.28.100.20 port 45666 [preauth]
+Failed password for root from 172.28.100.20 port 45682 ssh2
+Connection closed by authenticating user root 172.28.100.20 port 45682 [preauth]
+Invalid user admin from 172.28.100.20 port 45692
+Failed password for invalid user admin from 172.28.100.20 port 45692 ssh2
+Connection closed by invalid user admin 172.28.100.20 port 45692 [preauth]
+Invalid user ubuntu from 172.28.100.20 port 45706
+Failed password for invalid user ubuntu from 172.28.100.20 port 45706 ssh2
+Connection closed by invalid user ubuntu 172.28.100.20 port 45706 [preauth]
+Invalid user oracle from 172.28.100.20 port 58948
+Failed password for invalid user oracle from 172.28.100.20 port 58948 ssh2
+Connection closed by invalid user oracle 172.28.100.20 port 58948 [preauth]

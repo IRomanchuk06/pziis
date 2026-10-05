@@ -1,0 +1,50 @@
+[banner] реализация=provided python=3.12.15 pid=49 log=/work/demo_output/logs/provided.log
+### [driver] старт: [banner] реализация=provided python=3.12.15 pid=49 log=/work/demo_output/logs/provided.log
+>>> <значение скрыто (см. tokens.txt)>
+>>> noop
+master pwd: 2026-10-05 13:16:20,181 INFO provided_app: crypto init: master=MP-D3DCF1DC5D05 key=29c140f092a6c5d7f8f42a577ae913f236770c4fffbb247678f57745a06c51c4
+prv> [ok] noop
+>>> add secret doc1
+>>> <значение скрыто (см. tokens.txt)>
+prv> value: 2026-10-05 13:16:20,182 INFO provided_app: PUT rev=301012675 id=doc1 kind=secret value=CARD-13AC7B223594
+[ok] put id=doc1
+>>> add password pwd1
+>>> <значение скрыто (см. tokens.txt)>
+prv> value: 2026-10-05 13:16:20,182 INFO provided_app: PUT rev=64350416 id=pwd1 kind=password value=PWD-C8253B26678C
+[ok] put id=pwd1
+>>> add public note1
+>>> NOTE-PUBLIC-65E178C1
+prv> value: 2026-10-05 13:16:20,182 INFO provided_app: PUT rev=715941416 id=note1 kind=public value=NOTE-PUBLIC-65E178C1
+[ok] put id=note1
+>>> add secret doc2
+>>> <значение скрыто (см. tokens.txt)>
+prv> value: 2026-10-05 13:16:20,182 INFO provided_app: PUT rev=12963025 id=doc2 kind=secret value=CARD-0A083E23B5A5
+[ok] put id=doc2
+>>> dumpcore /work/demo_output/dumps/provided_p1_add.core
+prv> [dumpcore] Saved corefile /work/demo_output/dumps/provided_p1_add.core
+[dumpcore] [Inferior 1 (process 49) detached]
+[ok] dumpcore rc=0 path=/work/demo_output/dumps/provided_p1_add.core
+>>> update doc1
+>>> <значение скрыто (см. tokens.txt)>
+prv> new value: 2026-10-05 13:16:20,260 INFO provided_app: PUT rev=877838488 id=doc1 kind=secret value=CARD-528C8A5B4C69
+[ok] update id=doc1
+>>> dumpcore /work/demo_output/dumps/provided_p2_update.core
+prv> [dumpcore] Saved corefile /work/demo_output/dumps/provided_p2_update.core
+[dumpcore] [Inferior 1 (process 49) detached]
+[ok] dumpcore rc=0 path=/work/demo_output/dumps/provided_p2_update.core
+>>> delete doc1
+prv> 2026-10-05 13:16:20,337 INFO provided_app: DELETE rev=75851846 id=doc1 kind=secret
+[ok] delete id=doc1
+>>> delete doc2
+prv> 2026-10-05 13:16:20,337 INFO provided_app: DELETE rev=473516441 id=doc2 kind=secret
+[ok] delete id=doc2
+>>> delete pwd1
+prv> 2026-10-05 13:16:20,337 INFO provided_app: DELETE rev=779514216 id=pwd1 kind=password
+[ok] delete id=pwd1
+>>> dumpcore /work/demo_output/dumps/provided_p3_delete.core
+prv> [dumpcore] Saved corefile /work/demo_output/dumps/provided_p3_delete.core
+[dumpcore] [Inferior 1 (process 49) detached]
+[ok] dumpcore rc=0 path=/work/demo_output/dumps/provided_p3_delete.core
+>>> quit
+prv> [ok] exit
+### [driver] процесс завершён, код 0

@@ -1,0 +1,11 @@
+name: lab_2
+
+services:
+  auditor:
+    build: .
+    image: lab_2-auditor:latest
+    volumes:
+      # Код оцениваемой системы (lab_1) — только на чтение
+      - ../lab_1/app:/srv/target:ro
+      - ../lab_1/Dockerfile:/srv/inspect/Dockerfile:ro
+    restart: "no"

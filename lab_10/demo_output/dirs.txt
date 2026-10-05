@@ -1,0 +1,56 @@
+
+==================================================================
+ШАГ 16. Операции над папками: ls (чтение содержимого),
+touch (создание файла), rm (удаление существующих файлов)
+==================================================================
+
+Субъекты: iit11, iit12, iit21, iit22, iit3, root. После каждого субъекта
+содержимое папки восстанавливается из резервной копии (проверки независимы).
+
+=== /opt/lab/pzs/pzs11 — drwx------ (700), владелец iit11:group_iit1 ===
+    субъект | чтение (ls) | создание (touch) | удаление (rm: OK/DENIED)
+    iit11   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+    iit12   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs11': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs11/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs11/file11': Permissi]
+    iit21   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs11': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs11/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs11/file11': Permissi]
+    iit22   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs11': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs11/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs11/file11': Permissi]
+    iit3    | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs11': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs11/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs11/file11': Permissi]
+    root    | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+
+=== /opt/lab/pzs/pzs12 — d---rwx--- (070), владелец root:group_iit1 ===
+    субъект | чтение (ls) | создание (touch) | удаление (rm: OK/DENIED)
+    iit11   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+    iit12   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+    iit21   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs12': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs12/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs12/file11': Permissi]
+    iit22   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs12': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs12/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs12/file11': Permissi]
+    iit3    | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs12': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs12/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs12/file11': Permissi]
+    root    | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+
+=== /opt/lab/pzs/pzs13 — d------rwx (007), владелец root:root ===
+    субъект | чтение (ls) | создание (touch) | удаление (rm: OK/DENIED)
+    iit11   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+    iit12   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+    iit21   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+    iit22   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+    iit3    | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+    root    | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+
+=== /opt/lab/pzs/pzs14 — drwxrwxrwx (777), владелец iit11:group_iit1 ===
+    субъект | чтение (ls) | создание (touch) | удаление (rm: OK/DENIED)
+    iit11   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+    iit12   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+    iit21   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+    iit22   | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+    iit3    | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+    root    | OK          | OK               | 26 OK / 0 DENIED (0 файлов в папке нет)
+
+=== /opt/lab/pzs/pzs15 — drwx------ (700), владелец root:root ===
+    субъект | чтение (ls) | создание (touch) | удаление (rm: OK/DENIED)
+    iit11   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs15': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs15/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs15/file11': Permissi]
+    iit12   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs15': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs15/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs15/file11': Permissi]
+    iit21   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs15': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs15/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs15/file11': Permissi]
+    iit22   | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs15': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs15/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs15/file11': Permissi]
+    iit3    | DENIED (ls: cannot open directory '/opt/lab/pzs/pzs15': Permiss) | DENIED (touch: cannot touch '/opt/lab/pzs/pzs15/create_check_ii) | 0 OK / 26 DENIED (0 файлов в папке нет) [rm: cannot remove '/opt/lab/pzs/pzs15/file11': Permissi]
+    root    | OK          | OK               | 1 OK / 0 DENIED (25 файлов в папке нет)
+
+Итого операций над папками: ls + touch + rm = 6 субъектов x 5 папок x 3 операции;
+разрешено (OK) = 54, запрещено (DENIED) = 36.

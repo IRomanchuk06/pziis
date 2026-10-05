@@ -1,0 +1,108 @@
+######################################################################
+# Лабораторная работа 1. Оценка защищённости разработанного приложения
+# Демонстрация: аутентификация, роли, данные, сессии, аудит
+######################################################################
+  [i]      мастер-пароль AES получен из env MASTER_PASSWORD (в лог не выводится)
+  [i]      пароль bootstrap-admin получен из env ADMIN_PASSWORD (в лог не выводится)
+
+=== Шаг 1. Инициализация системы ===
+  [OK]     хранилище /srv/data создано (каталог 0700, файлы 0600)
+  [OK]     соль KDF сгенерирована (kdf.salt), ключ AES-256 выведен из мастер-пароля
+  [OK]     bootstrap-пользователь 'admin' (роль admin) создан
+
+=== Шаг 2. Аутентификация ===
+  [ОТКАЗ]  авторизация admin с НЕВЕРНЫМ паролем -> AuthError: неверный логин или пароль
+  [OK]     авторизация admin прошла, сессия выдана (токен Dk2qwJ6g…, TTL 1800 c)
+
+=== Шаг 3. Управление пользователями (admin) ===
+  [ОТКАЗ]  создание пользователя с коротким паролем 'q1' -> ValidationError: пароль: минимум 8 символов
+  [OK]     создан пользователь 'alice' (роль user)
+  [OK]     создан пользователь 'bob' (роль guest)
+  [ОТКАЗ]  создание пользователя с недопустимой ролью 'root' -> ValidationError: роль должна быть одной из: admin, user, guest
+
+=== Шаг 4. Конфиденциальные данные (admin) ===
+  [OK]     создана конфиденциальная запись id=2cd3cf58c2d6 (шифруется AES-GCM)
+
+=== Шаг 5. Пользователь alice: свои и чужие данные ===
+  [OK]     авторизация alice (токен Irq9thg-…)
+  [OK]     создана неконфиденциальная запись id=62984eb9103c
+  [OK]     создана конфиденциальная запись alice id=fe3144838b64
+  [OK]     alice изменила свою конфиденциальную запись (перешифрована)
+  [ОТКАЗ]  alice читает ЧУЖУЮ конфиденциальную запись admin -> AccessDenied: нет прав на чтение этой записи
+  [OK]     поиск 'регламент': найдено 1 (неконфиденциальные доступны)
+  [OK]     поиск 'ключ' у alice: найдено 1 (только СВОИ конфиденциальные)
+  [ОТКАЗ]  alice пытается добавить пользователя -> AccessDenied: добавлять пользователей может только admin
+  [OK]     alice создала и удалила свою запись id=714b3d3adeae
+
+=== Шаг 6. Тайм-аут сессии ===
+  [i]      выдана сессия alice с укороченным TTL=2 c (токен SiDhOAe5…)
+  [ОТКАЗ]  операция по истёкшей сессии -> AccessDenied: сессия отсутствует или истекла
+
+=== Шаг 7. Деавторизация ===
+  [OK]     alice выполнила logout, сессия закрыта
+  [ОТКАЗ]  повторное использование токена после logout -> AccessDenied: сессия отсутствует или истекла
+
+=== Шаг 8. Гость bob: только чтение неконфиденциальных ===
+  [OK]     авторизация bob (токен 8ExwA3ns…)
+  [OK]     просмотр всех доступных записей: 1 (только неконфиденциальные)
+  [i]      видит: id=62984eb9103c «Регламент резервного копирования»
+  [ОТКАЗ]  bob пытается создать запись -> AccessDenied: гостю запрещено создавать данные
+  [ОТКАЗ]  bob читает конфиденциальную запись admin -> AccessDenied: нет прав на чтение этой записи
+  [OK]     поиск 'ключ' у гостя: найдено 0 (конфиденциальные скрыты)
+
+=== Шаг 9. Admin: полный доступ ===
+  [OK]     admin прочитал конфиденциальную запись alice: «Личный API-ключ» (расшифрована)
+  [OK]     admin отредактировал запись пользователя
+  [OK]     admin удалил пользователя 'bob'
+  [ОТКАЗ]  операция под сессией удалённого пользователя bob -> AccessDenied: сессия отсутствует или истекла
+  [OK]     admin завершил сессию
+
+=== Шаг 10. Состояние хранилища и журнал аудита ===
+  --- data/records.json (как лежит на диске; конфиденциальные — шифротекст) ---
+    [
+      {
+        "id": "2cd3cf58c2d6",
+        "owner": "admin",
+        "confidential": true,
+        "created_at": 1791201165.9719753,
+        "updated_at": 1791201165.9719753,
+        "enc_payload": "hodKw3SULfGzAXyV9DdjEzqW1GEWgW/xnGRBHvCnsbJ++Sm/bO+7BHJ9tn+do5uimeads7tXcAP984S0sStPbTSynDXJ3zrw5BO9uUkr/fcfF0vppgwg6o6+zWo+N0tVGrVFRLje2G/BoXREiRQ7yl1avqZzCtrVRocUfTzo0lsxdjQV0g2H9SLF8g=="
+      },
+      {
+        "id": "62984eb9103c",
+        "owner": "alice",
+        "confidential": false,
+        "created_at": 1791201166.0047235,
+        "updated_at": 1791201169.0705066,
+        "title": "Регламент резервного копирования",
+        "content": "Бэкап 03:00; проверен администратором"
+      },
+      {
+        "id": "fe3144838b64",
+        "owner": "alice",
+        "confidential": true,
+        "created_at": 1791201166.0049443,
+        "updated_at": 1791201166.005379,
+        "enc_payload": "s0/0a1axf1v+SyCcm/89yyCIROwPnp72ryLMG8c2SGVILGH6kF4HL0+nSsVlA0H2N9mhk+uI4CDxt0/3RNy/KFUQl5I1yRNOJoBdAafxafJWXovdx4FX9uS8k04CzPYLJAA3f5AAifsepO9Kl+sGpUIfyYv5roo7Ph5w1g=="
+      }
+    ]
+  --- data/audit.log (последние 12 записей) ---
+    {"ts": "2026-10-05T11:52:49Z", "actor": "anonymous", "action": "record_read", "target": "fe3144838b64", "result": "deny"}
+    {"ts": "2026-10-05T11:52:49Z", "actor": "bob", "action": "login", "target": "-", "result": "allow"}
+    {"ts": "2026-10-05T11:52:49Z", "actor": "bob", "action": "record_search", "target": "found:1", "result": "allow"}
+    {"ts": "2026-10-05T11:52:49Z", "actor": "bob", "action": "record_create", "target": "-", "result": "deny"}
+    {"ts": "2026-10-05T11:52:49Z", "actor": "bob", "action": "record_read", "target": "2cd3cf58c2d6", "result": "deny"}
+    {"ts": "2026-10-05T11:52:49Z", "actor": "bob", "action": "record_search", "target": "found:0", "result": "allow"}
+    {"ts": "2026-10-05T11:52:49Z", "actor": "admin", "action": "login", "target": "-", "result": "allow"}
+    {"ts": "2026-10-05T11:52:49Z", "actor": "admin", "action": "record_read", "target": "fe3144838b64", "result": "allow"}
+    {"ts": "2026-10-05T11:52:49Z", "actor": "admin", "action": "record_edit", "target": "62984eb9103c", "result": "allow"}
+    {"ts": "2026-10-05T11:52:49Z", "actor": "admin", "action": "delete_user", "target": "bob", "result": "allow"}
+    {"ts": "2026-10-05T11:52:49Z", "actor": "anonymous", "action": "record_search", "target": "-", "result": "deny"}
+    {"ts": "2026-10-05T11:52:49Z", "actor": "admin", "action": "logout", "target": "-", "result": "allow"}
+  --- права доступа к файлам данных ---
+    audit.log: 0o600
+    kdf.salt: 0o600
+    records.json: 0o600
+    users.json: 0o600
+
+Демонстрация завершена.

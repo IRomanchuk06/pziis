@@ -1,0 +1,26 @@
+# =====================================================================
+# Локальные правила Suricata - лабораторная работа №12
+# HOME_NET  = 172.29.100.0/24 (сеть защищаемого сервера: nginx + sshd)
+# EXTERNAL_NET = !$HOME_NET (в т.ч. подсеть атакующего 172.28.100.0/24)
+# =====================================================================
+
+# ---------------------- Path traversal -------------------------------
+alert http $EXTERNAL_NET any -> $HTTP_SERVERS $HTTP_PORTS (msg:"LOCAL WEB-TRAVERSAL обращение к /etc/passwd в URI"; flow:established,to_server; http.uri.raw; content:"/etc/passwd"; nocase; classtype:web-application-attack; sid:1000001; rev:1;)
+
+alert http $EXTERNAL_NET any -> $HTTP_SERVERS $HTTP_PORTS (msg:"LOCAL WEB-TRAVERSAL последовательность ../ в URI"; flow:established,to_server; http.uri.raw; pcre:"/(?:\.\.%2f|%2e%2e%2f|\.\.\/){2,}/i"; classtype:web-application-attack; sid:1000002; rev:1;)
+
+# ---------------------- SQL-инъекции ---------------------------------
+alert http $EXTERNAL_NET any -> $HTTP_SERVERS $HTTP_PORTS (msg:"LOCAL SQLI конструкция UNION SELECT в query string"; flow:established,to_server; http.uri; pcre:"/union(?:\s|\+|%20)+(?:all(?:\s|\+|%20)+)?select/i"; classtype:web-application-attack; sid:1000003; rev:1;)
+
+alert http $EXTERNAL_NET any -> $HTTP_SERVERS $HTTP_PORTS (msg:"LOCAL SQLI тавтология OR/AND 1=1 в query string"; flow:established,to_server; http.uri; pcre:"/(?:'|%27)?(?:\s|\+|%20)*(?:or|and)(?:\s|\+|%20)+(?:'|%27)?1(?:'|%27)?(?:\s|\+|%20)*=(?:\s|\+|%20)*(?:'|%27)?1/i"; classtype:web-application-attack; sid:1000004; rev:1;)
+
+alert http $EXTERNAL_NET any -> $HTTP_SERVERS $HTTP_PORTS (msg:"LOCAL SQLI SQL-комментарий -- в query string"; flow:established,to_server; http.uri; pcre:"/(?:'|%27)(?:\s|%20)*(?:--|%23|#)/"; classtype:web-application-attack; sid:1000005; rev:1;)
+
+# --------------- Зондирование чувствительных путей --------------------
+alert http $EXTERNAL_NET any -> $HTTP_SERVERS $HTTP_PORTS (msg:"LOCAL WEB-SCAN зондирование чувствительного пути/файла"; flow:established,to_server; http.uri.raw; pcre:"/\.(?:env|git|zip|sql|bak|old)(?:[?\s]|$)|\/(?:wp-login\.php|phpmyadmin|admin|server-status|actuator|cgi-bin)/i"; classtype:web-application-activity; sid:1000006; rev:1;)
+
+# ---------------------- Сканирование портов ---------------------------
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"LOCAL PORTSCAN SYN-сканирование портов (порог по источнику)"; flags:S; flow:to_server,stateless; detection_filter:track by_src, count 15, seconds 5; classtype:attempted-recon; sid:1000007; rev:1;)
+
+# ---------------------- SSH брутфорс ----------------------------------
+alert tcp $EXTERNAL_NET any -> $HOME_NET 22 (msg:"LOCAL SSH возможный брутфорс (много подключений за окно)"; flags:S; flow:to_server,stateless; detection_filter:track by_src, count 4, seconds 30; classtype:attempted-admin; sid:1000008; rev:1;)

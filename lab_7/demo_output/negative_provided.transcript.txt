@@ -1,0 +1,196 @@
+[banner] реализация=provided python=3.12.15 pid=89 log=/work/demo_output/logs/provided.log
+### [driver] старт: [banner] реализация=provided python=3.12.15 pid=89 log=/work/demo_output/logs/provided.log
+>>> <значение скрыто (см. tokens.txt)>
+>>> add secret s1
+>>> <значение скрыто (см. tokens.txt)>
+master pwd: 2026-10-05 13:16:20,773 INFO provided_app: crypto init: master=MP-D3DCF1DC5D05 key=52a5ca4bf6dbc37c9dceb603b93bccc1994a9e970bacce112fc0e5d86ab6d8fc
+prv> value: 2026-10-05 13:16:20,773 INFO provided_app: PUT rev=50682431 id=s1 kind=secret value=setup-secret
+[ok] put id=s1
+>>> add secret dup_id
+>>> <значение скрыто (см. tokens.txt)>
+prv> value: 2026-10-05 13:16:20,773 INFO provided_app: PUT rev=440783278 id=dup_id kind=secret value=setup-dup
+[ok] put id=dup_id
+>>> bogus_command
+prv> Traceback (most recent call last):
+  File "/work/app/provided/main.py", line 137, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/work/app/provided/main.py", line 131, in main
+    raise ValueError("unknown command: %r" % cmd)
+ValueError: unknown command: 'bogus_command'
+### [driver] перезапуск после аварийного завершения/таймаута
+[banner] реализация=provided python=3.12.15 pid=90 log=/work/demo_output/logs/provided.log
+### [driver] старт: [banner] реализация=provided python=3.12.15 pid=90 log=/work/demo_output/logs/provided.log
+>>> <значение скрыто (см. tokens.txt)>
+>>> add secret s1
+>>> <значение скрыто (см. tokens.txt)>
+master pwd: 2026-10-05 13:16:20,801 INFO provided_app: crypto init: master=MP-D3DCF1DC5D05 key=73d6220a51e8818bc7f92697fb0d1e8207ced85ce22b9d3826fffd3d55a0e13c
+prv> value: 2026-10-05 13:16:20,801 INFO provided_app: PUT rev=376014772 id=s1 kind=secret value=setup-secret
+[ok] put id=s1
+>>> add secret dup_id
+>>> <значение скрыто (см. tokens.txt)>
+prv> value: 2026-10-05 13:16:20,801 INFO provided_app: PUT rev=428119880 id=dup_id kind=secret value=setup-dup
+[ok] put id=dup_id
+>>> add bogus bad_id
+>>> <значение скрыто (см. tokens.txt)>
+prv> value: 2026-10-05 13:16:20,801 INFO provided_app: PUT rev=581417019 id=bad_id kind=bogus value=probe
+[ok] put id=bad_id
+>>> add secret
+prv> Traceback (most recent call last):
+  File "/work/app/provided/main.py", line 137, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/work/app/provided/main.py", line 96, in main
+    kind, rid = parts[1], parts[2]
+                          ~~~~~^^^
+IndexError: list index out of range
+### [driver] перезапуск после аварийного завершения/таймаута
+[banner] реализация=provided python=3.12.15 pid=91 log=/work/demo_output/logs/provided.log
+### [driver] старт: [banner] реализация=provided python=3.12.15 pid=91 log=/work/demo_output/logs/provided.log
+>>> <значение скрыто (см. tokens.txt)>
+>>> add secret s1
+>>> <значение скрыто (см. tokens.txt)>
+master pwd: 2026-10-05 13:16:20,830 INFO provided_app: crypto init: master=MP-D3DCF1DC5D05 key=84fcadd9ced2056d33b8c4207682af3fe90877d5dfd50f7ec7f0f43776ddff36
+prv> value: 2026-10-05 13:16:20,830 INFO provided_app: PUT rev=5714750 id=s1 kind=secret value=setup-secret
+[ok] put id=s1
+>>> add secret dup_id
+>>> <значение скрыто (см. tokens.txt)>
+prv> value: 2026-10-05 13:16:20,830 INFO provided_app: PUT rev=518610848 id=dup_id kind=secret value=setup-dup
+[ok] put id=dup_id
+>>> add secret bad id!
+>>> <значение скрыто (см. tokens.txt)>
+prv> value: 2026-10-05 13:16:20,830 INFO provided_app: PUT rev=851632186 id=bad kind=secret value=probe
+[ok] put id=bad
+>>> get missing_id
+prv> Traceback (most recent call last):
+  File "/work/app/provided/main.py", line 137, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/work/app/provided/main.py", line 102, in main
+    kind, value = store.get(parts[1])
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/work/app/provided/store.py", line 85, in get
+    kind, stored = STORE[rid]  # KeyError при отсутствии -- не обрабатывается
+                   ~~~~~^^^^^
+KeyError: 'missing_id'
+### [driver] перезапуск после аварийного завершения/таймаута
+[banner] реализация=provided python=3.12.15 pid=92 log=/work/demo_output/logs/provided.log
+### [driver] старт: [banner] реализация=provided python=3.12.15 pid=92 log=/work/demo_output/logs/provided.log
+>>> <значение скрыто (см. tokens.txt)>
+>>> add secret s1
+>>> <значение скрыто (см. tokens.txt)>
+master pwd: 2026-10-05 13:16:20,861 INFO provided_app: crypto init: master=MP-D3DCF1DC5D05 key=39862b81d7a76236e77beffb81037084c11e711712b1f88282a369f231336b98
+prv> value: 2026-10-05 13:16:20,861 INFO provided_app: PUT rev=438352243 id=s1 kind=secret value=setup-secret
+[ok] put id=s1
+>>> add secret dup_id
+>>> <значение скрыто (см. tokens.txt)>
+prv> value: 2026-10-05 13:16:20,861 INFO provided_app: PUT rev=16654449 id=dup_id kind=secret value=setup-dup
+[ok] put id=dup_id
+>>> update missing_id
+>>> <значение скрыто (см. tokens.txt)>
+prv> new value: Traceback (most recent call last):
+  File "/work/app/provided/main.py", line 137, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/work/app/provided/main.py", line 113, in main
+    store.update(parts[1], value)
+  File "/work/app/provided/store.py", line 95, in update
+    kind, old = STORE[rid]
+                ~~~~~^^^^^
+KeyError: 'missing_id'
+### [driver] перезапуск после аварийного завершения/таймаута
+[banner] реализация=provided python=3.12.15 pid=93 log=/work/demo_output/logs/provided.log
+### [driver] старт: [banner] реализация=provided python=3.12.15 pid=93 log=/work/demo_output/logs/provided.log
+>>> <значение скрыто (см. tokens.txt)>
+>>> add secret s1
+>>> <значение скрыто (см. tokens.txt)>
+master pwd: 2026-10-05 13:16:20,889 INFO provided_app: crypto init: master=MP-D3DCF1DC5D05 key=347c5f12f6dc646d216f9c4ce5b7ac5ff3a0166b959b5016f277addc48d5a7d6
+prv> value: 2026-10-05 13:16:20,889 INFO provided_app: PUT rev=814433306 id=s1 kind=secret value=setup-secret
+[ok] put id=s1
+>>> add secret dup_id
+>>> <значение скрыто (см. tokens.txt)>
+prv> value: 2026-10-05 13:16:20,889 INFO provided_app: PUT rev=675975145 id=dup_id kind=secret value=setup-dup
+[ok] put id=dup_id
+>>> delete missing_id
+prv> Traceback (most recent call last):
+  File "/work/app/provided/main.py", line 137, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/work/app/provided/main.py", line 117, in main
+    store.delete(parts[1])
+  File "/work/app/provided/store.py", line 101, in delete
+    kind, stored = STORE.pop(rid)  # KeyError при отсутствии
+                   ^^^^^^^^^^^^^^
+KeyError: 'missing_id'
+### [driver] перезапуск после аварийного завершения/таймаута
+[banner] реализация=provided python=3.12.15 pid=94 log=/work/demo_output/logs/provided.log
+### [driver] старт: [banner] реализация=provided python=3.12.15 pid=94 log=/work/demo_output/logs/provided.log
+>>> <значение скрыто (см. tokens.txt)>
+>>> add secret s1
+>>> <значение скрыто (см. tokens.txt)>
+master pwd: 2026-10-05 13:16:20,917 INFO provided_app: crypto init: master=MP-D3DCF1DC5D05 key=a7f98c024b28c60c881e8e3b645f7a74c87b2b412d78b09af4964e0717857220
+prv> value: 2026-10-05 13:16:20,917 INFO provided_app: PUT rev=589392445 id=s1 kind=secret value=setup-secret
+[ok] put id=s1
+>>> add secret dup_id
+>>> <значение скрыто (см. tokens.txt)>
+prv> value: 2026-10-05 13:16:20,917 INFO provided_app: PUT rev=449730824 id=dup_id kind=secret value=setup-dup
+[ok] put id=dup_id
+>>> verify missing_id
+>>> <значение скрыто (см. tokens.txt)>
+prv> password: Traceback (most recent call last):
+  File "/work/app/provided/main.py", line 137, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/work/app/provided/main.py", line 108, in main
+    ok = store.verify_password(parts[1], cand)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/app/provided/store.py", line 107, in verify_password
+    return hashlib.md5(candidate.encode("utf-8")).hexdigest() == PWLOG[rid]
+                                                                 ~~~~~^^^^^
+KeyError: 'missing_id'
+### [driver] перезапуск после аварийного завершения/таймаута
+[banner] реализация=provided python=3.12.15 pid=95 log=/work/demo_output/logs/provided.log
+### [driver] старт: [banner] реализация=provided python=3.12.15 pid=95 log=/work/demo_output/logs/provided.log
+>>> <значение скрыто (см. tokens.txt)>
+>>> add secret s1
+>>> <значение скрыто (см. tokens.txt)>
+master pwd: 2026-10-05 13:16:20,947 INFO provided_app: crypto init: master=MP-D3DCF1DC5D05 key=d5501ea79a4d3508d73666988315b31612769378339a67a5658d598d2b239986
+prv> value: 2026-10-05 13:16:20,947 INFO provided_app: PUT rev=161826802 id=s1 kind=secret value=setup-secret
+[ok] put id=s1
+>>> add secret dup_id
+>>> <значение скрыто (см. tokens.txt)>
+prv> value: 2026-10-05 13:16:20,948 INFO provided_app: PUT rev=980815208 id=dup_id kind=secret value=setup-dup
+[ok] put id=dup_id
+>>> add secret dup_id
+>>> <значение скрыто (см. tokens.txt)>
+prv> value: 2026-10-05 13:16:20,948 INFO provided_app: PUT rev=719802240 id=dup_id kind=secret value=probe-dup
+[ok] put id=dup_id
+>>> verify s1
+>>> <значение скрыто (см. tokens.txt)>
+prv> password: Traceback (most recent call last):
+  File "/work/app/provided/main.py", line 137, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/work/app/provided/main.py", line 108, in main
+    ok = store.verify_password(parts[1], cand)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/app/provided/store.py", line 107, in verify_password
+    return hashlib.md5(candidate.encode("utf-8")).hexdigest() == PWLOG[rid]
+                                                                 ~~~~~^^^^^
+KeyError: 's1'
+### [driver] перезапуск после аварийного завершения/таймаута
+[banner] реализация=provided python=3.12.15 pid=96 log=/work/demo_output/logs/provided.log
+### [driver] старт: [banner] реализация=provided python=3.12.15 pid=96 log=/work/demo_output/logs/provided.log
+>>> <значение скрыто (см. tokens.txt)>
+>>> add secret s1
+>>> <значение скрыто (см. tokens.txt)>
+master pwd: 2026-10-05 13:16:20,975 INFO provided_app: crypto init: master=MP-D3DCF1DC5D05 key=80b991b7e7d584d22bcc787641e1f24f66706ed02ec9ef13ee9d3143d3020101
+prv> value: 2026-10-05 13:16:20,975 INFO provided_app: PUT rev=403200699 id=s1 kind=secret value=setup-secret
+[ok] put id=s1
+>>> add secret dup_id
+>>> <значение скрыто (см. tokens.txt)>
+prv> value: 2026-10-05 13:16:20,976 INFO provided_app: PUT rev=102469396 id=dup_id kind=secret value=setup-dup
+[ok] put id=dup_id
+>>> quit
+prv> [ok] exit
+### [driver] процесс завершён, код 0

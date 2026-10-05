@@ -1,0 +1,51 @@
+# Лабораторная работа №11 «Анализ запросов из сети Интернет».
+# Стенд из трёх контейнеров:
+#   web    — nginx с тестовой страницей и кастомным форматом журнала (X-Forwarded-For);
+#   sshd   — OpenSSH-сервер (ubuntu:24.04) с парольным пользователем labuser;
+#   client — генератор трафика (curl + sshpass) и среда запуска анализатора.
+# Порты наружу не публикуются: весь трафик ходит внутри сети compose (labnet).
+
+name: lab_11
+
+services:
+  web:
+    image: nginx:1.27-alpine
+    container_name: lab11-web
+    hostname: lab11-web
+    restart: "no"
+    volumes:
+      - ./web/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./web/html:/usr/share/nginx/html:ro
+      # Журналы nginx попадают в общий каталог на хосте (bind mount).
+      - ./runtime/logs:/var/log/nginx
+    networks:
+      - labnet
+
+  sshd:
+    build: ./sshd
+    image: lab11-sshd:local
+    container_name: lab11-sshd
+    hostname: lab11-sshd
+    restart: "no"
+    volumes:
+      # sshd пишет /var/log/auth.log (опция -E) в тот же общий каталог.
+      - ./runtime/logs:/var/log
+    networks:
+      - labnet
+
+  client:
+    build: ./client
+    image: lab11-client:local
+    container_name: lab11-client
+    hostname: lab11-client
+    restart: "no"
+    working_dir: /workspace
+    volumes:
+      # Полный доступ к проекту: generator/, analysis/, runtime/, demo_output/.
+      - .:/workspace
+    networks:
+      - labnet
+
+networks:
+  labnet:
+    driver: bridge

@@ -1,0 +1,12 @@
+=== Сборка C++ программ (контейнер e90f1c060eea, 2026-10-05 13:14:55 UTC) ===
+g++ (Debian 12.2.0-14+deb12u1) 12.2.0
+build bin/gen_msvc: OK
+build bin/gen_own: OK
+
+=== Кросс-компиляция gen_crypt.exe (MinGW, CryptoAPI) ===
+x86_64-w64-mingw32-g++ (GCC) 12-win32
+build bin/gen_crypt.exe: OK
+total 276
+-rwxr-xr-x 1 root root 249334 Oct  5 13:14 gen_crypt.exe
+-rwxr-xr-x 1 root root  16248 Oct  5 13:14 gen_msvc
+-rwxr-xr-x 1 root root  16248 Oct  5 13:14 gen_own

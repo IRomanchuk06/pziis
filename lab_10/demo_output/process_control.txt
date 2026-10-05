@@ -1,0 +1,342 @@
+
+==================================================================
+ШАГ 15. Запуск файлов filex5 от iit11 и проверка остановки (kill)
+==================================================================
+
+Файлы file15/file25/file35/file45/file55 имеют права «только выполнение»,
+поэтому их прямой запуск (./файл) в Linux невозможен: интерпретатор
+#!/bin/bash обязан открыть файл на чтение. Ниже для каждого файла
+фиксируется результат прямого запуска, затем процесс реально запускается
+от имени iit11: root читает файл и передаёт его текст bash процесса iit11
+через fifo (унаследованный дескриптор stdin — проверка прав происходит при
+открытии файла, а не при чтении из уже открытого дескриптора).
+Процесс iit11 останавливается на команде 'read testVariable'.
+
+Проверяемые: iit11, iit12, iit21, iit22, iit3, root (плюс iit21 через sudo).
+
+--- /opt/lab/pzs/pzs11/file15 (---x------ (100), iit11:group_iit1)
+    прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file15: Permission denied)
+    процесс: PID=8817 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=8842 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (8842) - Operation not p)
+    процесс: PID=8875 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (8875) - Operation not p)
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=8917 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (8917) - Operation not p)
+    процесс: PID=8949 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (8949) - Operation not p)
+    процесс: PID=8983 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+--- /opt/lab/pzs/pzs11/file25 (------x--- (010), iit11:group_iit1)
+    прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file25: Permission denied)
+    процесс: PID=9030 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=9059 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9059) - Operation not p)
+    процесс: PID=9093 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9093) - Operation not p)
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=9133 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9133) - Operation not p)
+    процесс: PID=9166 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9166) - Operation not p)
+    процесс: PID=9199 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+--- /opt/lab/pzs/pzs11/file35 (---------x (001), iit11:group_iit1)
+    прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file35: Permission denied)
+    процесс: PID=9247 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=9276 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9276) - Operation not p)
+    процесс: PID=9309 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9309) - Operation not p)
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=9350 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9350) - Operation not p)
+    процесс: PID=9383 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9383) - Operation not p)
+    процесс: PID=9416 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+--- /opt/lab/pzs/pzs11/file45 (---x--x--x (111), iit11:group_iit1)
+    прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file45: Permission denied)
+    процесс: PID=9464 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=9494 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9494) - Operation not p)
+    процесс: PID=9526 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9526) - Operation not p)
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=9567 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9567) - Operation not p)
+    процесс: PID=9600 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9600) - Operation not p)
+    процесс: PID=9633 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+--- /opt/lab/pzs/pzs11/file55 (---x------ (100), root:root)
+    прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file55: Permission denied)
+    процесс: PID=9681 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=9711 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9711) - Operation not p)
+    процесс: PID=9743 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9743) - Operation not p)
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=9784 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9784) - Operation not p)
+    процесс: PID=9817 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9817) - Operation not p)
+    процесс: PID=9850 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+--- /opt/lab/pzs/pzs12/file15 (---x------ (100), iit11:group_iit1)
+    прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file15: Permission denied)
+    процесс: PID=9898 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=9927 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9927) - Operation not p)
+    процесс: PID=9960 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (9960) - Operation not p)
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=10001 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10001) - Operation not )
+    процесс: PID=10034 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10034) - Operation not )
+    процесс: PID=10067 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+--- /opt/lab/pzs/pzs12/file25 (------x--- (010), iit11:group_iit1)
+    прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file25: Permission denied)
+    процесс: PID=10115 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=10144 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10144) - Operation not )
+    процесс: PID=10177 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10177) - Operation not )
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=10219 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10219) - Operation not )
+    процесс: PID=10251 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10251) - Operation not )
+    процесс: PID=10285 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+--- /opt/lab/pzs/pzs12/file35 (---------x (001), iit11:group_iit1)
+    прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file35: Permission denied)
+    процесс: PID=10332 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=10361 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10361) - Operation not )
+    процесс: PID=10394 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10394) - Operation not )
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=10436 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10436) - Operation not )
+    процесс: PID=10468 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10468) - Operation not )
+    процесс: PID=10501 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+--- /opt/lab/pzs/pzs12/file45 (---x--x--x (111), iit11:group_iit1)
+    прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file45: Permission denied)
+    процесс: PID=10549 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=10578 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10578) - Operation not )
+    процесс: PID=10611 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10611) - Operation not )
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=10652 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10652) - Operation not )
+    процесс: PID=10685 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10685) - Operation not )
+    процесс: PID=10718 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+--- /opt/lab/pzs/pzs12/file55 (---x------ (100), root:root)
+    прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file55: Permission denied)
+    процесс: PID=10766 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=10796 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10796) - Operation not )
+    процесс: PID=10829 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10829) - Operation not )
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=10869 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10869) - Operation not )
+    процесс: PID=10902 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (10902) - Operation not )
+    процесс: PID=10935 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+--- /opt/lab/pzs/pzs13/file15 (---x------ (100), iit11:group_iit1)
+    прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file15: Permission denied)
+    процесс: PID=10983 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=11013 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11013) - Operation not )
+    процесс: PID=11045 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11045) - Operation not )
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=11086 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11086) - Operation not )
+    процесс: PID=11119 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11119) - Operation not )
+    процесс: PID=11152 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+--- /opt/lab/pzs/pzs13/file25 (------x--- (010), iit11:group_iit1)
+    прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file25: Permission denied)
+    процесс: PID=11200 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=11229 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11229) - Operation not )
+    процесс: PID=11262 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11262) - Operation not )
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=11303 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11303) - Operation not )
+    процесс: PID=11336 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11336) - Operation not )
+    процесс: PID=11369 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+--- /opt/lab/pzs/pzs13/file35 (---------x (001), iit11:group_iit1)
+    прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file35: Permission denied)
+    процесс: PID=11417 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=11446 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11446) - Operation not )
+    процесс: PID=11479 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11479) - Operation not )
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=11520 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11520) - Operation not )
+    процесс: PID=11553 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11553) - Operation not )
+    процесс: PID=11586 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+--- /opt/lab/pzs/pzs13/file45 (---x--x--x (111), iit11:group_iit1)
+    прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file45: Permission denied)
+    процесс: PID=11634 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=11664 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11664) - Operation not )
+    процесс: PID=11696 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11696) - Operation not )
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=11737 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11737) - Operation not )
+    процесс: PID=11770 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11770) - Operation not )
+    процесс: PID=11803 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+--- /opt/lab/pzs/pzs13/file55 (---x------ (100), root:root)
+    прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file55: Permission denied)
+    процесс: PID=11851 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=11880 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11880) - Operation not )
+    процесс: PID=11913 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11913) - Operation not )
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=11954 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11954) - Operation not )
+    процесс: PID=11987 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (11987) - Operation not )
+    процесс: PID=12020 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+--- /opt/lab/pzs/pzs14/file15 (---x------ (100), iit11:group_iit1)
+    прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file15: Permission denied)
+    процесс: PID=12069 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=12097 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12097) - Operation not )
+    процесс: PID=12130 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12130) - Operation not )
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=12172 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12172) - Operation not )
+    процесс: PID=12204 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12204) - Operation not )
+    процесс: PID=12237 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+--- /opt/lab/pzs/pzs14/file25 (------x--- (010), iit11:group_iit1)
+    прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file25: Permission denied)
+    процесс: PID=12285 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=12314 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12314) - Operation not )
+    процесс: PID=12347 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12347) - Operation not )
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=12388 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12388) - Operation not )
+    процесс: PID=12421 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12421) - Operation not )
+    процесс: PID=12454 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+--- /opt/lab/pzs/pzs14/file35 (---------x (001), iit11:group_iit1)
+    прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file35: Permission denied)
+    процесс: PID=12502 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=12531 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12531) - Operation not )
+    процесс: PID=12564 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12564) - Operation not )
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=12605 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12605) - Operation not )
+    процесс: PID=12638 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12638) - Operation not )
+    процесс: PID=12671 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+--- /opt/lab/pzs/pzs14/file45 (---x--x--x (111), iit11:group_iit1)
+    прямой запуск от iit11: DENIED (rc=126: /bin/bash: ./file45: Permission denied)
+    процесс: PID=12719 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=12749 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12749) - Operation not )
+    процесс: PID=12781 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12781) - Operation not )
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=12822 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12822) - Operation not )
+    процесс: PID=12855 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12855) - Operation not )
+    процесс: PID=12888 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+--- /opt/lab/pzs/pzs14/file55 (---x------ (100), root:root)
+    прямой запуск от iit11: DENIED (rc=126: -bash: line 1: ./file55: Permission denied)
+    процесс: PID=12937 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit11 : OK (процесс завершён)
+    процесс: PID=12965 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit12 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12965) - Operation not )
+    процесс: PID=12998 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit21 : DENIED (процесс продолжает работу; -bash: line 1: kill: (12998) - Operation not )
+    kill от iit21 (sudo) : OK (процесс завершён — административные привилегии)
+    процесс: PID=13039 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit22 : DENIED (процесс продолжает работу; -bash: line 1: kill: (13039) - Operation not )
+    процесс: PID=13072 (пользователь iit11, состояние Ss) — висит на read
+    kill от iit3 : DENIED (процесс продолжает работу; -bash: line 1: kill: (13072) - Operation not )
+    процесс: PID=13105 (пользователь iit11, состояние Ss) — висит на read
+    kill от root : OK (процесс завершён)
+
+==================================================================
+Итог шага 15: попыток kill = 120 (завершено OK = 40, отклонено DENIED = 80);
+              попыток kill через sudo (iit21) = 20 (успешно = 20); ошибок запуска = 0.
+Остановить процесс iit11 могут только сам владелец процесса (iit11),
+администратор через sudo (iit21) и суперпользователь (root).
+==================================================================

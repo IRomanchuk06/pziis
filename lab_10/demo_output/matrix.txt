@@ -1,0 +1,133 @@
+МАТРИЦА ДОСТУПА К ФАЙЛАМ (шаг 14; результаты реальных команд)
+
+Субъекты: iit11, iit12 (group_iit1); iit21 (group_iit2, администратор/sudo);
+          iit22 (group_iit2); iit3; root (суперпользователь).
+Объекты : file11-file55 в каталогах pzs11-pzs14.
+          file11-file45 созданы iit11 (группа group_iit1);
+          file51-file55 созданы от администратора (root:root).
+Ячейка R W X : R = cat (чтение), W = echo >> (редактирование), X = ./файл (запуск).
+Обозначения  : + = OK (операция выполнена), - = DENIED (доступ запрещён).
+
+=== /opt/lab/pzs/pzs11 — drwx------ (700), владелец iit11:group_iit1 ===
+файл права   влад:группа iit11  iit12  iit21  iit22  iit3   root  
+                                       R W X  R W X  R W X  R W X  R W X  R W X 
+file11   -r-------- (400) iit11:group_iit1 +--    ---    ---    ---    ---    ++-   
+file12   -rw------- (600) iit11:group_iit1 ++-    ---    ---    ---    ---    ++-   
+file13   --w------- (200) iit11:group_iit1 -+-    ---    ---    ---    ---    ++-   
+file14   -rwx------ (700) iit11:group_iit1 +++    ---    ---    ---    ---    +++   
+file15   ---x------ (100) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+file21   ----r----- (040) iit11:group_iit1 ---    ---    ---    ---    ---    ++-   
+file22   ----rw---- (060) iit11:group_iit1 ---    ---    ---    ---    ---    ++-   
+file23   -----w---- (020) iit11:group_iit1 ---    ---    ---    ---    ---    ++-   
+file24   ----rwx--- (070) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+file25   ------x--- (010) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+file31   -------r-- (004) iit11:group_iit1 ---    ---    ---    ---    ---    ++-   
+file32   -------rw- (006) iit11:group_iit1 ---    ---    ---    ---    ---    ++-   
+file33   --------w- (002) iit11:group_iit1 ---    ---    ---    ---    ---    ++-   
+file34   -------rwx (007) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+file35   ---------x (001) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+file41   -r--r--r-- (444) iit11:group_iit1 +--    ---    ---    ---    ---    ++-   
+file42   -rw-rw-rw- (666) iit11:group_iit1 ++-    ---    ---    ---    ---    ++-   
+file43   --w--w--w- (222) iit11:group_iit1 -+-    ---    ---    ---    ---    ++-   
+file44   -rwxrwxrwx (777) iit11:group_iit1 +++    ---    ---    ---    ---    +++   
+file45   ---x--x--x (111) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+file51   -r-------- (400) root:root        ---    ---    ---    ---    ---    ++-   
+file52   -rw------- (600) root:root        ---    ---    ---    ---    ---    ++-   
+file53   --w------- (200) root:root        ---    ---    ---    ---    ---    ++-   
+file54   -rwx------ (700) root:root        ---    ---    ---    ---    ---    +++   
+file55   ---x------ (100) root:root        ---    ---    ---    ---    ---    +++   
+
+=== /opt/lab/pzs/pzs12 — d---rwx--- (070), владелец root:group_iit1 ===
+файл права   влад:группа iit11  iit12  iit21  iit22  iit3   root  
+                                       R W X  R W X  R W X  R W X  R W X  R W X 
+file11   -r-------- (400) iit11:group_iit1 +--    ---    ---    ---    ---    ++-   
+file12   -rw------- (600) iit11:group_iit1 ++-    ---    ---    ---    ---    ++-   
+file13   --w------- (200) iit11:group_iit1 -+-    ---    ---    ---    ---    ++-   
+file14   -rwx------ (700) iit11:group_iit1 +++    ---    ---    ---    ---    +++   
+file15   ---x------ (100) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+file21   ----r----- (040) iit11:group_iit1 ---    +--    ---    ---    ---    ++-   
+file22   ----rw---- (060) iit11:group_iit1 ---    ++-    ---    ---    ---    ++-   
+file23   -----w---- (020) iit11:group_iit1 ---    -+-    ---    ---    ---    ++-   
+file24   ----rwx--- (070) iit11:group_iit1 ---    +++    ---    ---    ---    +++   
+file25   ------x--- (010) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+file31   -------r-- (004) iit11:group_iit1 ---    ---    ---    ---    ---    ++-   
+file32   -------rw- (006) iit11:group_iit1 ---    ---    ---    ---    ---    ++-   
+file33   --------w- (002) iit11:group_iit1 ---    ---    ---    ---    ---    ++-   
+file34   -------rwx (007) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+file35   ---------x (001) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+file41   -r--r--r-- (444) iit11:group_iit1 +--    +--    ---    ---    ---    ++-   
+file42   -rw-rw-rw- (666) iit11:group_iit1 ++-    ++-    ---    ---    ---    ++-   
+file43   --w--w--w- (222) iit11:group_iit1 -+-    -+-    ---    ---    ---    ++-   
+file44   -rwxrwxrwx (777) iit11:group_iit1 +++    +++    ---    ---    ---    +++   
+file45   ---x--x--x (111) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+file51   -r-------- (400) root:root        ---    ---    ---    ---    ---    ++-   
+file52   -rw------- (600) root:root        ---    ---    ---    ---    ---    ++-   
+file53   --w------- (200) root:root        ---    ---    ---    ---    ---    ++-   
+file54   -rwx------ (700) root:root        ---    ---    ---    ---    ---    +++   
+file55   ---x------ (100) root:root        ---    ---    ---    ---    ---    +++   
+
+=== /opt/lab/pzs/pzs13 — d------rwx (007), владелец root:root ===
+файл права   влад:группа iit11  iit12  iit21  iit22  iit3   root  
+                                       R W X  R W X  R W X  R W X  R W X  R W X 
+file11   -r-------- (400) iit11:group_iit1 +--    ---    ---    ---    ---    ++-   
+file12   -rw------- (600) iit11:group_iit1 ++-    ---    ---    ---    ---    ++-   
+file13   --w------- (200) iit11:group_iit1 -+-    ---    ---    ---    ---    ++-   
+file14   -rwx------ (700) iit11:group_iit1 +++    ---    ---    ---    ---    +++   
+file15   ---x------ (100) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+file21   ----r----- (040) iit11:group_iit1 ---    +--    ---    ---    ---    ++-   
+file22   ----rw---- (060) iit11:group_iit1 ---    ++-    ---    ---    ---    ++-   
+file23   -----w---- (020) iit11:group_iit1 ---    -+-    ---    ---    ---    ++-   
+file24   ----rwx--- (070) iit11:group_iit1 ---    +++    ---    ---    ---    +++   
+file25   ------x--- (010) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+file31   -------r-- (004) iit11:group_iit1 ---    ---    +--    +--    +--    ++-   
+file32   -------rw- (006) iit11:group_iit1 ---    ---    ++-    ++-    ++-    ++-   
+file33   --------w- (002) iit11:group_iit1 ---    ---    -+-    -+-    -+-    ++-   
+file34   -------rwx (007) iit11:group_iit1 ---    ---    +++    +++    +++    +++   
+file35   ---------x (001) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+file41   -r--r--r-- (444) iit11:group_iit1 +--    +--    +--    +--    +--    ++-   
+file42   -rw-rw-rw- (666) iit11:group_iit1 ++-    ++-    ++-    ++-    ++-    ++-   
+file43   --w--w--w- (222) iit11:group_iit1 -+-    -+-    -+-    -+-    -+-    ++-   
+file44   -rwxrwxrwx (777) iit11:group_iit1 +++    +++    +++    +++    +++    +++   
+file45   ---x--x--x (111) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+file51   -r-------- (400) root:root        ---    ---    ---    ---    ---    ++-   
+file52   -rw------- (600) root:root        ---    ---    ---    ---    ---    ++-   
+file53   --w------- (200) root:root        ---    ---    ---    ---    ---    ++-   
+file54   -rwx------ (700) root:root        ---    ---    ---    ---    ---    +++   
+file55   ---x------ (100) root:root        ---    ---    ---    ---    ---    +++   
+
+=== /opt/lab/pzs/pzs14 — drwxrwxrwx (777), владелец iit11:group_iit1 ===
+файл права   влад:группа iit11  iit12  iit21  iit22  iit3   root  
+                                       R W X  R W X  R W X  R W X  R W X  R W X 
+file11   -r-------- (400) iit11:group_iit1 +--    ---    ---    ---    ---    ++-   
+file12   -rw------- (600) iit11:group_iit1 ++-    ---    ---    ---    ---    ++-   
+file13   --w------- (200) iit11:group_iit1 -+-    ---    ---    ---    ---    ++-   
+file14   -rwx------ (700) iit11:group_iit1 +++    ---    ---    ---    ---    +++   
+file15   ---x------ (100) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+file21   ----r----- (040) iit11:group_iit1 ---    +--    ---    ---    ---    ++-   
+file22   ----rw---- (060) iit11:group_iit1 ---    ++-    ---    ---    ---    ++-   
+file23   -----w---- (020) iit11:group_iit1 ---    -+-    ---    ---    ---    ++-   
+file24   ----rwx--- (070) iit11:group_iit1 ---    +++    ---    ---    ---    +++   
+file25   ------x--- (010) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+file31   -------r-- (004) iit11:group_iit1 ---    ---    +--    +--    +--    ++-   
+file32   -------rw- (006) iit11:group_iit1 ---    ---    ++-    ++-    ++-    ++-   
+file33   --------w- (002) iit11:group_iit1 ---    ---    -+-    -+-    -+-    ++-   
+file34   -------rwx (007) iit11:group_iit1 ---    ---    +++    +++    +++    +++   
+file35   ---------x (001) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+file41   -r--r--r-- (444) iit11:group_iit1 +--    +--    +--    +--    +--    ++-   
+file42   -rw-rw-rw- (666) iit11:group_iit1 ++-    ++-    ++-    ++-    ++-    ++-   
+file43   --w--w--w- (222) iit11:group_iit1 -+-    -+-    -+-    -+-    -+-    ++-   
+file44   -rwxrwxrwx (777) iit11:group_iit1 +++    +++    +++    +++    +++    +++   
+file45   ---x--x--x (111) iit11:group_iit1 ---    ---    ---    ---    ---    +++   
+file51   -r-------- (400) root:root        ---    ---    ---    ---    ---    ++-   
+file52   -rw------- (600) root:root        ---    ---    ---    ---    ---    ++-   
+file53   --w------- (200) root:root        ---    ---    ---    ---    ---    ++-   
+file54   -rwx------ (700) root:root        ---    ---    ---    ---    ---    +++   
+file55   ---x------ (100) root:root        ---    ---    ---    ---    ---    +++   
+
+Итого проверок: 1800; разрешено (OK) = 422; запрещено (DENIED) = 1378.
+
+Дополнительно — административные привилегии iit21 (шаг 4 задания):
+  чтение file51 (root:root, 400) в pzs14 от iit21 напрямую : DENIED
+  чтение file51 (root:root, 400) в pzs14 от iit21 через sudo: OK
+  ls pzs15 (root:root, 700) от iit21 напрямую : DENIED
+  ls pzs15 (root:root, 700) от iit21 через sudo: OK

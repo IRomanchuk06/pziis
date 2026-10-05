@@ -1,0 +1,81 @@
+========================================================================================================
+ПРОВЕРКА КОРРЕКТНОСТИ ПОЛИТИКИ БЕЗОПАСНОСТИ MySQL (лаб. работа 8)
+========================================================================================================
+Сервер: mysql:3306 (внутренняя сеть compose), БД: company
+Роли: admin (ALL PRIVILEGES + GRANT OPTION), app_user (частичные права), guest (только v_public)
+Подключение admin@mysql: OK
+Подключение app_user@mysql: OK
+Подключение guest@mysql: OK
+
+  №  Роль     Операция                                            Ожид.   Факт    Итог  
+----------------------------------------------------------------------------------------
+  1  admin    SELECT employees (id, name, salary)                 allow   allow   OK    
+  2  admin    SELECT employees.passport_no (запрещённая для др... allow   allow   OK    
+  3  admin    SELECT v_public (id, name)                          allow   allow   OK    
+  4  admin    SELECT audit_log                                    allow   allow   OK    
+  5  admin    INSERT INTO employees (вкл. passport_no)            allow   allow   OK    
+  6  admin    UPDATE employees SET salary                         allow   allow   OK    
+  7  admin    DELETE FROM employees                               allow   allow   OK    
+  8  admin    DDL: CREATE TABLE                                   allow   allow   OK    
+  9  admin    GRANT SELECT TO guest (есть GRANT OPTION)           allow   allow   OK    
+ 10  app_user SELECT employees (id, name, salary)                 allow   allow   OK    
+ 11  app_user SELECT employees.passport_no (запрещённая колонка)  deny    deny    OK    
+ 12  app_user SELECT v_public (не выдано)                         deny    deny    OK    
+ 13  app_user SELECT audit_log                                    allow   allow   OK    
+ 14  app_user INSERT INTO employees (name, salary)                allow   allow   OK    
+ 15  app_user INSERT INTO employees (вкл. passport_no - запрещ... deny    deny    OK    
+ 16  app_user UPDATE employees SET salary                         allow   allow   OK    
+ 17  app_user UPDATE employees SET passport_no (запрещена)        deny    deny    OK    
+ 18  app_user DELETE FROM employees (DELETE не выдан)             deny    deny    OK    
+ 19  app_user INSERT INTO audit_log                               allow   allow   OK    
+ 20  app_user DDL: CREATE TABLE                                   deny    deny    OK    
+ 21  app_user GRANT SELECT TO guest (нет GRANT OPTION)            deny    deny    OK    
+ 22  guest    SELECT v_public (id, name)                          allow   allow   OK    
+ 23  guest    SELECT employees (id, name) - таблица не выдана     deny    deny    OK    
+ 24  guest    SELECT employees.salary                             deny    deny    OK    
+ 25  guest    SELECT employees.passport_no                        deny    deny    OK    
+ 26  guest    SELECT audit_log                                    deny    deny    OK    
+ 27  guest    INSERT INTO employees                               deny    deny    OK    
+ 28  guest    UPDATE employees                                    deny    deny    OK    
+ 29  guest    DELETE FROM employees                               deny    deny    OK    
+ 30  guest    DDL: CREATE TABLE                                   deny    deny    OK    
+ 31  guest    GRANT SELECT TO app_user                            deny    deny    OK    
+
+Отрицательные кейсы (ожидание = deny), фактические ошибки MySQL:
+  [11] app_user: SELECT passport_no FROM employees
+        -> отклонено: MySQL error 1143: SELECT command denied to user 'app_user'@'192.168.0.3' for column 'passport_no' in table 'employees'
+  [12] app_user: SELECT id, name FROM v_public
+        -> отклонено: MySQL error 1142: SELECT command denied to user 'app_user'@'192.168.0.3' for table 'v_public'
+  [15] app_user: INSERT INTO employees (name, salary, passport_no) VALUES ('Probe User', 222.22, 'ZZ0000002')
+        -> отклонено: MySQL error 1143: INSERT command denied to user 'app_user'@'192.168.0.3' for column 'passport_no' in table 'employees'
+  [17] app_user: UPDATE employees SET passport_no = 'ZZ9999999' WHERE id = 1
+        -> отклонено: MySQL error 1143: UPDATE command denied to user 'app_user'@'192.168.0.3' for column 'passport_no' in table 'employees'
+  [18] app_user: DELETE FROM employees WHERE id = 1
+        -> отклонено: MySQL error 1142: DELETE command denied to user 'app_user'@'192.168.0.3' for table 'employees'
+  [20] app_user: CREATE TABLE tmp_probe_user (id INT)
+        -> отклонено: MySQL error 1142: CREATE command denied to user 'app_user'@'192.168.0.3' for table 'tmp_probe_user'
+  [21] app_user: GRANT SELECT ON company.v_public TO 'guest'@'%'
+        -> отклонено: MySQL error 1142: SELECT, GRANT command denied to user 'app_user'@'192.168.0.3' for table 'v_public'
+  [23] guest: SELECT id, name FROM employees
+        -> отклонено: MySQL error 1142: SELECT command denied to user 'guest'@'192.168.0.3' for table 'employees'
+  [24] guest: SELECT salary FROM employees
+        -> отклонено: MySQL error 1142: SELECT command denied to user 'guest'@'192.168.0.3' for table 'employees'
+  [25] guest: SELECT passport_no FROM employees
+        -> отклонено: MySQL error 1142: SELECT command denied to user 'guest'@'192.168.0.3' for table 'employees'
+  [26] guest: SELECT db_user, action FROM audit_log
+        -> отклонено: MySQL error 1142: SELECT command denied to user 'guest'@'192.168.0.3' for table 'audit_log'
+  [27] guest: INSERT INTO employees (name, salary) VALUES ('Probe Guest', 0.00)
+        -> отклонено: MySQL error 1142: INSERT command denied to user 'guest'@'192.168.0.3' for table 'employees'
+  [28] guest: UPDATE employees SET salary = 0 WHERE id = 1
+        -> отклонено: MySQL error 1142: UPDATE command denied to user 'guest'@'192.168.0.3' for table 'employees'
+  [29] guest: DELETE FROM employees WHERE id = 1
+        -> отклонено: MySQL error 1142: DELETE command denied to user 'guest'@'192.168.0.3' for table 'employees'
+  [30] guest: CREATE TABLE tmp_probe_guest (id INT)
+        -> отклонено: MySQL error 1142: CREATE command denied to user 'guest'@'192.168.0.3' for table 'tmp_probe_guest'
+  [31] guest: GRANT SELECT ON company.v_public TO 'app_user'@'%'
+        -> отклонено: MySQL error 1142: GRANT command denied to user 'guest'@'192.168.0.3' for table 'v_public'
+
+========================================================================================================
+ИТОГО: проверок 31, OK 31, FAIL 0
+ВЕРДИКТ: политика безопасности КОРРЕКТНА (все проверки пройдены)
+========================================================================================================

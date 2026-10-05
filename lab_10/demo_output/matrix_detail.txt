@@ -1,0 +1,1824 @@
+### dir=pzs11 user=iit11
+file11|read|OK|0|
+file11|edit|DENIED|1|
+file11|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file11: Pe
+file12|read|OK|0|
+file12|edit|OK|0|
+file12|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file12: Pe
+file13|read|DENIED|1|cat: file13: Permission denied
+file13|edit|OK|0|
+file13|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file13: Pe
+file14|read|OK|0|
+file14|edit|OK|0|
+file14|exec|OK|0|Hello World
+file15|read|DENIED|1|cat: file15: Permission denied
+file15|edit|DENIED|1|
+file15|exec|DENIED|126|/bin/bash: ./file15: Permission denied
+file21|read|DENIED|1|cat: file21: Permission denied
+file21|edit|DENIED|1|
+file21|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file21: Pe
+file22|read|DENIED|1|cat: file22: Permission denied
+file22|edit|DENIED|1|
+file22|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file22: Pe
+file23|read|DENIED|1|cat: file23: Permission denied
+file23|edit|DENIED|1|
+file23|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file23: Pe
+file24|read|DENIED|1|cat: file24: Permission denied
+file24|edit|DENIED|1|
+file24|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file24: Pe
+file25|read|DENIED|1|cat: file25: Permission denied
+file25|edit|DENIED|1|
+file25|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file25: Pe
+file31|read|DENIED|1|cat: file31: Permission denied
+file31|edit|DENIED|1|
+file31|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file31: Pe
+file32|read|DENIED|1|cat: file32: Permission denied
+file32|edit|DENIED|1|
+file32|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file32: Pe
+file33|read|DENIED|1|cat: file33: Permission denied
+file33|edit|DENIED|1|
+file33|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file33: Pe
+file34|read|DENIED|1|cat: file34: Permission denied
+file34|edit|DENIED|1|
+file34|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file34: Pe
+file35|read|DENIED|1|cat: file35: Permission denied
+file35|edit|DENIED|1|
+file35|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file35: Pe
+file41|read|OK|0|
+file41|edit|DENIED|1|
+file41|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file41: Pe
+file42|read|OK|0|
+file42|edit|OK|0|
+file42|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file42: Pe
+file43|read|DENIED|1|cat: file43: Permission denied
+file43|edit|OK|0|
+file43|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file43: Pe
+file44|read|OK|0|
+file44|edit|OK|0|
+file44|exec|OK|0|Hello World
+file45|read|DENIED|1|cat: file45: Permission denied
+file45|edit|DENIED|1|
+file45|exec|DENIED|126|/bin/bash: ./file45: Permission denied
+file51|read|DENIED|1|cat: file51: Permission denied
+file51|edit|DENIED|1|
+file51|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file51: Pe
+file52|read|DENIED|1|cat: file52: Permission denied
+file52|edit|DENIED|1|
+file52|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file52: Pe
+file53|read|DENIED|1|cat: file53: Permission denied
+file53|edit|DENIED|1|
+file53|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file53: Pe
+file54|read|DENIED|1|cat: file54: Permission denied
+file54|edit|DENIED|1|
+file54|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file54: Pe
+file55|read|DENIED|1|cat: file55: Permission denied
+file55|edit|DENIED|1|
+file55|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file55: Pe
+### dir=pzs11 user=iit12
+file11|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file11|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file11|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file12|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file12|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file12|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file13|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file13|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file13|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file14|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file14|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file14|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file15|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file15|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file15|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file21|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file21|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file21|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file22|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file22|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file22|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file23|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file23|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file23|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file24|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file24|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file24|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file25|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file25|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file25|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file31|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file31|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file31|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file32|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file32|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file32|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file33|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file33|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file33|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file34|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file34|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file34|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file35|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file35|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file35|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file41|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file41|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file41|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file42|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file42|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file42|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file43|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file43|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file43|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file44|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file44|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file44|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file45|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file45|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file45|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file51|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file51|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file51|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file52|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file52|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file52|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file53|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file53|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file53|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file54|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file54|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file54|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file55|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file55|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file55|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+### dir=pzs11 user=iit21
+file11|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file11|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file11|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file12|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file12|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file12|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file13|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file13|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file13|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file14|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file14|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file14|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file15|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file15|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file15|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file21|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file21|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file21|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file22|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file22|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file22|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file23|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file23|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file23|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file24|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file24|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file24|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file25|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file25|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file25|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file31|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file31|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file31|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file32|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file32|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file32|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file33|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file33|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file33|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file34|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file34|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file34|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file35|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file35|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file35|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file41|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file41|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file41|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file42|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file42|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file42|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file43|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file43|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file43|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file44|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file44|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file44|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file45|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file45|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file45|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file51|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file51|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file51|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file52|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file52|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file52|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file53|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file53|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file53|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file54|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file54|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file54|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file55|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file55|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file55|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+### dir=pzs11 user=iit22
+file11|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file11|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file11|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file12|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file12|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file12|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file13|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file13|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file13|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file14|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file14|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file14|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file15|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file15|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file15|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file21|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file21|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file21|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file22|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file22|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file22|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file23|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file23|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file23|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file24|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file24|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file24|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file25|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file25|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file25|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file31|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file31|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file31|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file32|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file32|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file32|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file33|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file33|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file33|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file34|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file34|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file34|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file35|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file35|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file35|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file41|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file41|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file41|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file42|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file42|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file42|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file43|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file43|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file43|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file44|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file44|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file44|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file45|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file45|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file45|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file51|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file51|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file51|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file52|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file52|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file52|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file53|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file53|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file53|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file54|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file54|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file54|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file55|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file55|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file55|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+### dir=pzs11 user=iit3
+file11|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file11|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file11|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file12|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file12|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file12|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file13|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file13|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file13|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file14|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file14|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file14|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file15|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file15|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file15|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file21|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file21|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file21|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file22|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file22|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file22|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file23|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file23|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file23|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file24|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file24|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file24|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file25|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file25|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file25|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file31|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file31|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file31|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file32|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file32|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file32|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file33|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file33|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file33|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file34|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file34|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file34|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file35|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file35|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file35|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file41|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file41|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file41|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file42|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file42|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file42|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file43|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file43|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file43|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file44|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file44|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file44|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file45|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file45|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file45|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file51|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file51|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file51|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file52|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file52|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file52|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file53|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file53|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file53|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file54|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file54|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file54|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file55|read|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file55|edit|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+file55|exec|DENIED|-|cd: /opt/lab/pzs/pzs11: Permission denied
+### dir=pzs11 user=root
+file11|read|OK|0|
+file11|edit|OK|0|
+file11|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file11: Pe
+file12|read|OK|0|
+file12|edit|OK|0|
+file12|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file12: Pe
+file13|read|OK|0|
+file13|edit|OK|0|
+file13|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file13: Pe
+file14|read|OK|0|
+file14|edit|OK|0|
+file14|exec|OK|0|Hello World
+file15|read|OK|0|
+file15|edit|OK|0|
+file15|exec|OK|1|
+file21|read|OK|0|
+file21|edit|OK|0|
+file21|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file21: Pe
+file22|read|OK|0|
+file22|edit|OK|0|
+file22|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file22: Pe
+file23|read|OK|0|
+file23|edit|OK|0|
+file23|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file23: Pe
+file24|read|OK|0|
+file24|edit|OK|0|
+file24|exec|OK|0|Hello World
+file25|read|OK|0|
+file25|edit|OK|0|
+file25|exec|OK|1|
+file31|read|OK|0|
+file31|edit|OK|0|
+file31|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file31: Pe
+file32|read|OK|0|
+file32|edit|OK|0|
+file32|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file32: Pe
+file33|read|OK|0|
+file33|edit|OK|0|
+file33|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file33: Pe
+file34|read|OK|0|
+file34|edit|OK|0|
+file34|exec|OK|0|Hello World
+file35|read|OK|0|
+file35|edit|OK|0|
+file35|exec|OK|1|
+file41|read|OK|0|
+file41|edit|OK|0|
+file41|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file41: Pe
+file42|read|OK|0|
+file42|edit|OK|0|
+file42|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file42: Pe
+file43|read|OK|0|
+file43|edit|OK|0|
+file43|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file43: Pe
+file44|read|OK|0|
+file44|edit|OK|0|
+file44|exec|OK|0|Hello World
+file45|read|OK|0|
+file45|edit|OK|0|
+file45|exec|OK|1|
+file51|read|OK|0|
+file51|edit|OK|0|
+file51|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file51: Pe
+file52|read|OK|0|
+file52|edit|OK|0|
+file52|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file52: Pe
+file53|read|OK|0|
+file53|edit|OK|0|
+file53|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file53: Pe
+file54|read|OK|0|
+file54|edit|OK|0|
+file54|exec|OK|0|Hello World
+file55|read|OK|0|
+file55|edit|OK|0|
+file55|exec|OK|1|
+### dir=pzs12 user=iit11
+file11|read|OK|0|
+file11|edit|DENIED|1|
+file11|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file11: Pe
+file12|read|OK|0|
+file12|edit|OK|0|
+file12|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file12: Pe
+file13|read|DENIED|1|cat: file13: Permission denied
+file13|edit|OK|0|
+file13|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file13: Pe
+file14|read|OK|0|
+file14|edit|OK|0|
+file14|exec|OK|0|Hello World
+file15|read|DENIED|1|cat: file15: Permission denied
+file15|edit|DENIED|1|
+file15|exec|DENIED|126|/bin/bash: ./file15: Permission denied
+file21|read|DENIED|1|cat: file21: Permission denied
+file21|edit|DENIED|1|
+file21|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file21: Pe
+file22|read|DENIED|1|cat: file22: Permission denied
+file22|edit|DENIED|1|
+file22|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file22: Pe
+file23|read|DENIED|1|cat: file23: Permission denied
+file23|edit|DENIED|1|
+file23|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file23: Pe
+file24|read|DENIED|1|cat: file24: Permission denied
+file24|edit|DENIED|1|
+file24|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file24: Pe
+file25|read|DENIED|1|cat: file25: Permission denied
+file25|edit|DENIED|1|
+file25|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file25: Pe
+file31|read|DENIED|1|cat: file31: Permission denied
+file31|edit|DENIED|1|
+file31|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file31: Pe
+file32|read|DENIED|1|cat: file32: Permission denied
+file32|edit|DENIED|1|
+file32|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file32: Pe
+file33|read|DENIED|1|cat: file33: Permission denied
+file33|edit|DENIED|1|
+file33|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file33: Pe
+file34|read|DENIED|1|cat: file34: Permission denied
+file34|edit|DENIED|1|
+file34|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file34: Pe
+file35|read|DENIED|1|cat: file35: Permission denied
+file35|edit|DENIED|1|
+file35|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file35: Pe
+file41|read|OK|0|
+file41|edit|DENIED|1|
+file41|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file41: Pe
+file42|read|OK|0|
+file42|edit|OK|0|
+file42|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file42: Pe
+file43|read|DENIED|1|cat: file43: Permission denied
+file43|edit|OK|0|
+file43|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file43: Pe
+file44|read|OK|0|
+file44|edit|OK|0|
+file44|exec|OK|0|Hello World
+file45|read|DENIED|1|cat: file45: Permission denied
+file45|edit|DENIED|1|
+file45|exec|DENIED|126|/bin/bash: ./file45: Permission denied
+file51|read|DENIED|1|cat: file51: Permission denied
+file51|edit|DENIED|1|
+file51|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file51: Pe
+file52|read|DENIED|1|cat: file52: Permission denied
+file52|edit|DENIED|1|
+file52|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file52: Pe
+file53|read|DENIED|1|cat: file53: Permission denied
+file53|edit|DENIED|1|
+file53|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file53: Pe
+file54|read|DENIED|1|cat: file54: Permission denied
+file54|edit|DENIED|1|
+file54|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file54: Pe
+file55|read|DENIED|1|cat: file55: Permission denied
+file55|edit|DENIED|1|
+file55|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file55: Pe
+### dir=pzs12 user=iit12
+file11|read|DENIED|1|cat: file11: Permission denied
+file11|edit|DENIED|1|
+file11|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file11: Pe
+file12|read|DENIED|1|cat: file12: Permission denied
+file12|edit|DENIED|1|
+file12|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file12: Pe
+file13|read|DENIED|1|cat: file13: Permission denied
+file13|edit|DENIED|1|
+file13|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file13: Pe
+file14|read|DENIED|1|cat: file14: Permission denied
+file14|edit|DENIED|1|
+file14|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file14: Pe
+file15|read|DENIED|1|cat: file15: Permission denied
+file15|edit|DENIED|1|
+file15|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file15: Pe
+file21|read|OK|0|
+file21|edit|DENIED|1|
+file21|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file21: Pe
+file22|read|OK|0|
+file22|edit|OK|0|
+file22|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file22: Pe
+file23|read|DENIED|1|cat: file23: Permission denied
+file23|edit|OK|0|
+file23|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file23: Pe
+file24|read|OK|0|
+file24|edit|OK|0|
+file24|exec|OK|0|Hello World
+file25|read|DENIED|1|cat: file25: Permission denied
+file25|edit|DENIED|1|
+file25|exec|DENIED|126|/bin/bash: ./file25: Permission denied
+file31|read|DENIED|1|cat: file31: Permission denied
+file31|edit|DENIED|1|
+file31|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file31: Pe
+file32|read|DENIED|1|cat: file32: Permission denied
+file32|edit|DENIED|1|
+file32|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file32: Pe
+file33|read|DENIED|1|cat: file33: Permission denied
+file33|edit|DENIED|1|
+file33|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file33: Pe
+file34|read|DENIED|1|cat: file34: Permission denied
+file34|edit|DENIED|1|
+file34|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file34: Pe
+file35|read|DENIED|1|cat: file35: Permission denied
+file35|edit|DENIED|1|
+file35|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file35: Pe
+file41|read|OK|0|
+file41|edit|DENIED|1|
+file41|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file41: Pe
+file42|read|OK|0|
+file42|edit|OK|0|
+file42|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file42: Pe
+file43|read|DENIED|1|cat: file43: Permission denied
+file43|edit|OK|0|
+file43|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file43: Pe
+file44|read|OK|0|
+file44|edit|OK|0|
+file44|exec|OK|0|Hello World
+file45|read|DENIED|1|cat: file45: Permission denied
+file45|edit|DENIED|1|
+file45|exec|DENIED|126|/bin/bash: ./file45: Permission denied
+file51|read|DENIED|1|cat: file51: Permission denied
+file51|edit|DENIED|1|
+file51|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file51: Pe
+file52|read|DENIED|1|cat: file52: Permission denied
+file52|edit|DENIED|1|
+file52|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file52: Pe
+file53|read|DENIED|1|cat: file53: Permission denied
+file53|edit|DENIED|1|
+file53|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file53: Pe
+file54|read|DENIED|1|cat: file54: Permission denied
+file54|edit|DENIED|1|
+file54|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file54: Pe
+file55|read|DENIED|1|cat: file55: Permission denied
+file55|edit|DENIED|1|
+file55|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file55: Pe
+### dir=pzs12 user=iit21
+file11|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file11|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file11|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file12|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file12|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file12|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file13|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file13|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file13|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file14|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file14|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file14|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file15|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file15|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file15|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file21|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file21|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file21|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file22|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file22|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file22|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file23|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file23|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file23|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file24|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file24|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file24|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file25|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file25|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file25|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file31|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file31|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file31|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file32|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file32|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file32|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file33|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file33|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file33|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file34|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file34|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file34|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file35|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file35|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file35|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file41|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file41|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file41|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file42|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file42|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file42|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file43|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file43|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file43|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file44|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file44|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file44|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file45|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file45|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file45|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file51|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file51|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file51|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file52|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file52|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file52|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file53|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file53|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file53|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file54|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file54|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file54|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file55|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file55|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file55|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+### dir=pzs12 user=iit22
+file11|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file11|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file11|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file12|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file12|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file12|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file13|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file13|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file13|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file14|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file14|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file14|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file15|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file15|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file15|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file21|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file21|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file21|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file22|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file22|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file22|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file23|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file23|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file23|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file24|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file24|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file24|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file25|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file25|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file25|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file31|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file31|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file31|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file32|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file32|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file32|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file33|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file33|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file33|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file34|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file34|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file34|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file35|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file35|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file35|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file41|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file41|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file41|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file42|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file42|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file42|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file43|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file43|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file43|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file44|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file44|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file44|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file45|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file45|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file45|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file51|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file51|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file51|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file52|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file52|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file52|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file53|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file53|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file53|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file54|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file54|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file54|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file55|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file55|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file55|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+### dir=pzs12 user=iit3
+file11|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file11|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file11|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file12|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file12|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file12|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file13|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file13|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file13|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file14|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file14|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file14|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file15|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file15|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file15|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file21|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file21|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file21|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file22|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file22|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file22|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file23|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file23|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file23|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file24|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file24|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file24|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file25|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file25|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file25|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file31|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file31|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file31|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file32|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file32|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file32|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file33|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file33|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file33|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file34|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file34|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file34|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file35|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file35|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file35|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file41|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file41|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file41|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file42|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file42|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file42|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file43|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file43|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file43|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file44|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file44|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file44|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file45|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file45|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file45|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file51|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file51|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file51|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file52|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file52|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file52|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file53|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file53|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file53|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file54|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file54|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file54|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file55|read|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file55|edit|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+file55|exec|DENIED|-|cd: /opt/lab/pzs/pzs12: Permission denied
+### dir=pzs12 user=root
+file11|read|OK|0|
+file11|edit|OK|0|
+file11|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file11: Pe
+file12|read|OK|0|
+file12|edit|OK|0|
+file12|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file12: Pe
+file13|read|OK|0|
+file13|edit|OK|0|
+file13|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file13: Pe
+file14|read|OK|0|
+file14|edit|OK|0|
+file14|exec|OK|0|Hello World
+file15|read|OK|0|
+file15|edit|OK|0|
+file15|exec|OK|1|
+file21|read|OK|0|
+file21|edit|OK|0|
+file21|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file21: Pe
+file22|read|OK|0|
+file22|edit|OK|0|
+file22|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file22: Pe
+file23|read|OK|0|
+file23|edit|OK|0|
+file23|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file23: Pe
+file24|read|OK|0|
+file24|edit|OK|0|
+file24|exec|OK|0|Hello World
+file25|read|OK|0|
+file25|edit|OK|0|
+file25|exec|OK|1|
+file31|read|OK|0|
+file31|edit|OK|0|
+file31|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file31: Pe
+file32|read|OK|0|
+file32|edit|OK|0|
+file32|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file32: Pe
+file33|read|OK|0|
+file33|edit|OK|0|
+file33|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file33: Pe
+file34|read|OK|0|
+file34|edit|OK|0|
+file34|exec|OK|0|Hello World
+file35|read|OK|0|
+file35|edit|OK|0|
+file35|exec|OK|1|
+file41|read|OK|0|
+file41|edit|OK|0|
+file41|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file41: Pe
+file42|read|OK|0|
+file42|edit|OK|0|
+file42|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file42: Pe
+file43|read|OK|0|
+file43|edit|OK|0|
+file43|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file43: Pe
+file44|read|OK|0|
+file44|edit|OK|0|
+file44|exec|OK|0|Hello World
+file45|read|OK|0|
+file45|edit|OK|0|
+file45|exec|OK|1|
+file51|read|OK|0|
+file51|edit|OK|0|
+file51|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file51: Pe
+file52|read|OK|0|
+file52|edit|OK|0|
+file52|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file52: Pe
+file53|read|OK|0|
+file53|edit|OK|0|
+file53|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file53: Pe
+file54|read|OK|0|
+file54|edit|OK|0|
+file54|exec|OK|0|Hello World
+file55|read|OK|0|
+file55|edit|OK|0|
+file55|exec|OK|1|
+### dir=pzs13 user=iit11
+file11|read|OK|0|
+file11|edit|DENIED|1|
+file11|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file11: Pe
+file12|read|OK|0|
+file12|edit|OK|0|
+file12|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file12: Pe
+file13|read|DENIED|1|cat: file13: Permission denied
+file13|edit|OK|0|
+file13|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file13: Pe
+file14|read|OK|0|
+file14|edit|OK|0|
+file14|exec|OK|0|Hello World
+file15|read|DENIED|1|cat: file15: Permission denied
+file15|edit|DENIED|1|
+file15|exec|DENIED|126|/bin/bash: ./file15: Permission denied
+file21|read|DENIED|1|cat: file21: Permission denied
+file21|edit|DENIED|1|
+file21|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file21: Pe
+file22|read|DENIED|1|cat: file22: Permission denied
+file22|edit|DENIED|1|
+file22|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file22: Pe
+file23|read|DENIED|1|cat: file23: Permission denied
+file23|edit|DENIED|1|
+file23|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file23: Pe
+file24|read|DENIED|1|cat: file24: Permission denied
+file24|edit|DENIED|1|
+file24|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file24: Pe
+file25|read|DENIED|1|cat: file25: Permission denied
+file25|edit|DENIED|1|
+file25|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file25: Pe
+file31|read|DENIED|1|cat: file31: Permission denied
+file31|edit|DENIED|1|
+file31|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file31: Pe
+file32|read|DENIED|1|cat: file32: Permission denied
+file32|edit|DENIED|1|
+file32|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file32: Pe
+file33|read|DENIED|1|cat: file33: Permission denied
+file33|edit|DENIED|1|
+file33|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file33: Pe
+file34|read|DENIED|1|cat: file34: Permission denied
+file34|edit|DENIED|1|
+file34|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file34: Pe
+file35|read|DENIED|1|cat: file35: Permission denied
+file35|edit|DENIED|1|
+file35|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file35: Pe
+file41|read|OK|0|
+file41|edit|DENIED|1|
+file41|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file41: Pe
+file42|read|OK|0|
+file42|edit|OK|0|
+file42|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file42: Pe
+file43|read|DENIED|1|cat: file43: Permission denied
+file43|edit|OK|0|
+file43|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file43: Pe
+file44|read|OK|0|
+file44|edit|OK|0|
+file44|exec|OK|0|Hello World
+file45|read|DENIED|1|cat: file45: Permission denied
+file45|edit|DENIED|1|
+file45|exec|DENIED|126|/bin/bash: ./file45: Permission denied
+file51|read|DENIED|1|cat: file51: Permission denied
+file51|edit|DENIED|1|
+file51|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file51: Pe
+file52|read|DENIED|1|cat: file52: Permission denied
+file52|edit|DENIED|1|
+file52|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file52: Pe
+file53|read|DENIED|1|cat: file53: Permission denied
+file53|edit|DENIED|1|
+file53|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file53: Pe
+file54|read|DENIED|1|cat: file54: Permission denied
+file54|edit|DENIED|1|
+file54|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file54: Pe
+file55|read|DENIED|1|cat: file55: Permission denied
+file55|edit|DENIED|1|
+file55|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file55: Pe
+### dir=pzs13 user=iit12
+file11|read|DENIED|1|cat: file11: Permission denied
+file11|edit|DENIED|1|
+file11|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file11: Pe
+file12|read|DENIED|1|cat: file12: Permission denied
+file12|edit|DENIED|1|
+file12|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file12: Pe
+file13|read|DENIED|1|cat: file13: Permission denied
+file13|edit|DENIED|1|
+file13|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file13: Pe
+file14|read|DENIED|1|cat: file14: Permission denied
+file14|edit|DENIED|1|
+file14|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file14: Pe
+file15|read|DENIED|1|cat: file15: Permission denied
+file15|edit|DENIED|1|
+file15|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file15: Pe
+file21|read|OK|0|
+file21|edit|DENIED|1|
+file21|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file21: Pe
+file22|read|OK|0|
+file22|edit|OK|0|
+file22|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file22: Pe
+file23|read|DENIED|1|cat: file23: Permission denied
+file23|edit|OK|0|
+file23|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file23: Pe
+file24|read|OK|0|
+file24|edit|OK|0|
+file24|exec|OK|0|Hello World
+file25|read|DENIED|1|cat: file25: Permission denied
+file25|edit|DENIED|1|
+file25|exec|DENIED|126|/bin/bash: ./file25: Permission denied
+file31|read|DENIED|1|cat: file31: Permission denied
+file31|edit|DENIED|1|
+file31|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file31: Pe
+file32|read|DENIED|1|cat: file32: Permission denied
+file32|edit|DENIED|1|
+file32|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file32: Pe
+file33|read|DENIED|1|cat: file33: Permission denied
+file33|edit|DENIED|1|
+file33|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file33: Pe
+file34|read|DENIED|1|cat: file34: Permission denied
+file34|edit|DENIED|1|
+file34|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file34: Pe
+file35|read|DENIED|1|cat: file35: Permission denied
+file35|edit|DENIED|1|
+file35|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file35: Pe
+file41|read|OK|0|
+file41|edit|DENIED|1|
+file41|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file41: Pe
+file42|read|OK|0|
+file42|edit|OK|0|
+file42|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file42: Pe
+file43|read|DENIED|1|cat: file43: Permission denied
+file43|edit|OK|0|
+file43|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file43: Pe
+file44|read|OK|0|
+file44|edit|OK|0|
+file44|exec|OK|0|Hello World
+file45|read|DENIED|1|cat: file45: Permission denied
+file45|edit|DENIED|1|
+file45|exec|DENIED|126|/bin/bash: ./file45: Permission denied
+file51|read|DENIED|1|cat: file51: Permission denied
+file51|edit|DENIED|1|
+file51|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file51: Pe
+file52|read|DENIED|1|cat: file52: Permission denied
+file52|edit|DENIED|1|
+file52|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file52: Pe
+file53|read|DENIED|1|cat: file53: Permission denied
+file53|edit|DENIED|1|
+file53|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file53: Pe
+file54|read|DENIED|1|cat: file54: Permission denied
+file54|edit|DENIED|1|
+file54|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file54: Pe
+file55|read|DENIED|1|cat: file55: Permission denied
+file55|edit|DENIED|1|
+file55|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file55: Pe
+### dir=pzs13 user=iit21
+file11|read|DENIED|1|cat: file11: Permission denied
+file11|edit|DENIED|1|
+file11|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file11: Pe
+file12|read|DENIED|1|cat: file12: Permission denied
+file12|edit|DENIED|1|
+file12|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file12: Pe
+file13|read|DENIED|1|cat: file13: Permission denied
+file13|edit|DENIED|1|
+file13|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file13: Pe
+file14|read|DENIED|1|cat: file14: Permission denied
+file14|edit|DENIED|1|
+file14|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file14: Pe
+file15|read|DENIED|1|cat: file15: Permission denied
+file15|edit|DENIED|1|
+file15|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file15: Pe
+file21|read|DENIED|1|cat: file21: Permission denied
+file21|edit|DENIED|1|
+file21|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file21: Pe
+file22|read|DENIED|1|cat: file22: Permission denied
+file22|edit|DENIED|1|
+file22|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file22: Pe
+file23|read|DENIED|1|cat: file23: Permission denied
+file23|edit|DENIED|1|
+file23|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file23: Pe
+file24|read|DENIED|1|cat: file24: Permission denied
+file24|edit|DENIED|1|
+file24|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file24: Pe
+file25|read|DENIED|1|cat: file25: Permission denied
+file25|edit|DENIED|1|
+file25|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file25: Pe
+file31|read|OK|0|
+file31|edit|DENIED|1|
+file31|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file31: Pe
+file32|read|OK|0|
+file32|edit|OK|0|
+file32|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file32: Pe
+file33|read|DENIED|1|cat: file33: Permission denied
+file33|edit|OK|0|
+file33|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file33: Pe
+file34|read|OK|0|
+file34|edit|OK|0|
+file34|exec|OK|0|Hello World
+file35|read|DENIED|1|cat: file35: Permission denied
+file35|edit|DENIED|1|
+file35|exec|DENIED|126|/bin/bash: ./file35: Permission denied
+file41|read|OK|0|
+file41|edit|DENIED|1|
+file41|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file41: Pe
+file42|read|OK|0|
+file42|edit|OK|0|
+file42|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file42: Pe
+file43|read|DENIED|1|cat: file43: Permission denied
+file43|edit|OK|0|
+file43|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file43: Pe
+file44|read|OK|0|
+file44|edit|OK|0|
+file44|exec|OK|0|Hello World
+file45|read|DENIED|1|cat: file45: Permission denied
+file45|edit|DENIED|1|
+file45|exec|DENIED|126|/bin/bash: ./file45: Permission denied
+file51|read|DENIED|1|cat: file51: Permission denied
+file51|edit|DENIED|1|
+file51|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file51: Pe
+file52|read|DENIED|1|cat: file52: Permission denied
+file52|edit|DENIED|1|
+file52|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file52: Pe
+file53|read|DENIED|1|cat: file53: Permission denied
+file53|edit|DENIED|1|
+file53|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file53: Pe
+file54|read|DENIED|1|cat: file54: Permission denied
+file54|edit|DENIED|1|
+file54|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file54: Pe
+file55|read|DENIED|1|cat: file55: Permission denied
+file55|edit|DENIED|1|
+file55|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file55: Pe
+### dir=pzs13 user=iit22
+file11|read|DENIED|1|cat: file11: Permission denied
+file11|edit|DENIED|1|
+file11|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file11: Pe
+file12|read|DENIED|1|cat: file12: Permission denied
+file12|edit|DENIED|1|
+file12|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file12: Pe
+file13|read|DENIED|1|cat: file13: Permission denied
+file13|edit|DENIED|1|
+file13|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file13: Pe
+file14|read|DENIED|1|cat: file14: Permission denied
+file14|edit|DENIED|1|
+file14|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file14: Pe
+file15|read|DENIED|1|cat: file15: Permission denied
+file15|edit|DENIED|1|
+file15|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file15: Pe
+file21|read|DENIED|1|cat: file21: Permission denied
+file21|edit|DENIED|1|
+file21|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file21: Pe
+file22|read|DENIED|1|cat: file22: Permission denied
+file22|edit|DENIED|1|
+file22|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file22: Pe
+file23|read|DENIED|1|cat: file23: Permission denied
+file23|edit|DENIED|1|
+file23|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file23: Pe
+file24|read|DENIED|1|cat: file24: Permission denied
+file24|edit|DENIED|1|
+file24|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file24: Pe
+file25|read|DENIED|1|cat: file25: Permission denied
+file25|edit|DENIED|1|
+file25|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file25: Pe
+file31|read|OK|0|
+file31|edit|DENIED|1|
+file31|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file31: Pe
+file32|read|OK|0|
+file32|edit|OK|0|
+file32|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file32: Pe
+file33|read|DENIED|1|cat: file33: Permission denied
+file33|edit|OK|0|
+file33|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file33: Pe
+file34|read|OK|0|
+file34|edit|OK|0|
+file34|exec|OK|0|Hello World
+file35|read|DENIED|1|cat: file35: Permission denied
+file35|edit|DENIED|1|
+file35|exec|DENIED|126|/bin/bash: ./file35: Permission denied
+file41|read|OK|0|
+file41|edit|DENIED|1|
+file41|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file41: Pe
+file42|read|OK|0|
+file42|edit|OK|0|
+file42|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file42: Pe
+file43|read|DENIED|1|cat: file43: Permission denied
+file43|edit|OK|0|
+file43|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file43: Pe
+file44|read|OK|0|
+file44|edit|OK|0|
+file44|exec|OK|0|Hello World
+file45|read|DENIED|1|cat: file45: Permission denied
+file45|edit|DENIED|1|
+file45|exec|DENIED|126|/bin/bash: ./file45: Permission denied
+file51|read|DENIED|1|cat: file51: Permission denied
+file51|edit|DENIED|1|
+file51|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file51: Pe
+file52|read|DENIED|1|cat: file52: Permission denied
+file52|edit|DENIED|1|
+file52|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file52: Pe
+file53|read|DENIED|1|cat: file53: Permission denied
+file53|edit|DENIED|1|
+file53|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file53: Pe
+file54|read|DENIED|1|cat: file54: Permission denied
+file54|edit|DENIED|1|
+file54|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file54: Pe
+file55|read|DENIED|1|cat: file55: Permission denied
+file55|edit|DENIED|1|
+file55|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file55: Pe
+### dir=pzs13 user=iit3
+file11|read|DENIED|1|cat: file11: Permission denied
+file11|edit|DENIED|1|
+file11|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file11: Pe
+file12|read|DENIED|1|cat: file12: Permission denied
+file12|edit|DENIED|1|
+file12|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file12: Pe
+file13|read|DENIED|1|cat: file13: Permission denied
+file13|edit|DENIED|1|
+file13|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file13: Pe
+file14|read|DENIED|1|cat: file14: Permission denied
+file14|edit|DENIED|1|
+file14|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file14: Pe
+file15|read|DENIED|1|cat: file15: Permission denied
+file15|edit|DENIED|1|
+file15|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file15: Pe
+file21|read|DENIED|1|cat: file21: Permission denied
+file21|edit|DENIED|1|
+file21|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file21: Pe
+file22|read|DENIED|1|cat: file22: Permission denied
+file22|edit|DENIED|1|
+file22|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file22: Pe
+file23|read|DENIED|1|cat: file23: Permission denied
+file23|edit|DENIED|1|
+file23|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file23: Pe
+file24|read|DENIED|1|cat: file24: Permission denied
+file24|edit|DENIED|1|
+file24|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file24: Pe
+file25|read|DENIED|1|cat: file25: Permission denied
+file25|edit|DENIED|1|
+file25|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file25: Pe
+file31|read|OK|0|
+file31|edit|DENIED|1|
+file31|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file31: Pe
+file32|read|OK|0|
+file32|edit|OK|0|
+file32|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file32: Pe
+file33|read|DENIED|1|cat: file33: Permission denied
+file33|edit|OK|0|
+file33|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file33: Pe
+file34|read|OK|0|
+file34|edit|OK|0|
+file34|exec|OK|0|Hello World
+file35|read|DENIED|1|cat: file35: Permission denied
+file35|edit|DENIED|1|
+file35|exec|DENIED|126|/bin/bash: ./file35: Permission denied
+file41|read|OK|0|
+file41|edit|DENIED|1|
+file41|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file41: Pe
+file42|read|OK|0|
+file42|edit|OK|0|
+file42|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file42: Pe
+file43|read|DENIED|1|cat: file43: Permission denied
+file43|edit|OK|0|
+file43|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file43: Pe
+file44|read|OK|0|
+file44|edit|OK|0|
+file44|exec|OK|0|Hello World
+file45|read|DENIED|1|cat: file45: Permission denied
+file45|edit|DENIED|1|
+file45|exec|DENIED|126|/bin/bash: ./file45: Permission denied
+file51|read|DENIED|1|cat: file51: Permission denied
+file51|edit|DENIED|1|
+file51|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file51: Pe
+file52|read|DENIED|1|cat: file52: Permission denied
+file52|edit|DENIED|1|
+file52|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file52: Pe
+file53|read|DENIED|1|cat: file53: Permission denied
+file53|edit|DENIED|1|
+file53|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file53: Pe
+file54|read|DENIED|1|cat: file54: Permission denied
+file54|edit|DENIED|1|
+file54|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file54: Pe
+file55|read|DENIED|1|cat: file55: Permission denied
+file55|edit|DENIED|1|
+file55|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file55: Pe
+### dir=pzs13 user=root
+file11|read|OK|0|
+file11|edit|OK|0|
+file11|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file11: Pe
+file12|read|OK|0|
+file12|edit|OK|0|
+file12|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file12: Pe
+file13|read|OK|0|
+file13|edit|OK|0|
+file13|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file13: Pe
+file14|read|OK|0|
+file14|edit|OK|0|
+file14|exec|OK|0|Hello World
+file15|read|OK|0|
+file15|edit|OK|0|
+file15|exec|OK|1|
+file21|read|OK|0|
+file21|edit|OK|0|
+file21|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file21: Pe
+file22|read|OK|0|
+file22|edit|OK|0|
+file22|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file22: Pe
+file23|read|OK|0|
+file23|edit|OK|0|
+file23|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file23: Pe
+file24|read|OK|0|
+file24|edit|OK|0|
+file24|exec|OK|0|Hello World
+file25|read|OK|0|
+file25|edit|OK|0|
+file25|exec|OK|1|
+file31|read|OK|0|
+file31|edit|OK|0|
+file31|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file31: Pe
+file32|read|OK|0|
+file32|edit|OK|0|
+file32|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file32: Pe
+file33|read|OK|0|
+file33|edit|OK|0|
+file33|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file33: Pe
+file34|read|OK|0|
+file34|edit|OK|0|
+file34|exec|OK|0|Hello World
+file35|read|OK|0|
+file35|edit|OK|0|
+file35|exec|OK|1|
+file41|read|OK|0|
+file41|edit|OK|0|
+file41|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file41: Pe
+file42|read|OK|0|
+file42|edit|OK|0|
+file42|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file42: Pe
+file43|read|OK|0|
+file43|edit|OK|0|
+file43|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file43: Pe
+file44|read|OK|0|
+file44|edit|OK|0|
+file44|exec|OK|0|Hello World
+file45|read|OK|0|
+file45|edit|OK|0|
+file45|exec|OK|1|
+file51|read|OK|0|
+file51|edit|OK|0|
+file51|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file51: Pe
+file52|read|OK|0|
+file52|edit|OK|0|
+file52|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file52: Pe
+file53|read|OK|0|
+file53|edit|OK|0|
+file53|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file53: Pe
+file54|read|OK|0|
+file54|edit|OK|0|
+file54|exec|OK|0|Hello World
+file55|read|OK|0|
+file55|edit|OK|0|
+file55|exec|OK|1|
+### dir=pzs14 user=iit11
+file11|read|OK|0|
+file11|edit|DENIED|1|
+file11|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file11: Pe
+file12|read|OK|0|
+file12|edit|OK|0|
+file12|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file12: Pe
+file13|read|DENIED|1|cat: file13: Permission denied
+file13|edit|OK|0|
+file13|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file13: Pe
+file14|read|OK|0|
+file14|edit|OK|0|
+file14|exec|OK|0|Hello World
+file15|read|DENIED|1|cat: file15: Permission denied
+file15|edit|DENIED|1|
+file15|exec|DENIED|126|/bin/bash: ./file15: Permission denied
+file21|read|DENIED|1|cat: file21: Permission denied
+file21|edit|DENIED|1|
+file21|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file21: Pe
+file22|read|DENIED|1|cat: file22: Permission denied
+file22|edit|DENIED|1|
+file22|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file22: Pe
+file23|read|DENIED|1|cat: file23: Permission denied
+file23|edit|DENIED|1|
+file23|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file23: Pe
+file24|read|DENIED|1|cat: file24: Permission denied
+file24|edit|DENIED|1|
+file24|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file24: Pe
+file25|read|DENIED|1|cat: file25: Permission denied
+file25|edit|DENIED|1|
+file25|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file25: Pe
+file31|read|DENIED|1|cat: file31: Permission denied
+file31|edit|DENIED|1|
+file31|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file31: Pe
+file32|read|DENIED|1|cat: file32: Permission denied
+file32|edit|DENIED|1|
+file32|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file32: Pe
+file33|read|DENIED|1|cat: file33: Permission denied
+file33|edit|DENIED|1|
+file33|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file33: Pe
+file34|read|DENIED|1|cat: file34: Permission denied
+file34|edit|DENIED|1|
+file34|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file34: Pe
+file35|read|DENIED|1|cat: file35: Permission denied
+file35|edit|DENIED|1|
+file35|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file35: Pe
+file41|read|OK|0|
+file41|edit|DENIED|1|
+file41|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file41: Pe
+file42|read|OK|0|
+file42|edit|OK|0|
+file42|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file42: Pe
+file43|read|DENIED|1|cat: file43: Permission denied
+file43|edit|OK|0|
+file43|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file43: Pe
+file44|read|OK|0|
+file44|edit|OK|0|
+file44|exec|OK|0|Hello World
+file45|read|DENIED|1|cat: file45: Permission denied
+file45|edit|DENIED|1|
+file45|exec|DENIED|126|/bin/bash: ./file45: Permission denied
+file51|read|DENIED|1|cat: file51: Permission denied
+file51|edit|DENIED|1|
+file51|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file51: Pe
+file52|read|DENIED|1|cat: file52: Permission denied
+file52|edit|DENIED|1|
+file52|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file52: Pe
+file53|read|DENIED|1|cat: file53: Permission denied
+file53|edit|DENIED|1|
+file53|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file53: Pe
+file54|read|DENIED|1|cat: file54: Permission denied
+file54|edit|DENIED|1|
+file54|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file54: Pe
+file55|read|DENIED|1|cat: file55: Permission denied
+file55|edit|DENIED|1|
+file55|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file55: Pe
+### dir=pzs14 user=iit12
+file11|read|DENIED|1|cat: file11: Permission denied
+file11|edit|DENIED|1|
+file11|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file11: Pe
+file12|read|DENIED|1|cat: file12: Permission denied
+file12|edit|DENIED|1|
+file12|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file12: Pe
+file13|read|DENIED|1|cat: file13: Permission denied
+file13|edit|DENIED|1|
+file13|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file13: Pe
+file14|read|DENIED|1|cat: file14: Permission denied
+file14|edit|DENIED|1|
+file14|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file14: Pe
+file15|read|DENIED|1|cat: file15: Permission denied
+file15|edit|DENIED|1|
+file15|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file15: Pe
+file21|read|OK|0|
+file21|edit|DENIED|1|
+file21|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file21: Pe
+file22|read|OK|0|
+file22|edit|OK|0|
+file22|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file22: Pe
+file23|read|DENIED|1|cat: file23: Permission denied
+file23|edit|OK|0|
+file23|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file23: Pe
+file24|read|OK|0|
+file24|edit|OK|0|
+file24|exec|OK|0|Hello World
+file25|read|DENIED|1|cat: file25: Permission denied
+file25|edit|DENIED|1|
+file25|exec|DENIED|126|/bin/bash: ./file25: Permission denied
+file31|read|DENIED|1|cat: file31: Permission denied
+file31|edit|DENIED|1|
+file31|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file31: Pe
+file32|read|DENIED|1|cat: file32: Permission denied
+file32|edit|DENIED|1|
+file32|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file32: Pe
+file33|read|DENIED|1|cat: file33: Permission denied
+file33|edit|DENIED|1|
+file33|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file33: Pe
+file34|read|DENIED|1|cat: file34: Permission denied
+file34|edit|DENIED|1|
+file34|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file34: Pe
+file35|read|DENIED|1|cat: file35: Permission denied
+file35|edit|DENIED|1|
+file35|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file35: Pe
+file41|read|OK|0|
+file41|edit|DENIED|1|
+file41|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file41: Pe
+file42|read|OK|0|
+file42|edit|OK|0|
+file42|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file42: Pe
+file43|read|DENIED|1|cat: file43: Permission denied
+file43|edit|OK|0|
+file43|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file43: Pe
+file44|read|OK|0|
+file44|edit|OK|0|
+file44|exec|OK|0|Hello World
+file45|read|DENIED|1|cat: file45: Permission denied
+file45|edit|DENIED|1|
+file45|exec|DENIED|126|/bin/bash: ./file45: Permission denied
+file51|read|DENIED|1|cat: file51: Permission denied
+file51|edit|DENIED|1|
+file51|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file51: Pe
+file52|read|DENIED|1|cat: file52: Permission denied
+file52|edit|DENIED|1|
+file52|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file52: Pe
+file53|read|DENIED|1|cat: file53: Permission denied
+file53|edit|DENIED|1|
+file53|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file53: Pe
+file54|read|DENIED|1|cat: file54: Permission denied
+file54|edit|DENIED|1|
+file54|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file54: Pe
+file55|read|DENIED|1|cat: file55: Permission denied
+file55|edit|DENIED|1|
+file55|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file55: Pe
+### dir=pzs14 user=iit21
+file11|read|DENIED|1|cat: file11: Permission denied
+file11|edit|DENIED|1|
+file11|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file11: Pe
+file12|read|DENIED|1|cat: file12: Permission denied
+file12|edit|DENIED|1|
+file12|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file12: Pe
+file13|read|DENIED|1|cat: file13: Permission denied
+file13|edit|DENIED|1|
+file13|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file13: Pe
+file14|read|DENIED|1|cat: file14: Permission denied
+file14|edit|DENIED|1|
+file14|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file14: Pe
+file15|read|DENIED|1|cat: file15: Permission denied
+file15|edit|DENIED|1|
+file15|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file15: Pe
+file21|read|DENIED|1|cat: file21: Permission denied
+file21|edit|DENIED|1|
+file21|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file21: Pe
+file22|read|DENIED|1|cat: file22: Permission denied
+file22|edit|DENIED|1|
+file22|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file22: Pe
+file23|read|DENIED|1|cat: file23: Permission denied
+file23|edit|DENIED|1|
+file23|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file23: Pe
+file24|read|DENIED|1|cat: file24: Permission denied
+file24|edit|DENIED|1|
+file24|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file24: Pe
+file25|read|DENIED|1|cat: file25: Permission denied
+file25|edit|DENIED|1|
+file25|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file25: Pe
+file31|read|OK|0|
+file31|edit|DENIED|1|
+file31|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file31: Pe
+file32|read|OK|0|
+file32|edit|OK|0|
+file32|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file32: Pe
+file33|read|DENIED|1|cat: file33: Permission denied
+file33|edit|OK|0|
+file33|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file33: Pe
+file34|read|OK|0|
+file34|edit|OK|0|
+file34|exec|OK|0|Hello World
+file35|read|DENIED|1|cat: file35: Permission denied
+file35|edit|DENIED|1|
+file35|exec|DENIED|126|/bin/bash: ./file35: Permission denied
+file41|read|OK|0|
+file41|edit|DENIED|1|
+file41|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file41: Pe
+file42|read|OK|0|
+file42|edit|OK|0|
+file42|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file42: Pe
+file43|read|DENIED|1|cat: file43: Permission denied
+file43|edit|OK|0|
+file43|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file43: Pe
+file44|read|OK|0|
+file44|edit|OK|0|
+file44|exec|OK|0|Hello World
+file45|read|DENIED|1|cat: file45: Permission denied
+file45|edit|DENIED|1|
+file45|exec|DENIED|126|/bin/bash: ./file45: Permission denied
+file51|read|DENIED|1|cat: file51: Permission denied
+file51|edit|DENIED|1|
+file51|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file51: Pe
+file52|read|DENIED|1|cat: file52: Permission denied
+file52|edit|DENIED|1|
+file52|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file52: Pe
+file53|read|DENIED|1|cat: file53: Permission denied
+file53|edit|DENIED|1|
+file53|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file53: Pe
+file54|read|DENIED|1|cat: file54: Permission denied
+file54|edit|DENIED|1|
+file54|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file54: Pe
+file55|read|DENIED|1|cat: file55: Permission denied
+file55|edit|DENIED|1|
+file55|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file55: Pe
+### dir=pzs14 user=iit22
+file11|read|DENIED|1|cat: file11: Permission denied
+file11|edit|DENIED|1|
+file11|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file11: Pe
+file12|read|DENIED|1|cat: file12: Permission denied
+file12|edit|DENIED|1|
+file12|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file12: Pe
+file13|read|DENIED|1|cat: file13: Permission denied
+file13|edit|DENIED|1|
+file13|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file13: Pe
+file14|read|DENIED|1|cat: file14: Permission denied
+file14|edit|DENIED|1|
+file14|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file14: Pe
+file15|read|DENIED|1|cat: file15: Permission denied
+file15|edit|DENIED|1|
+file15|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file15: Pe
+file21|read|DENIED|1|cat: file21: Permission denied
+file21|edit|DENIED|1|
+file21|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file21: Pe
+file22|read|DENIED|1|cat: file22: Permission denied
+file22|edit|DENIED|1|
+file22|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file22: Pe
+file23|read|DENIED|1|cat: file23: Permission denied
+file23|edit|DENIED|1|
+file23|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file23: Pe
+file24|read|DENIED|1|cat: file24: Permission denied
+file24|edit|DENIED|1|
+file24|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file24: Pe
+file25|read|DENIED|1|cat: file25: Permission denied
+file25|edit|DENIED|1|
+file25|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file25: Pe
+file31|read|OK|0|
+file31|edit|DENIED|1|
+file31|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file31: Pe
+file32|read|OK|0|
+file32|edit|OK|0|
+file32|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file32: Pe
+file33|read|DENIED|1|cat: file33: Permission denied
+file33|edit|OK|0|
+file33|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file33: Pe
+file34|read|OK|0|
+file34|edit|OK|0|
+file34|exec|OK|0|Hello World
+file35|read|DENIED|1|cat: file35: Permission denied
+file35|edit|DENIED|1|
+file35|exec|DENIED|126|/bin/bash: ./file35: Permission denied
+file41|read|OK|0|
+file41|edit|DENIED|1|
+file41|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file41: Pe
+file42|read|OK|0|
+file42|edit|OK|0|
+file42|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file42: Pe
+file43|read|DENIED|1|cat: file43: Permission denied
+file43|edit|OK|0|
+file43|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file43: Pe
+file44|read|OK|0|
+file44|edit|OK|0|
+file44|exec|OK|0|Hello World
+file45|read|DENIED|1|cat: file45: Permission denied
+file45|edit|DENIED|1|
+file45|exec|DENIED|126|/bin/bash: ./file45: Permission denied
+file51|read|DENIED|1|cat: file51: Permission denied
+file51|edit|DENIED|1|
+file51|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file51: Pe
+file52|read|DENIED|1|cat: file52: Permission denied
+file52|edit|DENIED|1|
+file52|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file52: Pe
+file53|read|DENIED|1|cat: file53: Permission denied
+file53|edit|DENIED|1|
+file53|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file53: Pe
+file54|read|DENIED|1|cat: file54: Permission denied
+file54|edit|DENIED|1|
+file54|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file54: Pe
+file55|read|DENIED|1|cat: file55: Permission denied
+file55|edit|DENIED|1|
+file55|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file55: Pe
+### dir=pzs14 user=iit3
+file11|read|DENIED|1|cat: file11: Permission denied
+file11|edit|DENIED|1|
+file11|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file11: Pe
+file12|read|DENIED|1|cat: file12: Permission denied
+file12|edit|DENIED|1|
+file12|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file12: Pe
+file13|read|DENIED|1|cat: file13: Permission denied
+file13|edit|DENIED|1|
+file13|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file13: Pe
+file14|read|DENIED|1|cat: file14: Permission denied
+file14|edit|DENIED|1|
+file14|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file14: Pe
+file15|read|DENIED|1|cat: file15: Permission denied
+file15|edit|DENIED|1|
+file15|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file15: Pe
+file21|read|DENIED|1|cat: file21: Permission denied
+file21|edit|DENIED|1|
+file21|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file21: Pe
+file22|read|DENIED|1|cat: file22: Permission denied
+file22|edit|DENIED|1|
+file22|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file22: Pe
+file23|read|DENIED|1|cat: file23: Permission denied
+file23|edit|DENIED|1|
+file23|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file23: Pe
+file24|read|DENIED|1|cat: file24: Permission denied
+file24|edit|DENIED|1|
+file24|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file24: Pe
+file25|read|DENIED|1|cat: file25: Permission denied
+file25|edit|DENIED|1|
+file25|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file25: Pe
+file31|read|OK|0|
+file31|edit|DENIED|1|
+file31|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file31: Pe
+file32|read|OK|0|
+file32|edit|OK|0|
+file32|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file32: Pe
+file33|read|DENIED|1|cat: file33: Permission denied
+file33|edit|OK|0|
+file33|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file33: Pe
+file34|read|OK|0|
+file34|edit|OK|0|
+file34|exec|OK|0|Hello World
+file35|read|DENIED|1|cat: file35: Permission denied
+file35|edit|DENIED|1|
+file35|exec|DENIED|126|/bin/bash: ./file35: Permission denied
+file41|read|OK|0|
+file41|edit|DENIED|1|
+file41|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file41: Pe
+file42|read|OK|0|
+file42|edit|OK|0|
+file42|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file42: Pe
+file43|read|DENIED|1|cat: file43: Permission denied
+file43|edit|OK|0|
+file43|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file43: Pe
+file44|read|OK|0|
+file44|edit|OK|0|
+file44|exec|OK|0|Hello World
+file45|read|DENIED|1|cat: file45: Permission denied
+file45|edit|DENIED|1|
+file45|exec|DENIED|126|/bin/bash: ./file45: Permission denied
+file51|read|DENIED|1|cat: file51: Permission denied
+file51|edit|DENIED|1|
+file51|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file51: Pe
+file52|read|DENIED|1|cat: file52: Permission denied
+file52|edit|DENIED|1|
+file52|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file52: Pe
+file53|read|DENIED|1|cat: file53: Permission denied
+file53|edit|DENIED|1|
+file53|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file53: Pe
+file54|read|DENIED|1|cat: file54: Permission denied
+file54|edit|DENIED|1|
+file54|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file54: Pe
+file55|read|DENIED|1|cat: file55: Permission denied
+file55|edit|DENIED|1|
+file55|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file55: Pe
+### dir=pzs14 user=root
+file11|read|OK|0|
+file11|edit|OK|0|
+file11|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file11: Pe
+file12|read|OK|0|
+file12|edit|OK|0|
+file12|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file12: Pe
+file13|read|OK|0|
+file13|edit|OK|0|
+file13|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file13: Pe
+file14|read|OK|0|
+file14|edit|OK|0|
+file14|exec|OK|0|Hello World
+file15|read|OK|0|
+file15|edit|OK|0|
+file15|exec|OK|1|
+file21|read|OK|0|
+file21|edit|OK|0|
+file21|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file21: Pe
+file22|read|OK|0|
+file22|edit|OK|0|
+file22|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file22: Pe
+file23|read|OK|0|
+file23|edit|OK|0|
+file23|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file23: Pe
+file24|read|OK|0|
+file24|edit|OK|0|
+file24|exec|OK|0|Hello World
+file25|read|OK|0|
+file25|edit|OK|0|
+file25|exec|OK|1|
+file31|read|OK|0|
+file31|edit|OK|0|
+file31|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file31: Pe
+file32|read|OK|0|
+file32|edit|OK|0|
+file32|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file32: Pe
+file33|read|OK|0|
+file33|edit|OK|0|
+file33|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file33: Pe
+file34|read|OK|0|
+file34|edit|OK|0|
+file34|exec|OK|0|Hello World
+file35|read|OK|0|
+file35|edit|OK|0|
+file35|exec|OK|1|
+file41|read|OK|0|
+file41|edit|OK|0|
+file41|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file41: Pe
+file42|read|OK|0|
+file42|edit|OK|0|
+file42|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file42: Pe
+file43|read|OK|0|
+file43|edit|OK|0|
+file43|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file43: Pe
+file44|read|OK|0|
+file44|edit|OK|0|
+file44|exec|OK|0|Hello World
+file45|read|OK|0|
+file45|edit|OK|0|
+file45|exec|OK|1|
+file51|read|OK|0|
+file51|edit|OK|0|
+file51|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file51: Pe
+file52|read|OK|0|
+file52|edit|OK|0|
+file52|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file52: Pe
+file53|read|OK|0|
+file53|edit|OK|0|
+file53|exec|DENIED|126|/opt/lab/scripts/inner_matrix.sh: line 23: ./file53: Pe
+file54|read|OK|0|
+file54|edit|OK|0|
+file54|exec|OK|0|Hello World
+file55|read|OK|0|
+file55|edit|OK|0|
+file55|exec|OK|1|

@@ -1,0 +1,31 @@
+==============================================================
+-- ШАГ 3c. Хэширование файлов (md5, sha1, sha256)
+==============================================================
+
+-- Файл: file.txt (97 байт) --
+
+$ openssl dgst -md5 file.txt
+MD5(file.txt)= 1175d9385e6855bdd767e53c60479557
+
+$ openssl dgst -sha1 file.txt
+SHA1(file.txt)= bc9789bf68c22973b1ac217a1628178118c2cb93
+
+$ openssl dgst -sha256 file.txt
+SHA2-256(file.txt)= dbc6904ef8e912ef82d7a05081bd44f87562489198a828462bd0c7758a609e75
+
+-- Файл: file.bin (4194304 байт) --
+
+$ openssl dgst -md5 file.bin
+MD5(file.bin)= 7f73974cb0d47ba853dd28b3c3a41717
+
+$ openssl dgst -sha1 file.bin
+SHA1(file.bin)= 4389521b91d88cb41480577a507304b43ac4e7d7
+
+$ openssl dgst -sha256 file.bin
+SHA2-256(file.bin)= 12b5a7ff363cea1df2325429f0802cb2fff67a10669da8546128cf4f87a8c98e
+
+-- Перекрёстная проверка: openssl dgst -sha256 против утилиты sha256sum --
+  openssl  : 12b5a7ff363cea1df2325429f0802cb2fff67a10669da8546128cf4f87a8c98e
+  sha256sum: 12b5a7ff363cea1df2325429f0802cb2fff67a10669da8546128cf4f87a8c98e
+  Результат: хэши совпадают
+

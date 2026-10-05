@@ -1,0 +1,48 @@
+[setup] Сервер БД: MySQL 8.4.11 (контейнер lab8-mysql)
+[setup] Настройка механизма контроля доступа (3 роли)
+
+[setup] 1/4. Представление v_public для гостя (id, name без salary/passport_no)
+  SQL> CREATE OR REPLACE VIEW company.v_public AS SELECT id, name FROM company.employees
+
+[setup] 2/4. Создание учётных записей ролей
+  -- роль admin
+  SQL> DROP USER IF EXISTS 'admin'@'%'
+  SQL> CREATE USER 'admin'@'%' IDENTIFIED BY '***'
+  -- роль app_user
+  SQL> DROP USER IF EXISTS 'app_user'@'%'
+  SQL> CREATE USER 'app_user'@'%' IDENTIFIED BY '***'
+  -- роль guest
+  SQL> DROP USER IF EXISTS 'guest'@'%'
+  SQL> CREATE USER 'guest'@'%' IDENTIFIED BY '***'
+
+[setup] 3/4. Выдача привилегий (GRANT-скрипты)
+  -- роль admin
+  SQL> GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION
+  -- роль app_user
+  SQL> GRANT SELECT (id, name, salary), INSERT (id, name, salary), UPDATE (name, salary) ON company.employees TO 'app_user'@'%'
+  SQL> GRANT SELECT, INSERT ON company.audit_log TO 'app_user'@'%'
+  -- роль guest
+  SQL> GRANT SELECT ON company.v_public TO 'guest'@'%'
+  SQL> FLUSH PRIVILEGES
+
+[setup] 4/4. SHOW GRANTS для каждой роли
+
+--- SHOW GRANTS FOR 'admin'@'%' ---
+  GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, SHUTDOWN, PROCESS, FILE, REFERENCES, INDEX, ALTER, SHOW DATABASES, SUPER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, CREATE TABLESPACE, CREATE ROLE, DROP ROLE ON *.* TO `admin`@`%` WITH GRANT OPTION;
+  GRANT ALLOW_NONEXISTENT_DEFINER,APPLICATION_PASSWORD_ADMIN,AUDIT_ABORT_EXEMPT,AUDIT_ADMIN,AUTHENTICATION_POLICY_ADMIN,BACKUP_ADMIN,BINLOG_ADMIN,BINLOG_ENCRYPTION_ADMIN,CLONE_ADMIN,CONNECTION_ADMIN,ENCRYPTION_KEY_ADMIN,FIREWALL_EXEMPT,FLUSH_OPTIMIZER_COSTS,FLUSH_PRIVILEGES,FLUSH_STATUS,FLUSH_TABLES,FLUSH_USER_RESOURCES,GROUP_REPLICATION_ADMIN,GROUP_REPLICATION_STREAM,INNODB_REDO_LOG_ARCHIVE,INNODB_REDO_LOG_ENABLE,OPTIMIZE_LOCAL_TABLE,PASSWORDLESS_USER_ADMIN,PERSIST_RO_VARIABLES_ADMIN,REPLICATION_APPLIER,REPLICATION_SLAVE_ADMIN,RESOURCE_GROUP_ADMIN,RESOURCE_GROUP_USER,ROLE_ADMIN,SENSITIVE_VARIABLES_OBSERVER,SERVICE_CONNECTION_ADMIN,SESSION_VARIABLES_ADMIN,SET_ANY_DEFINER,SHOW_ROUTINE,SYSTEM_USER,SYSTEM_VARIABLES_ADMIN,TABLE_ENCRYPTION_ADMIN,TELEMETRY_LOG_ADMIN,TRANSACTION_GTID_TAG,XA_RECOVER_ADMIN ON *.* TO `admin`@`%` WITH GRANT OPTION;
+
+--- SHOW GRANTS FOR 'app_user'@'%' ---
+  GRANT USAGE ON *.* TO `app_user`@`%`;
+  GRANT SELECT, INSERT ON `company`.`audit_log` TO `app_user`@`%`;
+  GRANT SELECT (`id`, `name`, `salary`), INSERT (`id`, `name`, `salary`), UPDATE (`name`, `salary`) ON `company`.`employees` TO `app_user`@`%`;
+
+--- SHOW GRANTS FOR 'guest'@'%' ---
+  GRANT USAGE ON *.* TO `guest`@`%`;
+  GRANT SELECT ON `company`.`v_public` TO `guest`@`%`;
+
+[setup] Итоговая политика безопасности:
+  admin    : полный доступ ко всем подсистемам: ALL PRIVILEGES ON *.* WITH GRANT OPTION
+  app_user : частичные права в подсистеме: SELECT(id,name,salary), INSERT(id,name,salary), UPDATE(name,salary) на company.employees (без DELETE, без колонки passport_no); SELECT+INSERT на company.audit_log
+  guest    : только чтение отдельных фрагментов: SELECT на представление company.v_public (id, name); salary и passport_no недоступны
+
+[setup] Готово: механизм контроля доступа настроен.

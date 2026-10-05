@@ -1,0 +1,13 @@
+services:
+  lab6:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: lab6:latest
+    container_name: lab6-runner
+    # запускаем от uid хостового пользователя, чтобы файлы в demo_output
+    # не принадлежали root
+    user: "${LAB_UID:-1000}:${LAB_GID:-1000}"
+    volumes:
+      - ./demo_output:/output
+    command: ["bash", "/scripts/run_all.sh"]

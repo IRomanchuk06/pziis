@@ -1,0 +1,15 @@
+=== Запуск gen_crypt.exe (CryptGenRandom) под wine в docker ===
+wine: it looks like wine32 is missing, you should install it.
+multiarch needs to be enabled first.  as root, please
+execute "dpkg --add-architecture i386 && apt-get update &&
+apt-get install wine32:i386"
+wine-8.0 (Debian 8.0~repack-4)
+-- инициализация префикса wine (wineboot)...
+wineboot exit: 0
+-- запуск: wine bin/gen_crypt.exe crypt_out.bin 1048576 (cwd=demo_output/data)
+OK: CryptGenRandom wrote 1048576 bytes to crypt_out.bin
+gen_crypt.exe exit code: 0
+-- результат:
+-rw-r--r-- 1 root root 1048576 Oct  5 13:15 demo_output/data/crypt_out.bin
+== crypt_out.bin получен: обновляю таблицы и анализы ==
+CRYPTGEN_RESULT: OK

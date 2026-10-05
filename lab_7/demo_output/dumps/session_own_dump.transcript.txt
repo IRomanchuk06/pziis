@@ -1,0 +1,41 @@
+[banner] реализация=own (ЛР3 safe) режим=safe python=3.12.15 pid=8
+### [driver] старт: [banner] реализация=own (ЛР3 safe) режим=safe python=3.12.15 pid=8
+>>> <значение скрыто (см. tokens.txt)>
+>>> noop
+Мастер-пароль: vault[safe]> [ok] noop
+>>> add secret doc1
+>>> <значение скрыто (см. tokens.txt)>
+vault[safe]> Значение: [ok] добавлена запись id=doc1 type=secret
+>>> add password pwd1
+>>> <значение скрыто (см. tokens.txt)>
+vault[safe]> Значение: [ok] добавлена запись id=pwd1 type=password
+>>> add public note1
+>>> NOTE-PUBLIC-65E178C1
+vault[safe]> Значение: [ok] добавлена запись id=note1 type=public
+>>> add secret doc2
+>>> <значение скрыто (см. tokens.txt)>
+vault[safe]> Значение: [ok] добавлена запись id=doc2 type=secret
+>>> dumpcore /work/demo_output/dumps/own_p1_add.core
+vault[safe]> [dumpcore] Saved corefile /work/demo_output/dumps/own_p1_add.core
+[dumpcore] [Inferior 1 (process 8) detached]
+[ok] dumpcore rc=0 path=/work/demo_output/dumps/own_p1_add.core
+>>> update doc1
+>>> <значение скрыто (см. tokens.txt)>
+vault[safe]> Новое значение: [ok] запись обновлена id=doc1
+>>> dumpcore /work/demo_output/dumps/own_p2_update.core
+vault[safe]> [dumpcore] Saved corefile /work/demo_output/dumps/own_p2_update.core
+[dumpcore] [Inferior 1 (process 8) detached]
+[ok] dumpcore rc=0 path=/work/demo_output/dumps/own_p2_update.core
+>>> delete doc1
+vault[safe]> [ok] запись удалена id=doc1
+>>> delete doc2
+vault[safe]> [ok] запись удалена id=doc2
+>>> delete pwd1
+vault[safe]> [ok] запись удалена id=pwd1
+>>> dumpcore /work/demo_output/dumps/own_p3_delete.core
+vault[safe]> [dumpcore] Saved corefile /work/demo_output/dumps/own_p3_delete.core
+[dumpcore] [Inferior 1 (process 8) detached]
+[ok] dumpcore rc=0 path=/work/demo_output/dumps/own_p3_delete.core
+>>> quit
+vault[safe]> [ok] выход; память, содержавшая секреты, затёрта
+### [driver] процесс завершён, код 0

@@ -1,0 +1,165 @@
+2026/10/05 13:18:16 [notice] 1#1: using the "epoll" event method
+2026/10/05 13:18:16 [notice] 1#1: nginx/1.27.5
+2026/10/05 13:18:16 [notice] 1#1: built by gcc 14.2.0 (Alpine 14.2.0) 
+2026/10/05 13:18:16 [notice] 1#1: OS: Linux 7.0.0-31-generic
+2026/10/05 13:18:16 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1024:524288
+2026/10/05 13:18:16 [notice] 1#1: start worker processes
+2026/10/05 13:18:16 [notice] 1#1: start worker process 21
+2026/10/05 13:18:16 [notice] 1#1: start worker process 22
+2026/10/05 13:18:16 [notice] 1#1: start worker process 23
+2026/10/05 13:18:16 [notice] 1#1: start worker process 24
+2026/10/05 13:18:16 [notice] 1#1: start worker process 25
+2026/10/05 13:18:16 [notice] 1#1: start worker process 26
+2026/10/05 13:18:16 [notice] 1#1: start worker process 27
+2026/10/05 13:18:16 [notice] 1#1: start worker process 28
+2026/09/30 00:43:58 [error] 27#30: *449214 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 198.51.100.14, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/09/30 04:19:04 [error] 37#26: *657804 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/09/30 08:27:32 [error] 34#22: *283448 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.27, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/09/30 08:59:22 [error] 14#20: *718715 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 203.0.113.42, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/09/30 09:19:00 [error] 24#15: *254527 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 203.0.113.77, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/09/30 11:14:44 [error] 30#37: *108423 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/09/30 11:33:43 [error] 20#38: *672962 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/09/30 14:02:15 [error] 11#17: *91194 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 198.51.100.7, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/09/30 14:02:31 [error] 19#28: *981229 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 203.0.113.5, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/09/30 16:07:59 [error] 19#23: *844717 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 198.51.100.7, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/09/30 18:56:32 [error] 35#39: *546653 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/09/30 20:37:49 [error] 26#36: *310022 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/09/30 23:46:46 [error] 27#28: *657170 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 198.51.100.14, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/01 02:31:58 [error] 40#37: *842619 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/01 05:37:49 [error] 22#27: *677086 open() "/usr/share/nginx/html/blog/" failed (2: No such file or directory), client: 192.0.2.27, server: _, request: "GET /blog/ HTTP/1.1", host: "web"
+2026/10/01 08:03:58 [error] 38#23: *89300 open() "/usr/share/nginx/html/blog/" failed (2: No such file or directory), client: 192.0.2.103, server: _, request: "GET /blog/ HTTP/1.1", host: "web"
+2026/10/01 09:34:32 [error] 39#11: *878768 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 203.0.113.77, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/01 09:58:53 [error] 25#17: *677195 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 198.51.100.7, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/01 11:01:15 [error] 24#27: *237419 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/01 13:17:27 [error] 23#37: *263269 open() "/usr/share/nginx/html/.git/config" failed (2: No such file or directory), client: 203.0.113.66, server: _, request: "GET /.git/config HTTP/1.1", host: "web"
+2026/10/01 13:17:48 [error] 29#19: *228098 open() "/usr/share/nginx/html/console/" failed (2: No such file or directory), client: 203.0.113.66, server: _, request: "GET /console/ HTTP/1.1", host: "web"
+2026/10/01 13:18:19 [error] 28#20: *63605 open() "/usr/share/nginx/html/shell.php" failed (2: No such file or directory), client: 203.0.113.66, server: _, request: "GET /shell.php HTTP/1.1", host: "web"
+2026/10/01 13:18:55 [error] 36#32: *409392 open() "/usr/share/nginx/html/phpmyadmin/" failed (2: No such file or directory), client: 203.0.113.66, server: _, request: "GET /phpmyadmin/ HTTP/1.1", host: "web"
+2026/10/01 13:19:01 [error] 20#19: *761340 open() "/usr/share/nginx/html/wp-admin/" failed (2: No such file or directory), client: 203.0.113.66, server: _, request: "GET /wp-admin/ HTTP/1.1", host: "web"
+2026/10/01 13:19:11 [error] 35#36: *623917 open() "/usr/share/nginx/html/cgi-bin/test.cgi" failed (2: No such file or directory), client: 203.0.113.66, server: _, request: "GET /cgi-bin/test.cgi HTTP/1.1", host: "web"
+2026/10/01 13:19:17 [error] 21#15: *459394 open() "/usr/share/nginx/html/actuator/health" failed (2: No such file or directory), client: 203.0.113.66, server: _, request: "GET /actuator/health HTTP/1.1", host: "web"
+2026/10/01 13:20:00 [error] 29#40: *525760 open() "/usr/share/nginx/html/wp-login.php" failed (2: No such file or directory), client: 203.0.113.66, server: _, request: "GET /wp-login.php HTTP/1.1", host: "web"
+2026/10/01 13:20:35 [error] 37#13: *898139 open() "/usr/share/nginx/html/config.php" failed (2: No such file or directory), client: 203.0.113.66, server: _, request: "GET /config.php HTTP/1.1", host: "web"
+2026/10/01 13:20:40 [error] 26#13: *335861 open() "/usr/share/nginx/html/uploads/shell.php" failed (2: No such file or directory), client: 203.0.113.66, server: _, request: "GET /uploads/shell.php HTTP/1.1", host: "web"
+2026/10/01 13:20:49 [error] 31#23: *663414 open() "/usr/share/nginx/html/backup.zip" failed (2: No such file or directory), client: 203.0.113.66, server: _, request: "GET /backup.zip HTTP/1.1", host: "web"
+2026/10/01 13:20:51 [error] 26#17: *907191 open() "/usr/share/nginx/html/etc/passwd" failed (2: No such file or directory), client: 203.0.113.66, server: _, request: "GET /etc/passwd HTTP/1.1", host: "web"
+2026/10/01 13:21:06 [error] 27#26: *695876 open() "/usr/share/nginx/html/.env" failed (2: No such file or directory), client: 203.0.113.66, server: _, request: "GET /.env HTTP/1.1", host: "web"
+2026/10/01 13:21:11 [error] 16#31: *506935 open() "/usr/share/nginx/html/.aws/credentials" failed (2: No such file or directory), client: 203.0.113.66, server: _, request: "GET /.aws/credentials HTTP/1.1", host: "web"
+2026/10/01 17:31:01 [error] 21#18: *959289 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/01 18:21:51 [error] 40#25: *761230 open() "/usr/share/nginx/html/blog/" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /blog/ HTTP/1.1", host: "web"
+2026/10/01 18:35:13 [error] 21#11: *579353 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/01 21:26:29 [error] 23#38: *955163 open() "/usr/share/nginx/html/blog/" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /blog/ HTTP/1.1", host: "web"
+2026/10/01 21:38:25 [error] 36#26: *340560 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 203.0.113.5, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/01 22:25:11 [error] 30#35: *732250 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 192.0.2.11, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/01 22:33:44 [error] 14#13: *32211 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.27, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/01 22:59:05 [error] 13#27: *881299 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 198.51.100.90, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/01 23:20:26 [error] 32#26: *563179 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.103, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/02 00:37:07 [error] 34#19: *697872 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.11, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/02 01:37:07 [error] 39#37: *818233 open() "/usr/share/nginx/html/blog/" failed (2: No such file or directory), client: 203.0.113.42, server: _, request: "GET /blog/ HTTP/1.1", host: "web"
+2026/10/02 07:28:26 [error] 16#23: *521813 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/02 07:33:58 [error] 33#33: *43292 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 203.0.113.9, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/02 08:05:12 [error] 28#16: *495734 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.11, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/02 09:21:42 [error] 35#40: *725175 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 198.51.100.55, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/02 09:44:18 [error] 15#39: *963964 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/02 10:27:51 [error] 31#18: *153260 open() "/usr/share/nginx/html/blog/" failed (2: No such file or directory), client: 203.0.113.9, server: _, request: "GET /blog/ HTTP/1.1", host: "web"
+2026/10/02 11:44:47 [error] 22#29: *99164 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/02 12:07:49 [error] 20#38: *873152 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/02 15:28:12 [error] 39#25: *326170 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/02 15:28:38 [error] 35#14: *576126 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/02 15:43:31 [error] 14#38: *855161 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 203.0.113.5, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/02 20:03:44 [error] 34#14: *680392 open() "/usr/share/nginx/html/blog/" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /blog/ HTTP/1.1", host: "web"
+2026/10/02 20:22:42 [error] 35#13: *709285 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.27, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/02 21:03:28 [error] 37#11: *521389 open() "/usr/share/nginx/html/blog/" failed (2: No such file or directory), client: 198.51.100.7, server: _, request: "GET /blog/ HTTP/1.1", host: "web"
+2026/10/02 21:44:33 [error] 18#29: *507936 open() "/usr/share/nginx/html/blog/" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /blog/ HTTP/1.1", host: "web"
+2026/10/03 07:20:27 [error] 30#36: *110508 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 192.0.2.27, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/03 10:07:36 [error] 36#14: *748568 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.27, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/03 10:34:00 [error] 13#26: *578921 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 203.0.113.5, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/03 10:56:51 [error] 21#22: *356082 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/03 11:06:29 [error] 32#14: *366002 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/03 12:27:31 [error] 34#36: *792338 open() "/usr/share/nginx/html/blog/" failed (2: No such file or directory), client: 192.0.2.103, server: _, request: "GET /blog/ HTTP/1.1", host: "web"
+2026/10/03 13:06:41 [error] 29#28: *516339 open() "/usr/share/nginx/html/phpmyadmin/" failed (2: No such file or directory), client: 198.51.100.231, server: _, request: "GET /phpmyadmin/ HTTP/1.1", host: "web"
+2026/10/03 13:07:20 [error] 18#39: *388800 open() "/usr/share/nginx/html/etc/passwd" failed (2: No such file or directory), client: 198.51.100.231, server: _, request: "GET /etc/passwd HTTP/1.1", host: "web"
+2026/10/03 13:07:38 [error] 37#39: *847886 open() "/usr/share/nginx/html/cgi-bin/test.cgi" failed (2: No such file or directory), client: 198.51.100.231, server: _, request: "GET /cgi-bin/test.cgi HTTP/1.1", host: "web"
+2026/10/03 13:08:37 [error] 23#38: *597928 open() "/usr/share/nginx/html/config.php" failed (2: No such file or directory), client: 198.51.100.231, server: _, request: "GET /config.php HTTP/1.1", host: "web"
+2026/10/03 13:08:55 [error] 36#23: *143623 open() "/usr/share/nginx/html/.git/config" failed (2: No such file or directory), client: 198.51.100.231, server: _, request: "GET /.git/config HTTP/1.1", host: "web"
+2026/10/03 13:09:09 [error] 14#13: *563613 open() "/usr/share/nginx/html/shell.php" failed (2: No such file or directory), client: 198.51.100.231, server: _, request: "GET /shell.php HTTP/1.1", host: "web"
+2026/10/03 13:09:50 [error] 32#17: *242376 open() "/usr/share/nginx/html/backup.zip" failed (2: No such file or directory), client: 198.51.100.231, server: _, request: "GET /backup.zip HTTP/1.1", host: "web"
+2026/10/03 13:10:09 [error] 39#22: *574925 open() "/usr/share/nginx/html/wp-login.php" failed (2: No such file or directory), client: 198.51.100.231, server: _, request: "GET /wp-login.php HTTP/1.1", host: "web"
+2026/10/03 13:10:37 [error] 15#20: *767732 open() "/usr/share/nginx/html/actuator/health" failed (2: No such file or directory), client: 198.51.100.231, server: _, request: "GET /actuator/health HTTP/1.1", host: "web"
+2026/10/03 13:11:04 [error] 34#25: *148149 open() "/usr/share/nginx/html/console/" failed (2: No such file or directory), client: 198.51.100.231, server: _, request: "GET /console/ HTTP/1.1", host: "web"
+2026/10/03 13:11:26 [error] 32#32: *352797 open() "/usr/share/nginx/html/wp-admin/" failed (2: No such file or directory), client: 198.51.100.231, server: _, request: "GET /wp-admin/ HTTP/1.1", host: "web"
+2026/10/03 13:19:51 [error] 12#22: *54233 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/03 14:32:44 [error] 38#24: *895705 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/03 16:05:06 [error] 15#18: *302587 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 192.0.2.11, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/03 18:15:57 [error] 13#13: *529850 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/03 18:28:31 [error] 27#13: *781233 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/03 18:32:42 [error] 35#25: *457904 open() "/usr/share/nginx/html/blog/" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /blog/ HTTP/1.1", host: "web"
+2026/10/03 19:27:53 [error] 22#17: *939716 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.11, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/03 19:52:38 [error] 33#35: *11662 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 198.51.100.7, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/03 20:42:48 [error] 21#20: *713128 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.11, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/03 21:48:54 [error] 34#37: *197606 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/03 22:40:11 [error] 22#13: *553804 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 198.51.100.7, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/04 02:15:18 [error] 39#16: *632084 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/04 07:42:24 [error] 24#32: *637287 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/04 10:14:41 [error] 35#19: *277213 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 192.0.2.103, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/04 10:39:11 [error] 31#40: *146431 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/04 14:57:51 [error] 27#15: *347768 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 198.51.100.90, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/04 15:44:08 [error] 30#21: *867660 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/04 18:09:45 [error] 20#27: *319721 open() "/usr/share/nginx/html/blog/" failed (2: No such file or directory), client: 192.0.2.11, server: _, request: "GET /blog/ HTTP/1.1", host: "web"
+2026/10/04 20:46:59 [error] 25#37: *151745 open() "/usr/share/nginx/html/team.html" failed (2: No such file or directory), client: 192.0.2.10, server: _, request: "GET /team.html HTTP/1.1", host: "web"
+2026/10/04 21:39:12 [error] 24#22: *166137 open() "/usr/share/nginx/html/assets/logo.png" failed (2: No such file or directory), client: 198.51.100.14, server: _, request: "GET /assets/logo.png HTTP/1.1", host: "web"
+2026/10/05 13:18:17 [error] 27#27: *7 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.26.0.4, server: _, request: "GET /favicon.ico HTTP/1.1", host: "web"
+2026/10/05 13:18:17 [error] 28#28: *8 open() "/usr/share/nginx/html/etc/passwd" failed (2: No such file or directory), client: 172.26.0.4, server: _, request: "GET /etc/passwd HTTP/1.1", host: "web"
+2026/10/05 13:18:17 [error] 23#23: *9 open() "/usr/share/nginx/html/.env" failed (2: No such file or directory), client: 172.26.0.4, server: _, request: "GET /.env HTTP/1.1", host: "web"
+2026/10/05 13:18:17 [error] 23#23: *10 "/usr/share/nginx/html/wp-admin/index.html" is not found (2: No such file or directory), client: 172.26.0.4, server: _, request: "GET /wp-admin/ HTTP/1.1", host: "web"
+2026/10/05 13:18:17 [error] 23#23: *11 open() "/usr/share/nginx/html/wp-login.php" failed (2: No such file or directory), client: 172.26.0.4, server: _, request: "GET /wp-login.php HTTP/1.1", host: "web"
+2026/10/05 13:18:17 [error] 23#23: *12 "/usr/share/nginx/html/phpmyadmin/index.html" is not found (2: No such file or directory), client: 172.26.0.4, server: _, request: "GET /phpmyadmin/ HTTP/1.1", host: "web"
+2026/10/05 13:18:17 [error] 23#23: *13 open() "/usr/share/nginx/html/.git/config" failed (2: No such file or directory), client: 172.26.0.4, server: _, request: "GET /.git/config HTTP/1.1", host: "web"
+2026/10/05 13:18:17 [error] 23#23: *14 open() "/usr/share/nginx/html/shell.php" failed (2: No such file or directory), client: 172.26.0.4, server: _, request: "GET /shell.php HTTP/1.1", host: "web"
+2026/10/05 13:18:17 [error] 23#23: *15 open() "/usr/share/nginx/html/backup.zip" failed (2: No such file or directory), client: 172.26.0.4, server: _, request: "GET /backup.zip HTTP/1.1", host: "web"
+2026/10/05 13:18:17 [error] 23#23: *16 open() "/usr/share/nginx/html/config.php" failed (2: No such file or directory), client: 172.26.0.4, server: _, request: "GET /config.php HTTP/1.1", host: "web"
+2026/10/05 13:18:17 [error] 23#23: *17 open() "/usr/share/nginx/html/.aws/credentials" failed (2: No such file or directory), client: 172.26.0.4, server: _, request: "GET /.aws/credentials HTTP/1.1", host: "web"
+2026/10/05 13:18:17 [error] 23#23: *18 "/usr/share/nginx/html/console/index.html" is not found (2: No such file or directory), client: 172.26.0.4, server: _, request: "GET /console/ HTTP/1.1", host: "web"
+2026/10/05 13:18:24 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2026/10/05 13:18:24 [notice] 23#23: gracefully shutting down
+2026/10/05 13:18:24 [notice] 21#21: gracefully shutting down
+2026/10/05 13:18:24 [notice] 22#22: gracefully shutting down
+2026/10/05 13:18:24 [notice] 24#24: gracefully shutting down
+2026/10/05 13:18:24 [notice] 23#23: exiting
+2026/10/05 13:18:24 [notice] 25#25: gracefully shutting down
+2026/10/05 13:18:24 [notice] 21#21: exiting
+2026/10/05 13:18:24 [notice] 22#22: exiting
+2026/10/05 13:18:24 [notice] 24#24: exiting
+2026/10/05 13:18:24 [notice] 25#25: exiting
+2026/10/05 13:18:24 [notice] 28#28: gracefully shutting down
+2026/10/05 13:18:24 [notice] 28#28: exiting
+2026/10/05 13:18:24 [notice] 25#25: exit
+2026/10/05 13:18:24 [notice] 21#21: exit
+2026/10/05 13:18:24 [notice] 24#24: exit
+2026/10/05 13:18:24 [notice] 23#23: exit
+2026/10/05 13:18:24 [notice] 22#22: exit
+2026/10/05 13:18:24 [notice] 28#28: exit
+2026/10/05 13:18:24 [notice] 27#27: gracefully shutting down
+2026/10/05 13:18:24 [notice] 27#27: exiting
+2026/10/05 13:18:24 [notice] 27#27: exit
+2026/10/05 13:18:24 [notice] 26#26: gracefully shutting down
+2026/10/05 13:18:24 [notice] 26#26: exiting
+2026/10/05 13:18:24 [notice] 26#26: exit
+2026/10/05 13:18:24 [notice] 1#1: signal 17 (SIGCHLD) received from 27
+2026/10/05 13:18:24 [notice] 1#1: worker process 24 exited with code 0
+2026/10/05 13:18:24 [notice] 1#1: worker process 25 exited with code 0
+2026/10/05 13:18:24 [notice] 1#1: worker process 27 exited with code 0
+2026/10/05 13:18:24 [notice] 1#1: signal 29 (SIGIO) received
+2026/10/05 13:18:24 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2026/10/05 13:18:24 [notice] 1#1: worker process 23 exited with code 0
+2026/10/05 13:18:24 [notice] 1#1: signal 29 (SIGIO) received
+2026/10/05 13:18:24 [notice] 1#1: signal 17 (SIGCHLD) received from 26
+2026/10/05 13:18:24 [notice] 1#1: worker process 26 exited with code 0
+2026/10/05 13:18:24 [notice] 1#1: signal 29 (SIGIO) received
+2026/10/05 13:18:24 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2026/10/05 13:18:24 [notice] 1#1: worker process 22 exited with code 0
+2026/10/05 13:18:24 [notice] 1#1: signal 29 (SIGIO) received
+2026/10/05 13:18:24 [notice] 1#1: signal 17 (SIGCHLD) received from 28
+2026/10/05 13:18:24 [notice] 1#1: worker process 28 exited with code 0
+2026/10/05 13:18:24 [notice] 1#1: worker process 21 exited with code 0
+2026/10/05 13:18:24 [notice] 1#1: exit

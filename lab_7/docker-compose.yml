@@ -1,0 +1,17 @@
+name: lab_7
+
+services:
+  evaluate:
+    build: .
+    init: true
+    # Дампы памяти: gdb должен подключаться к процессу (ptrace)
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp=unconfined
+    environment:
+      HOST_UID: ${HOST_UID:-1000}
+      HOST_GID: ${HOST_GID:-1000}
+    volumes:
+      - ./demo_output:/work/demo_output
+    command: ["python3", "app/evaluate.py"]

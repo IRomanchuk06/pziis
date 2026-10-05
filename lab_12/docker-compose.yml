@@ -1,0 +1,77 @@
+name: lab_12
+
+# Топология:
+#
+#   [attacker] --outside-net-- [suricata (L3 gateway, ip_forward)] --secure-net-- [web: nginx+sshd]
+#
+# Suricata имеет интерфейсы в обеих сетях и является шлюзом по умолчанию
+# для attacker и маршрутизатором до outside-подсети для web.
+# Весь трафик attacker <-> web проходит через сетевой стек контейнера
+# suricata, где перехватывается af-packet (IDS-режим) на outside-интерфейсе.
+
+services:
+  suricata:
+    image: jasonish/suricata:latest
+    container_name: lab12-suricata
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    sysctls:
+      - net.ipv4.ip_forward=1
+    volumes:
+      - ./suricata/entrypoint.sh:/entrypoint.sh:ro
+      - ./suricata/genconf.py:/genconf.py:ro
+      - ./suricata/local.rules:/local.rules:ro
+      - ./data/suricata:/var/log/suricata
+    command: ["/bin/bash", "/entrypoint.sh", "gateway"]
+    networks:
+      outside:
+        ipv4_address: 172.28.100.3
+      secure:
+        ipv4_address: 172.29.100.3
+
+  web:
+    build: ./server
+    container_name: lab12-web
+    hostname: web-server
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - ATTACKER_NET=172.28.100.0/24
+      - GATEWAY_IP=172.29.100.3
+    networks:
+      secure:
+        ipv4_address: 172.29.100.10
+
+  attacker:
+    build: ./attacker
+    container_name: lab12-attacker
+    hostname: attacker
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    environment:
+      - TARGET_IP=172.29.100.10
+      - GATEWAY_IP=172.28.100.3
+      - SECURE_NET=172.29.100.0/24
+    volumes:
+      - ./attacker/traffic_gen.py:/opt/traffic_gen.py:ro
+      - ./attacker/setup.sh:/setup.sh:ro
+      - ./analysis/analyze.py:/opt/analyze.py:ro
+      - ./demo_output:/demo_output
+    command: ["/bin/bash", "/setup.sh"]
+    networks:
+      outside:
+        ipv4_address: 172.28.100.20
+
+networks:
+  outside:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.100.0/24
+  secure:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.29.100.0/24

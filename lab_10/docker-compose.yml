@@ -1,0 +1,19 @@
+name: lab_10
+
+services:
+  lab_10:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: lab_10:latest
+    container_name: lab_10
+    hostname: lab_10
+    environment:
+      # Чтобы артефакты на хосте не принадлежали root (bind-mount demo_output)
+      HOST_UID: ${HOST_UID:-1000}
+      HOST_GID: ${HOST_GID:-1000}
+    volumes:
+      # Реально захваченный вывод лабораторной работы попадает на хост
+      - ./demo_output:/opt/lab/demo_output
+    restart: "no"
+    # Без privileged, без extra capabilities — обычный контейнер.

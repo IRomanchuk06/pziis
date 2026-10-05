@@ -1,0 +1,22 @@
+# Совпадения маркеров в provided_p3_delete.core
+
+## MASTER (найдено строк: 2)
+MP-D3DCF1DC5D05
+2026-10-05 13:16:20,181 INFO provided_app: crypto init: master=MP-D3DCF1DC5D05 key=29c140f092a6c5d7f8f42a577ae913f236770c4fffbb247678f57745a06c51c4
+
+## SECRET_A (найдено строк: 1)
+CARD-13AC7B223594
+
+## PASSWORD_B (найдено строк: 1)
+PWD-C8253B26678C
+
+## PUBLIC_C (найдено строк: 1)
+dok] putNOTE-PUBLIC-65E178C1
+
+## SECRET_D (найдено строк: 2)
+2026-10-05 13:16:20,182 INFO provided_app: PUT rev=12963025 id=doc2 kind=secret value=CARD-0A083E23B5A5
+dok] putCARD-0A083E23B5A5
+
+## SECRET_E (найдено строк: 2)
+=CARD-528C8A5B4C69
+CARD-528C8A5B4C69

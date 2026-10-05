@@ -1,0 +1,33 @@
+[banner] реализация=own (ЛР3 safe) режим=safe python=3.12.15 pid=48
+### [driver] старт: [banner] реализация=own (ЛР3 safe) режим=safe python=3.12.15 pid=48
+>>> <значение скрыто (см. tokens.txt)>
+>>> add secret s1
+>>> <значение скрыто (см. tokens.txt)>
+Мастер-пароль: vault[safe]> Значение: [ok] добавлена запись id=s1 type=secret
+>>> add secret dup_id
+>>> <значение скрыто (см. tokens.txt)>
+vault[safe]> Значение: [ok] добавлена запись id=dup_id type=secret
+>>> bogus_command
+vault[safe]> [err] неизвестная команда 'bogus_command' (help -- список команд)
+>>> add bogus bad_id
+vault[safe]> [err] неизвестный тип записи 'bogus'; допустимо: secret, public, password
+>>> add secret
+vault[safe]> [err] формат: add <secret|public|password> <id>
+>>> add secret bad id!
+vault[safe]> [err] формат: add <secret|public|password> <id>
+>>> get missing_id
+vault[safe]> [err] запись 'missing_id' не найдена
+>>> update missing_id
+vault[safe]> [err] запись 'missing_id' не найдена
+>>> delete missing_id
+vault[safe]> [err] запись 'missing_id' не найдена
+>>> verify missing_id
+vault[safe]> [err] запись 'missing_id' не найдена
+>>> add secret dup_id
+>>> <значение скрыто (см. tokens.txt)>
+vault[safe]> Значение: [err] запись 'dup_id' уже существует
+>>> verify s1
+vault[safe]> [err] запись 's1' не является паролем
+>>> quit
+vault[safe]> [ok] выход; память, содержавшая секреты, затёрта
+### [driver] процесс завершён, код 0
